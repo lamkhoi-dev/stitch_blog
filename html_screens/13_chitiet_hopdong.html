@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hợp đồng Ngoại thương | The Ledger</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#284969",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#40627d",
+                        "on-secondary-fixed-variant": "#284a64",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e3e2e5",
+                        "surface-container-low": "#f4f3f6",
+                        "tertiary-fixed": "#ffddba",
+                        "inverse-primary": "#a9c9f0",
+                        "surface-container": "#eeedf0",
+                        "surface-dim": "#dadadd",
+                        "inverse-on-surface": "#f1f0f3",
+                        "surface-container-highest": "#e3e2e5",
+                        "secondary-fixed": "#cce5ff",
+                        "outline-variant": "#c3c7ce",
+                        "outline": "#73777e",
+                        "on-tertiary-fixed": "#2b1700",
+                        "inverse-surface": "#2f3033",
+                        "on-secondary-container": "#41627e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#a8caea",
+                        "on-primary-container": "#7d9dc1",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#2d1800",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#43474e",
+                        "on-secondary-fixed": "#001e31",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#623f12",
+                        "surface-container-high": "#e8e8eb",
+                        "surface-bright": "#faf9fc",
+                        "surface": "#faf9fc",
+                        "tertiary-container": "#4a2b00",
+                        "on-background": "#1a1c1e",
+                        "on-tertiary-container": "#c0915d",
+                        "tertiary-fixed-dim": "#f0bd84",
+                        "primary-container": "#0f3453",
+                        "surface-tint": "#416182",
+                        "on-primary-fixed": "#001d34",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#d0e4ff",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1a1c1e",
+                        "secondary-container": "#bcdeff",
+                        "primary": "#001e37",
+                        "background": "#faf9fc",
+                        "primary-fixed-dim": "#a9c9f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Newsreader', serif; }
+        .glass-nav { backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 flex justify-between items-center w-full px-12 h-20 z-50 bg-white/85 backdrop-blur-md border-b border-[#001e37]/10">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-serif italic text-[#001e37]">The Ledger</span>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-slate-500 font-medium hover:text-[#001e37] transition-colors" href="#">Archive</a>
+<a class="text-slate-500 font-medium hover:text-[#001e37] transition-colors" href="#">Insights</a>
+<a class="text-[#001e37] font-bold border-b-2 border-[#001e37] pb-1" href="#">Registry</a>
+<a class="text-slate-500 font-medium hover:text-[#001e37] transition-colors" href="#">Directory</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors cursor-pointer">notifications</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">settings</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
+<img alt="Academic profile" class="w-full h-full object-cover" data-alt="Portrait of a senior academic curator in a library setting with soft natural window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR0inCNOisPM_QaV3-sBGTcQ2e-K8gmLj1co6U-mS5xxkkz82mko87_ZWpiFVKzoT3tZtMRMAFRPNgUK18tccEYQjtpLO_SzHshbFdLvaEco1f5un0tufxIWsBtXWTx7BlU_DGnlgSuwLeHqyz3JaWPNww-Ig7Ejj5vFDmeYGG4GoRyDmG6nlk4Utn6GzI3PkZdSrGbZGaaPYsKnLMIeMxMoQiCTvW3_BaCmkYA_M0Yj06Lh0C5HWPxgm-eUXfwjwcbAbCl5qBmuM"/>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-[1400px] mx-auto w-full px-12 py-16">
+<!-- Hero / Headline Section -->
+<section class="mb-16 border-l-4 border-primary pl-10">
+<div class="flex flex-col gap-4">
+<span class="text-tertiary-container font-medium tracking-[0.2em] uppercase text-xs">Phân loại: Pháp lý &amp; Thương mại</span>
+<h1 class="text-6xl md:text-[3.5rem] leading-tight font-bold text-primary">
+                    Hợp đồng Ngoại thương <span class="italic font-normal text-secondary opacity-70">(Sales Contract)</span>
+</h1>
+<div class="flex flex-wrap gap-x-12 gap-y-4 mt-6 text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span class="text-sm font-medium">Ngày hiệu lực: 24/05/2024</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">corporate_fare</span>
+<span class="text-sm font-medium">Đối tác: Logistics Global Corp &amp; ABC Manufacturing</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+<span class="text-sm font-medium">Incoterms: CIF (Hai Phong Port)</span>
+</div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Main Content: Clauses -->
+<div class="lg:col-span-8">
+<div class="mb-12">
+<div class="relative max-w-2xl">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-b border-outline-variant/30 focus:border-primary focus:ring-0 transition-all placeholder:italic placeholder:text-outline/60 text-lg" placeholder="Tìm kiếm điều khoản trong hợp đồng..." type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-8">
+<div class="group border-b border-outline-variant/10 pb-8">
+<div class="flex justify-between items-baseline mb-4">
+<h2 class="text-2xl font-bold text-primary">Điều 1: Đối tượng hợp đồng</h2>
+<span class="text-xs font-mono text-outline uppercase tracking-widest">Article 01</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                            Bên bán đồng ý bán và Bên mua đồng ý mua các mặt hàng được quy định chi tiết tại Phụ lục A kèm theo hợp đồng này. Hàng hóa phải mới 100%, chưa qua sử dụng, được sản xuất năm 2023 và đạt tiêu chuẩn chất lượng ISO 9001.
+                        </p>
+</div>
+<div class="group border-b border-outline-variant/10 pb-8">
+<div class="flex justify-between items-baseline mb-4">
+<h2 class="text-2xl font-bold text-primary">Điều 2: Giá cả và thanh toán</h2>
+<span class="text-xs font-mono text-outline uppercase tracking-widest">Article 02</span>
+</div>
+<div class="space-y-4 text-on-surface-variant leading-relaxed text-lg">
+<p>2.1. Tổng giá trị hợp đồng được quy định là 150,000 USD (Một trăm năm mươi ngàn Đô la Mỹ chẵn).</p>
+<p>2.2. Phương thức thanh toán: Điện chuyển tiền (T/T). 30% giá trị hợp đồng sẽ được thanh toán dưới dạng tiền đặt cọc trong vòng 05 ngày làm việc kể từ ngày ký hợp đồng.</p>
+<p>2.3. 70% còn lại sẽ được thanh toán khi nhận được bộ chứng từ vận chuyển quét qua email.</p>
+</div>
+</div>
+<div class="group border-b border-outline-variant/10 pb-8">
+<div class="flex justify-between items-baseline mb-4">
+<h2 class="text-2xl font-bold text-primary">Điều 3: Giao hàng và Vận chuyển</h2>
+<span class="text-xs font-mono text-outline uppercase tracking-widest">Article 03</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-lg italic">
+                            [Nội dung đang được xem xét bởi bộ phận kiểm định logistics...]
+                        </p>
+</div>
+</div>
+<!-- Drop Cap Quote Section (Editorial Specialty) -->
+<div class="mt-16 p-12 bg-surface-container-low border-l-2 border-secondary relative overflow-hidden">
+<div class="relative z-10">
+<span class="text-6xl font-serif text-primary absolute -top-4 -left-2 opacity-20">“</span>
+<p class="text-2xl font-serif italic text-primary leading-relaxed">
+                            Mọi tranh chấp phát sinh từ hoặc liên quan đến hợp đồng này sẽ được giải quyết trước hết thông qua thương lượng hòa giải giữa hai bên theo tinh thần hợp tác cùng phát triển.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Sidebar -->
+<div class="lg:col-span-4 space-y-12">
+<!-- Downloads -->
+<section>
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] text-outline mb-6 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-outline-variant"></span>
+                        Tải xuống mẫu chuẩn
+                    </h3>
+<div class="flex flex-col gap-4">
+<a class="flex items-center justify-between p-5 bg-primary-container text-white rounded-sm hover:bg-primary transition-all group" href="#">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
+<span class="font-medium text-sm">Contract_Template_v4.pdf</span>
+</div>
+<span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">download</span>
+</a>
+<a class="flex items-center justify-between p-5 bg-surface-container-high border border-outline-variant/20 rounded-sm hover:border-primary/40 transition-all group" href="#">
+<div class="flex items-center gap-4 text-primary">
+<span class="material-symbols-outlined">description</span>
+<span class="font-medium text-sm">Draft_Sales_Contract.docx</span>
+</div>
+<span class="material-symbols-outlined text-outline group-hover:translate-y-1 transition-transform">download</span>
+</a>
+</div>
+</section>
+<!-- Related Documents -->
+<section>
+<h3 class="text-xs font-bold uppercase tracking-[0.2em] text-outline mb-6 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-outline-variant"></span>
+                        Tài liệu liên quan
+                    </h3>
+<div class="space-y-4">
+<div class="p-6 bg-surface-container-low rounded-sm hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] font-bold bg-secondary-container text-secondary px-2 py-0.5 rounded-full uppercase">Kỹ thuật</span>
+<span class="text-[10px] text-outline">v2020</span>
+</div>
+<h4 class="font-bold text-primary mb-2">Hướng dẫn Incoterms 2020</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Phân tích chi tiết trách nhiệm và chi phí giữa người mua và người bán cho 11 quy tắc thương mại.</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-sm hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-center gap-2 mb-2">
+<span class="text-[10px] font-bold bg-tertiary-fixed-dim text-tertiary px-2 py-0.5 rounded-full uppercase">Chứng từ</span>
+</div>
+<h4 class="font-bold text-primary mb-2">Mẫu Bill of Lading (B/L)</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Tổng hợp các mẫu vận đơn đường biển chuẩn quốc tế được chấp nhận bởi ICC.</p>
+</div>
+</div>
+</section>
+<!-- Metric / Status Badge -->
+<div class="bg-[#2d1800] p-8 text-white rounded-sm">
+<p class="text-[10px] uppercase tracking-widest text-tertiary-fixed-dim mb-4">Trạng thái Pháp lý</p>
+<div class="flex items-center gap-4">
+<div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+<span class="text-lg font-serif italic">Tiêu chuẩn quốc tế</span>
+</div>
+<p class="mt-4 text-sm text-tertiary-fixed opacity-70 leading-relaxed">Đã được hội đồng cố vấn Logistics phê chuẩn cho việc sử dụng trong các giao dịch xuyên biên giới.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-[#0F3453] py-16 text-slate-300">
+<div>
+<p class="text-sm tracking-tight">© 2024 The Academic Curator. All rights reserved. Investigatory Logistics Division.</p>
+</div>
+<div class="flex flex-wrap md:justify-end gap-x-8 gap-y-4">
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Ethics Code</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Global Index</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Contact Registry</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Privacy</a>
+</div>
+</footer>
+<!-- Floating Navigation Prompt (Subtle) -->
+<div class="fixed bottom-8 right-8 z-40 hidden lg:block">
+<button class="bg-primary text-white p-4 rounded-full shadow-xl flex items-center gap-3 hover:scale-105 transition-transform group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap text-sm font-medium">Yêu cầu tư vấn soạn thảo</span>
+</button>
+</div>
+</body></html>

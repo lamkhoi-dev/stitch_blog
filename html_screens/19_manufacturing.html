@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcf",
+                    "surface-container-highest": "#d9e3f4",
+                    "on-tertiary-fixed-variant": "#812900",
+                    "on-surface": "#121c28",
+                    "surface-container": "#e5eeff",
+                    "tertiary": "#4d1500",
+                    "outline-variant": "#c3c7ce",
+                    "surface-container-high": "#dfe9fa",
+                    "primary-fixed": "#d0e4ff",
+                    "on-secondary-fixed": "#2a1803",
+                    "on-primary-fixed-variant": "#294969",
+                    "inverse-primary": "#aac9f0",
+                    "on-secondary-fixed-variant": "#5a4228",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-background": "#121c28",
+                    "on-tertiary-container": "#ff885b",
+                    "on-surface-variant": "#43474e",
+                    "on-primary-fixed": "#001d35",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-dim": "#d1dbec",
+                    "primary-container": "#1f4060",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#785e42",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffdcbb",
+                    "outline": "#73777e",
+                    "secondary-fixed-dim": "#e3c09f",
+                    "secondary": "#74593e",
+                    "primary": "#022a49",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#aac9f0",
+                    "surface": "#f8f9ff",
+                    "inverse-surface": "#27313e",
+                    "background": "#f8f9ff",
+                    "surface-variant": "#d9e3f4",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#722300",
+                    "on-tertiary-fixed": "#380d00",
+                    "surface-tint": "#426182",
+                    "surface-bright": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#8dacd1",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#eef4ff",
+                    "secondary-container": "#fdd9b6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .tonal-transition { transition: background-color 0.3s ease; }
+        .font-newsreader { font-family: 'Newsreader', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none tonal-transition">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-newsreader font-bold text-blue-900 dark:text-blue-50">Logiverse</span>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Trang chủ</a>
+<a class="text-blue-900 dark:text-blue-50 font-bold border-b-2 border-blue-900 dark:border-blue-50 pb-1" href="#">Thư viện</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Tin tức</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Case study</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Về chúng tôi</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">search</button>
+<button class="bg-primary text-on-primary px-5 py-2 rounded font-medium text-sm scale-95 active:scale-90 transition-transform">Đăng nhập</button>
+</div>
+</div>
+</nav>
+<main class="pt-28 pb-20 px-6 max-w-screen-2xl mx-auto">
+<!-- Breadcrumbs & Category Label -->
+<div class="mb-6 flex items-center gap-2 text-on-surface-variant font-label text-xs uppercase tracking-widest">
+<span>Library</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span>Supply Chain</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary font-bold">Manufacturing</span>
+</div>
+<!-- Headline Section -->
+<header class="mb-12 border-l-4 border-primary pl-8 py-2">
+<h1 class="text-5xl md:text-6xl font-headline font-semibold text-primary leading-tight tracking-tight italic">
+                Manufacturing - Quản trị Sản xuất
+            </h1>
+<p class="mt-4 max-w-3xl text-lg text-on-surface-variant leading-relaxed font-body">
+                Khai phá chiều sâu của vận hành công nghiệp hiện đại: Từ Lean Six Sigma đến kỷ nguyên Nhà máy thông minh 4.0. Nơi tri thức học thuật giao thoa cùng kinh nghiệm thực chiến toàn cầu.
+            </p>
+</header>
+<!-- Search & Filter Bar -->
+<section class="mb-16">
+<div class="bg-surface-container-low p-1 rounded-xl shadow-inner max-w-4xl">
+<div class="flex flex-col md:flex-row items-stretch gap-2">
+<div class="flex-grow flex items-center px-4 bg-surface-container-lowest rounded-lg border border-outline-variant/30 focus-within:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 py-4 px-3 text-on-surface placeholder:text-outline-variant" placeholder="Tìm kiếm nghiên cứu về Lean, TPM, Sản xuất tinh gọn..." type="text"/>
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary px-8 py-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2">
+<span>Tra cứu</span>
+<span class="material-symbols-outlined text-sm">bolt</span>
+</button>
+</div>
+</div>
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="text-xs font-label uppercase text-on-surface-variant mr-2 self-center">Chủ đề hot:</span>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-sm tracking-wide">LEAN SIX SIGMA</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-xs font-medium rounded-sm">INDUSTRIAL 4.0</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-xs font-medium rounded-sm">KAIZEN</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-xs font-medium rounded-sm">JIT SYSTEM</span>
+</div>
+</section>
+<!-- Asymmetric Bento Grid for Research Cards -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Main Featured Card -->
+<article class="md:col-span-8 bg-surface-container-lowest border border-outline-variant/15 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow group flex flex-col md:flex-row gap-8">
+<div class="md:w-1/3 aspect-[3/4] rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Close-up of a modern automated robotic arm assembly line in a clean high-tech manufacturing plant with clinical blue lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH_zRbJZ3d713RexnTXom-rqic84oaOvESy4gUYSfWNCBmUQsNEMP9MvukMMdddS2r-CQmrjpxW5ngbu2iJogjOoYKvGxWC96wmZHSfTJUD6XNMMNDLiFmNbxQIZVU1ulelUspEQYLgykIf1JQWqcYg21rdPyrGKxLA76V6X3N-bESD7-htJJFKjyp_8SOxhnygRnm23Ac6dbOiEpn10nLErWDjuHYSXixZC1i7EJNkB1V89X3B3NQxV5ITN9TpvVoGVPlUuRwi_o"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded">FEATURED</div>
+</div>
+<div class="md:w-2/3 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-label text-outline uppercase tracking-tighter">Cập nhật: 15/10/2024</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">picture_as_pdf</span>
+<span class="text-[10px] font-bold">PDF AVAILABLE</span>
+</div>
+</div>
+<h2 class="text-3xl font-headline font-bold text-primary mb-4 group-hover:text-primary-container transition-colors">Chiến lược tối ưu hóa chuỗi sản xuất thông minh trong bối cảnh VUCA</h2>
+<p class="text-on-surface-variant font-body leading-relaxed mb-6">Nghiên cứu chuyên sâu về việc áp dụng các thuật toán AI và phân tích dữ liệu thời gian thực để giảm thiểu lãng phí trong các dây chuyền lắp ráp ô tô hiện đại, kết hợp mô hình Lean truyền thống.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-surface-container-highest text-primary font-bold px-6 py-2 rounded hover:bg-primary hover:text-on-primary transition-all text-sm">Đọc tóm tắt</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1 text-sm font-medium">
+<span class="material-symbols-outlined text-lg">download</span>
+                            Tải tài liệu (4.2MB)
+                        </button>
+</div>
+</div>
+</article>
+<!-- Secondary Vertical Grid -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<!-- Suggestion Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant/15 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex justify-between items-center mb-3">
+<span class="text-[10px] font-label text-outline uppercase">28/09/2024</span>
+<span class="material-symbols-outlined text-sm text-primary">picture_as_pdf</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-primary mb-3 group-hover:underline decoration-primary/30">Lean 4.0: Khi tinh gọn kết hợp cùng chuyển đổi số</h3>
+<p class="text-sm text-on-surface-variant font-body line-clamp-3 mb-4">Một cái nhìn thực tế về việc chuyển đổi từ Kanban giấy sang hệ thống điều hành sản xuất điện tử (e-Kanban) tại các nhà máy SME Việt Nam.</p>
+<a class="text-xs font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all" href="#">XEM CHI TIẾT <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</article>
+<!-- Suggestion Card 3 -->
+<article class="bg-surface-container-low border border-outline-variant/15 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex justify-between items-center mb-3">
+<span class="text-[10px] font-label text-outline uppercase">12/09/2024</span>
+<span class="text-[10px] font-bold text-outline-variant">INTERNAL USE</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-primary mb-3">Quản trị chất lượng toàn diện (TQM) trong kỷ nguyên tự động hóa</h3>
+<p class="text-sm text-on-surface-variant font-body line-clamp-3 mb-4">Case study về việc áp dụng quy chuẩn ISO mới nhất kết hợp cùng cảm biến IoT để kiểm soát lỗi sản phẩm với độ chính xác 99.99%.</p>
+<a class="text-xs font-bold text-primary flex items-center gap-1" href="#">YÊU CẦU TRUY CẬP <span class="material-symbols-outlined text-sm">lock</span></a>
+</article>
+</div>
+<!-- Suggestion Card 4 -->
+<article class="md:col-span-4 bg-surface-container-lowest border border-outline-variant/15 p-6 rounded-xl shadow-sm hover:shadow-md transition-all group border-t-4 border-t-secondary-container">
+<div class="flex justify-between items-center mb-4">
+<span class="text-[10px] font-label text-outline uppercase">05/08/2024</span>
+<span class="material-symbols-outlined text-sm text-primary">picture_as_pdf</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-primary mb-3">An toàn lao động và công nghệ Wearable</h3>
+<p class="text-sm text-on-surface-variant font-body mb-4 leading-relaxed">Phân tích hiệu quả của việc trang bị khung xương cơ học (Exoskeleton) cho công nhân kho bãi nhằm giảm thiểu chấn thương cột sống.</p>
+<div class="pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-[10px] font-bold text-secondary italic">Academic Journal</span>
+<span class="material-symbols-outlined text-on-surface-variant text-lg cursor-pointer hover:text-primary">bookmark</span>
+</div>
+</article>
+<!-- Suggestion Card 5 -->
+<article class="md:col-span-4 bg-surface-container-lowest border border-outline-variant/15 p-6 rounded-xl shadow-sm hover:shadow-md transition-all group">
+<div class="flex justify-between items-center mb-4">
+<span class="text-[10px] font-label text-outline uppercase">20/07/2024</span>
+<span class="material-symbols-outlined text-sm text-primary">picture_as_pdf</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-primary mb-3">Phân tích giá trị (Value Stream Mapping) cho sản xuất hàng may mặc</h3>
+<p class="text-sm text-on-surface-variant font-body mb-4 leading-relaxed">Cẩm nang hướng dẫn vẽ sơ đồ chuỗi giá trị và nhận diện 8 loại lãng phí (Muda) trong quy trình cắt may công nghiệp.</p>
+<div class="pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-[10px] font-bold text-secondary italic">Case Study</span>
+<span class="material-symbols-outlined text-on-surface-variant text-lg cursor-pointer hover:text-primary">bookmark</span>
+</div>
+</article>
+<!-- Suggestion Card 6 -->
+<article class="md:col-span-4 bg-surface-container-lowest border border-outline-variant/15 p-6 rounded-xl shadow-sm hover:shadow-md transition-all group">
+<div class="flex justify-between items-center mb-4">
+<span class="text-[10px] font-label text-outline uppercase">15/07/2024</span>
+<span class="material-symbols-outlined text-sm text-primary">picture_as_pdf</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-primary mb-3">Green Manufacturing: Tương lai của sản xuất bền vững</h3>
+<p class="text-sm text-on-surface-variant font-body mb-4 leading-relaxed">Xu hướng kinh tế tuần hoàn trong sản xuất: Tái chế phế phẩm công nghiệp thành nguyên liệu đầu vào cho các ngành phụ trợ.</p>
+<div class="pt-4 border-t border-outline-variant/10 flex justify-between items-center">
+<span class="text-[10px] font-bold text-secondary italic">Trend Report</span>
+<span class="material-symbols-outlined text-on-surface-variant text-lg cursor-pointer hover:text-primary">bookmark</span>
+</div>
+</article>
+</section>
+<!-- Load More Section -->
+<div class="mt-16 flex flex-col items-center gap-6">
+<div class="h-[1px] w-full bg-gradient-to-r from-transparent via-outline-variant to-transparent opacity-30"></div>
+<button class="group flex items-center gap-3 bg-surface border border-primary/20 px-10 py-4 text-primary font-bold hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-sm rounded">
+<span class="text-lg">Xem thêm</span>
+<span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">keyboard_double_arrow_down</span>
+</button>
+<p class="text-xs text-on-surface-variant font-medium tracking-wide">Hiển thị 6 trên tổng số 142 tài liệu nghiên cứu</p>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 tonal-layering">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
+<div class="md:col-span-1">
+<span class="font-newsreader italic text-xl text-blue-900 dark:text-blue-50 block mb-4">Logiverse</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Nền tảng tri thức hàng đầu dành cho cộng đồng Logistics và Quản trị chuỗi cung ứng chuyên nghiệp.</p>
+</div>
+<div>
+<h4 class="font-bold text-blue-900 dark:text-blue-100 mb-6 text-sm uppercase tracking-widest">Tài nguyên</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30 transition-opacity opacity-80 hover:opacity-100" href="#">Đăng ký bản tin</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30 transition-opacity opacity-80 hover:opacity-100" href="#">Tư liệu chuyên sâu</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30 transition-opacity opacity-80 hover:opacity-100" href="#">Báo cáo thị trường</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-blue-900 dark:text-blue-100 mb-6 text-sm uppercase tracking-widest">Pháp lý</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30 transition-opacity opacity-80 hover:opacity-100" href="#">Chính sách bảo mật</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30 transition-opacity opacity-80 hover:opacity-100" href="#">Điều khoản sử dụng</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30 transition-opacity opacity-80 hover:opacity-100" href="#">Bản quyền nội dung</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-blue-900 dark:text-blue-100 mb-6 text-sm uppercase tracking-widest">Liên hệ</h4>
+<p class="text-slate-500 dark:text-slate-400 text-sm mb-4 italic">editorial@logiverse.vn</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-blue-900/60 cursor-pointer hover:text-blue-900">language</span>
+<span class="material-symbols-outlined text-blue-900/60 cursor-pointer hover:text-blue-900">share</span>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-200 dark:border-slate-800 py-6 text-center">
+<p class="text-slate-500 dark:text-slate-400 text-xs">© 2024 Logiverse - Bản tin Logistics &amp; Học thuật Toàn cầu</p>
+</div>
+</footer>
+</body></html>

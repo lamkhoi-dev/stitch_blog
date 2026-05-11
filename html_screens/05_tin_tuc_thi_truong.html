@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tin tức | The Editorial Cartographer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,400;0,6..72,600;0,6..72,800;1,6..72,400;1,6..72,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#c3c7ce",
+                      "on-tertiary-fixed-variant": "#812900",
+                      "on-error": "#ffffff",
+                      "surface-container-low": "#eef4ff",
+                      "on-secondary-container": "#785e42",
+                      "surface-container-high": "#dfe9fa",
+                      "on-background": "#121c28",
+                      "surface-variant": "#d9e3f4",
+                      "secondary-fixed-dim": "#e3c09f",
+                      "primary-container": "#1f4060",
+                      "surface-bright": "#f8f9ff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface": "#f8f9ff",
+                      "on-tertiary-fixed": "#380d00",
+                      "inverse-primary": "#aac9f0",
+                      "surface-tint": "#426182",
+                      "tertiary-fixed": "#ffdbcf",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#fdd9b6",
+                      "outline": "#73777e",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#e5eeff",
+                      "primary-fixed-dim": "#aac9f0",
+                      "secondary-fixed": "#ffdcbb",
+                      "on-surface-variant": "#43474e",
+                      "error-container": "#ffdad6",
+                      "on-secondary-fixed": "#2a1803",
+                      "tertiary-container": "#722300",
+                      "secondary": "#74593e",
+                      "background": "#f8f9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "on-primary-container": "#8dacd1",
+                      "on-primary-fixed-variant": "#294969",
+                      "on-primary-fixed": "#001d35",
+                      "primary-fixed": "#d0e4ff",
+                      "error": "#ba1a1a",
+                      "tertiary": "#4d1500",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-container": "#ff885b",
+                      "on-surface": "#121c28",
+                      "surface-container-highest": "#d9e3f4",
+                      "primary": "#022a49",
+                      "inverse-surface": "#27313e",
+                      "surface-dim": "#d1dbec",
+                      "on-secondary-fixed-variant": "#5a4228",
+                      "tertiary-fixed-dim": "#ffb59b",
+                      "on-primary": "#ffffff",
+                      "navy-blue": "#0F3453"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Newsreader"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+      </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9ff; color: #121c28; }
+        .font-serif { font-family: 'Newsreader', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .academic-gradient { background: linear-gradient(135deg, #022a49 0%, #1f4060 100%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="bg-[#f8f9ff]/80 backdrop-blur-2xl text-[#1F4060] font-['Newsreader'] tracking-tight docked full-width top-0 sticky z-50 border-b border-[#c3c7ce]/15 flat no shadows">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<a class="text-2xl font-serif italic text-[#1F4060]" href="#">The Editorial Cartographer</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#121c28]/70 font-medium font-sans hover:text-[#1F4060] transition-colors duration-200" href="#">Trang chủ</a>
+<a class="text-[#121c28]/70 font-medium font-sans hover:text-[#1F4060] transition-colors duration-200" href="#">Thư viện</a>
+<a class="text-[#1F4060] font-bold border-b-2 border-[#1F4060] pb-1 font-sans" href="#">Tin tức</a>
+<a class="text-[#121c28]/70 font-medium font-sans hover:text-[#1F4060] transition-colors duration-200" href="#">Case Study</a>
+<a class="text-[#121c28]/70 font-medium font-sans hover:text-[#1F4060] transition-colors duration-200" href="#">Về chúng tôi</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden lg:block group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary w-64 transition-all" placeholder="Tìm kiếm tài liệu..." type="text"/>
+</div>
+<button class="bg-[#022a49] text-white px-6 py-2 rounded-lg font-sans font-medium text-sm hover:scale-95 duration-150 ease-in-out">Subscribe</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="bg-navy-blue text-white pt-24 pb-20 px-8">
+<div class="max-w-screen-2xl mx-auto flex flex-col items-center text-center">
+<h1 class="font-headline text-5xl md:text-7xl font-bold mb-6 tracking-tight">Tin tức Thị trường</h1>
+<p class="font-body text-white/80 max-w-2xl mb-12 text-lg leading-relaxed">
+                    Phân tích đa chiều và dữ liệu thực chứng về dòng chảy logistics toàn cầu. Chúng tôi lập bản đồ các xu hướng ảnh hưởng đến chuỗi cung ứng của bạn.
+                </p>
+<div class="w-full max-w-3xl relative">
+<input class="w-full bg-white/10 border border-white/20 rounded-xl px-14 py-5 text-lg shadow-sm focus:ring-white/40 focus:border-white/40 text-white placeholder:text-white/50 backdrop-blur-sm" placeholder="Tìm kiếm bài viết, báo cáo hoặc dữ liệu thị trường..." type="text"/>
+<span class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-white/60 scale-125">search</span>
+</div>
+</div>
+</section>
+<!-- Category Tags -->
+<section class="bg-surface-container-low py-6 px-8 border-b border-outline-variant/10">
+<div class="max-w-screen-2xl mx-auto flex flex-wrap justify-center gap-3">
+<button class="bg-secondary-container text-on-secondary-container px-5 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase border border-transparent hover:border-on-secondary-container transition-all">Tất cả</button>
+<button class="bg-surface-container-highest text-on-surface px-5 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase hover:bg-primary-container hover:text-white transition-all">Thị trường</button>
+<button class="bg-surface-container-highest text-on-surface px-5 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase hover:bg-primary-container hover:text-white transition-all">Công nghệ</button>
+<button class="bg-surface-container-highest text-on-surface px-5 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase hover:bg-primary-container hover:text-white transition-all">Chính sách</button>
+<button class="bg-surface-container-highest text-on-surface px-5 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase hover:bg-primary-container hover:text-white transition-all">Giá cước</button>
+<button class="bg-surface-container-highest text-on-surface px-5 py-2 rounded-lg text-xs font-semibold tracking-wider uppercase hover:bg-primary-container hover:text-white transition-all">Bền vững</button>
+</div>
+</section>
+<!-- Featured News -->
+<section class="py-20 px-8 bg-surface">
+<div class="max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-7 rounded-2xl overflow-hidden shadow-2xl group">
+<img alt="Cảng biển hiện đại" class="w-full aspect-[16/10] object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="Bản đồ cảng biển container nhộn nhịp vào ban đêm với ánh sáng vàng rực rỡ và các cần cẩu xếp dỡ hàng hóa hiện đại" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxabJCCkCxpWkWtNxY9vY5zqM31WDSshQwbZt3ItWVF0R9z_Ebs7bCtzaL12a57lUa0L-9jJc-aZNOZ4ib0Y09s5nBgB8lyMIekMC5UrzUlJrDRt5s78Jl48Ie7uE_5kSgeUZpMKEhI_3p0IRTUYsYjUu6XpaCifZjYTZBwS19BUcqyxGmypUWFtLeHrEQD9xHmC7et8rdirxhy1PIax5t1UQ2LgIjYCEtTPJdm9yawNdmR3fy2sqCWfY7eGRynXQDfcotGLnntVA"/>
+</div>
+<div class="lg:col-span-5 flex flex-col justify-center">
+<div class="flex items-center gap-4 mb-8">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] px-2.5 py-1 rounded font-bold uppercase tracking-widest">Tiêu điểm</span>
+<span class="text-on-surface-variant font-label text-sm italic">24 Tháng 5, 2024</span>
+</div>
+<h2 class="font-headline text-4xl md:text-5xl font-bold text-primary mb-8 leading-[1.15]">Biến động chuỗi cung ứng khu vực Châu Á - Thái Bình Dương: Phân tích thực chứng</h2>
+<p class="font-body text-on-surface-variant text-lg mb-10 leading-relaxed">
+                            Báo cáo phân tích sâu về tác động của các hiệp định thương mại mới và sự dịch chuyển cơ sở hạ tầng tại Việt Nam, tác động trực tiếp đến chi phí logistics đường biển năm 2024.
+                        </p>
+<div class="flex items-center gap-6">
+<button class="bg-navy-blue text-white px-8 py-3.5 rounded-lg font-label font-semibold hover:bg-primary transition-colors shadow-md">Đọc toàn văn bài viết</button>
+<button class="text-primary font-label font-semibold flex items-center gap-2 group">
+                                Xem báo cáo gốc <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Grid -->
+<section class="py-24 px-8 bg-surface-container-low/30">
+<div class="max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+<!-- Left: Main Stories -->
+<div class="lg:col-span-8 space-y-20">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-6 mb-12">
+<h3 class="font-headline text-3xl font-bold text-primary">Bài báo chuyên sâu</h3>
+<div class="flex gap-2">
+<span class="w-8 h-1 bg-primary rounded-full"></span>
+<span class="w-8 h-1 bg-primary/20 rounded-full"></span>
+<span class="w-8 h-1 bg-primary/20 rounded-full"></span>
+</div>
+</div>
+<!-- Story 1 -->
+<article class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center group">
+<div class="md:col-span-5 rounded-xl overflow-hidden shadow-lg aspect-square border border-outline-variant/10">
+<img alt="Tàu chở hàng" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Tàu container khổng lồ đang di chuyển trên biển xanh thẳm dưới bầu trời hoàng hôn rực rỡ, góc chụp từ trên cao" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYW6xFKqieon5x2Iq_vfDKYt5IMrjNpruW9PvSPAmkdY_DL3-YL2zCh_--p71e1Eha9CW3gGteshhO7de36Zg-8wSn_6laxhdwPA5z3mHUD9kfOXcPzJYm3yowycPSGgZTdaYUgITnD698UAiCXOZkqoAW_A2pLcVjg3wrzaalawk7Zyx7WwPDzYPa_WToNS5ofQ--5cTenQaMAmD-g8V3CATohx6akaY9_xkj_Viv-NzZwS2Fam22XMNeW4b1Oemc3EkE17LpJx4"/>
+</div>
+<div class="md:col-span-7">
+<span class="text-xs font-bold text-secondary tracking-widest uppercase mb-4 block">Thị trường</span>
+<h4 class="font-headline text-2xl font-bold mb-5 text-primary group-hover:text-primary-container transition-colors leading-snug">Tối ưu hóa chi phí vận hành kho bãi bằng AI: Kinh nghiệm từ các tập đoàn đa quốc gia</h4>
+<p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed line-clamp-3">
+                                    Việc áp dụng trí tuệ nhân tạo không còn là xu hướng tương lai mà đã trở thành công cụ sống còn giúp giảm 15% chi phí lưu kho và tăng 20% tốc độ luân chuyển hàng hóa.
+                                </p>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/20">
+<span class="text-outline text-xs italic font-medium">Tác giả: TS. Nguyễn Văn A</span>
+<a class="text-primary font-bold text-sm flex items-center gap-1.5 hover:underline" href="#">Đọc tiếp <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+</div>
+</div>
+</article>
+<!-- Story 2 -->
+<article class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center group">
+<div class="md:col-span-5 rounded-xl overflow-hidden shadow-lg aspect-square border border-outline-variant/10">
+<img alt="Logistics xanh" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Đội xe tải điện hiện đại xếp hàng tại trạm sạc trong một trung tâm logistics xanh bao quanh bởi cây cối" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwIjmIT9kTGFxxRLg3H3WOHVKMS2tE7luUa6a8KwyGqnyHSzvD-PBbqpmjqaMjXhTL5OJg-HC7nU2NdYnMy0SrBv4rqe7SZeC0bhlhq_n0X--ywNXHTGXO2VIz590pbn3R2newO7Met03brw_pOe4YFoFXss4MZSJ6JkpSsNLeLGGnP2r0U8WWVxqzRwrGTwBnhVvDcoW5M1a5TgYsoTydFvTLVzii0RJViH55wzzG2F59S-3CsJuhgcLm1QkrL8FFk8Ze3xx_n78"/>
+</div>
+<div class="md:col-span-7">
+<span class="text-xs font-bold text-secondary tracking-widest uppercase mb-4 block">Bền vững</span>
+<h4 class="font-headline text-2xl font-bold mb-5 text-primary group-hover:text-primary-container transition-colors leading-snug">Logistics xanh: Chuyển đổi từ cam kết sang hành động thực tiễn tại Việt Nam</h4>
+<p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed line-clamp-3">
+                                    Phân tích lộ trình Net Zero cho ngành vận tải đường bộ và các rào cản về hạ tầng sạc điện cho xe tải hạng nặng tại khu vực kinh tế trọng điểm phía Nam.
+                                </p>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/20">
+<span class="text-outline text-xs italic font-medium">Tác giả: Trần Thị B</span>
+<a class="text-primary font-bold text-sm flex items-center gap-1.5 hover:underline" href="#">Đọc tiếp <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+</div>
+</div>
+</article>
+<!-- Story 3 -->
+<article class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center group">
+<div class="md:col-span-5 rounded-xl overflow-hidden shadow-lg aspect-square border border-outline-variant/10">
+<img alt="Chính sách" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Văn phòng làm việc hiện đại với các biểu đồ dữ liệu kinh tế trên màn hình lớn và các chuyên gia đang thảo luận" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzrMD3o02nnKBB133n-FWbHKP3NXs-zbEo4RtWjGq6mbk_eqVRHW-YvGwNGfzG-OcGi2-oNXYE4sBUKYm8Mx-On66Ud5LkIr4L5ytUrJeZiv4WehKPW6W92vNwl4gT67dHxMrEALblSskylfzdMG9Y0NL6tftZZU422ecrfCO-xGyfswdY8YZHZH7gNHeHNU6CPNSZ4Zup3sAsgYnnUsDStbelB7Oy5Mux3_nE-od1nx-c8xtYqmIECTmGeh9V6sLtUEeQJuw68ic"/>
+</div>
+<div class="md:col-span-7">
+<span class="text-xs font-bold text-secondary tracking-widest uppercase mb-4 block">Chính sách</span>
+<h4 class="font-headline text-2xl font-bold mb-5 text-primary group-hover:text-primary-container transition-colors leading-snug">Tác động của sửa đổi luật hải quan mới đối với doanh nghiệp xuất nhập khẩu</h4>
+<p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed line-clamp-3">
+                                    Hướng dẫn chi tiết các thay đổi trong quy trình thông quan số và những điểm doanh nghiệp cần lưu ý để tránh các sai sót không đáng có trong năm tài chính mới.
+                                </p>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/20">
+<span class="text-outline text-xs italic font-medium">Ban biên tập Logiverse</span>
+<a class="text-primary font-bold text-sm flex items-center gap-1.5 hover:underline" href="#">Đọc tiếp <span class="material-symbols-outlined text-sm">open_in_new</span></a>
+</div>
+</div>
+</article>
+</div>
+<!-- Right: Briefs & Most Read -->
+<div class="lg:col-span-4">
+<div class="sticky top-28 space-y-12">
+<!-- Briefs -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-md border border-outline-variant/10">
+<h3 class="font-headline text-2xl font-bold mb-8 text-primary flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">bolt</span> Tin vắn 24h
+                                </h3>
+<div class="space-y-8">
+<div class="group cursor-pointer relative pl-6 border-l-2 border-primary/10 hover:border-primary transition-colors">
+<p class="text-[10px] text-outline font-bold uppercase mb-2 tracking-widest">09:15 AM</p>
+<h5 class="font-body text-sm font-semibold text-on-surface group-hover:text-primary transition-colors leading-relaxed">Giá cước container đường biển từ Hải Phòng đi Mỹ giảm nhẹ 2% tuần này.</h5>
+</div>
+<div class="group cursor-pointer relative pl-6 border-l-2 border-primary/10 hover:border-primary transition-colors">
+<p class="text-[10px] text-outline font-bold uppercase mb-2 tracking-widest">Hôm qua</p>
+<h5 class="font-body text-sm font-semibold text-on-surface group-hover:text-primary transition-colors leading-relaxed">Nghẽn cảng tại Singapore tiếp tục gây chậm trễ cho các tuyến nội Á.</h5>
+</div>
+<div class="group cursor-pointer relative pl-6 border-l-2 border-primary/10 hover:border-primary transition-colors">
+<p class="text-[10px] text-outline font-bold uppercase mb-2 tracking-widest">Hôm qua</p>
+<h5 class="font-body text-sm font-semibold text-on-surface group-hover:text-primary transition-colors leading-relaxed">Việt Nam phê chuẩn kế hoạch nâng cấp hạ tầng đường sắt kết nối biên giới.</h5>
+</div>
+</div>
+<button class="w-full mt-10 py-3.5 border border-outline-variant text-primary font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-primary hover:text-white transition-all">Xem tất cả tin vắn</button>
+</div>
+<!-- Most Read -->
+<div>
+<h3 class="font-headline text-2xl font-bold mb-8 text-primary">Đọc nhiều nhất</h3>
+<div class="space-y-10">
+<div class="flex gap-6 group cursor-pointer">
+<span class="font-headline text-5xl text-outline-variant/30 font-black italic shrink-0">01</span>
+<div>
+<h5 class="font-body text-sm font-bold text-on-surface mb-2 group-hover:underline leading-relaxed">Chiến lược đa dạng hóa chuỗi cung ứng: Bài học từ khủng hoảng năng lượng</h5>
+<p class="text-[10px] text-outline-variant font-medium tracking-wide">12,402 LƯỢT ĐỌC</p>
+</div>
+</div>
+<div class="flex gap-6 group cursor-pointer">
+<span class="font-headline text-5xl text-outline-variant/30 font-black italic shrink-0">02</span>
+<div>
+<h5 class="font-body text-sm font-bold text-on-surface mb-2 group-hover:underline leading-relaxed">Tương lai của Drone trong giao hàng chặng cuối tại đô thị thông minh</h5>
+<p class="text-[10px] text-outline-variant font-medium tracking-wide">9,850 LƯỢT ĐỌC</p>
+</div>
+</div>
+<div class="flex gap-6 group cursor-pointer">
+<span class="font-headline text-5xl text-outline-variant/30 font-black italic shrink-0">03</span>
+<div>
+<h5 class="font-body text-sm font-bold text-on-surface mb-2 group-hover:underline leading-relaxed">Bản đồ hạ tầng logistics Đông Nam Á tầm nhìn 2030</h5>
+<p class="text-[10px] text-outline-variant font-medium tracking-wide">7,215 LƯỢT ĐỌC</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Newsletter Card -->
+<div class="bg-navy-blue p-10 rounded-2xl text-white shadow-xl">
+<h4 class="font-headline text-2xl font-bold mb-5 italic">Bản tin hàng tuần</h4>
+<p class="text-sm text-white/70 mb-8 leading-relaxed">Nhận những phân tích sâu nhất về thị trường trực tiếp vào hộp thư của bạn vào mỗi sáng thứ Hai.</p>
+<div class="space-y-4">
+<input class="w-full bg-white/10 border border-white/20 rounded-lg py-3 px-4 text-sm placeholder:text-white/40 focus:ring-1 focus:ring-white transition-all" placeholder="Email của bạn" type="email"/>
+<button class="w-full bg-white text-navy-blue font-bold py-4 rounded-lg text-sm uppercase tracking-wider hover:bg-secondary-container transition-colors shadow-md">Đăng ký ngay</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#eef4ff] text-[#121c28] font-sans text-sm tracking-wide full-width py-16 px-8 border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-screen-2xl mx-auto">
+<div class="md:col-span-1">
+<a class="font-serif text-2xl italic mb-6 block text-primary" href="#">The Editorial Cartographer</a>
+<p class="text-[#121c28]/60 mb-8 leading-relaxed max-w-xs">Hệ sinh thái thông tin logistics và báo chí học thuật hàng đầu khu vực.</p>
+</div>
+<div>
+<h5 class="font-bold mb-6 uppercase text-xs tracking-[0.2em] text-[#1F4060]">Khám phá</h5>
+<ul class="space-y-4">
+<li><a class="text-[#121c28]/60 hover:text-[#1F4060] transition-colors" href="#">Thư viện số</a></li>
+<li><a class="text-[#121c28]/60 hover:text-[#1F4060] transition-colors" href="#">Bản đồ logistics</a></li>
+<li><a class="text-[#121c28]/60 hover:text-[#1F4060] transition-colors" href="#">Dữ liệu thị trường</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 uppercase text-xs tracking-[0.2em] text-[#1F4060]">Pháp lý &amp; Hỗ trợ</h5>
+<ul class="space-y-4">
+<li><a class="text-[#121c28]/60 hover:text-[#1F4060] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-[#121c28]/60 hover:text-[#1F4060] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-[#121c28]/60 hover:text-[#1F4060] transition-colors" href="#">Contact Email</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 uppercase text-xs tracking-[0.2em] text-[#1F4060]">Liên hệ</h5>
+<p class="text-[#121c28]/60 mb-3">Phone: +84 123 456 789</p>
+<p class="text-[#121c28]/60 mb-8 italic">Hà Nội, Việt Nam</p>
+<div class="flex gap-5">
+<span class="material-symbols-outlined text-[#1F4060] cursor-pointer opacity-70 hover:opacity-100 transition-opacity">language</span>
+<span class="material-symbols-outlined text-[#1F4060] cursor-pointer opacity-70 hover:opacity-100 transition-opacity">share</span>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-16 pt-8 border-t border-[#121c28]/10 text-center">
+<p class="text-[#121c28]/40 text-xs italic">© 2024 Editorial Cartographer Logistics Hub. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

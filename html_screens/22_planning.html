@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcf",
+                    "surface-container-highest": "#d9e3f4",
+                    "on-tertiary-fixed-variant": "#812900",
+                    "on-surface": "#121c28",
+                    "surface-container": "#e5eeff",
+                    "tertiary": "#4d1500",
+                    "outline-variant": "#c3c7ce",
+                    "surface-container-high": "#dfe9fa",
+                    "primary-fixed": "#d0e4ff",
+                    "on-secondary-fixed": "#2a1803",
+                    "on-primary-fixed-variant": "#294969",
+                    "inverse-primary": "#aac9f0",
+                    "on-secondary-fixed-variant": "#5a4228",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-background": "#121c28",
+                    "on-tertiary-container": "#ff885b",
+                    "on-surface-variant": "#43474e",
+                    "on-primary-fixed": "#001d35",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-dim": "#d1dbec",
+                    "primary-container": "#1f4060",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#785e42",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffdcbb",
+                    "outline": "#73777e",
+                    "secondary-fixed-dim": "#e3c09f",
+                    "secondary": "#74593e",
+                    "primary": "#022a49",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#aac9f0",
+                    "surface": "#f8f9ff",
+                    "inverse-surface": "#27313e",
+                    "background": "#f8f9ff",
+                    "surface-variant": "#d9e3f4",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#722300",
+                    "on-tertiary-fixed": "#380d00",
+                    "surface-tint": "#426182",
+                    "surface-bright": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#8dacd1",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#eef4ff",
+                    "secondary-container": "#fdd9b6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition { transition: background-color 0.3s ease; }
+        .glass-nav {
+            background: rgba(248, 249, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-newsreader font-bold text-blue-900 dark:text-blue-50">Logiverse</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Trang chủ</a>
+<a class="text-blue-900 dark:text-blue-50 font-bold border-b-2 border-blue-900 dark:border-blue-50 pb-1 transition-colors duration-300" href="#">Thư viện</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Tin tức</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Case study</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Về chúng tôi</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="scale-95 active:scale-90 transition-transform px-5 py-2 rounded-lg bg-primary text-on-primary font-medium text-sm">
+                    Đăng nhập
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20">
+<!-- Hero Section: Editorial Anchor -->
+<section class="max-w-7xl mx-auto px-6 py-12 md:py-20 border-b border-outline-variant/15">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+<div class="lg:col-span-8">
+<span class="inline-block py-1 px-3 mb-6 bg-secondary-container text-on-secondary-container text-[10px] uppercase tracking-widest font-bold rounded-sm">
+                        Supply Chain Intelligence
+                    </span>
+<h1 class="font-headline text-5xl md:text-7xl text-primary leading-tight tracking-tight">
+                        Planning - Lập kế hoạch <br/>
+<span class="italic font-light text-on-surface-variant">Chuỗi cung ứng</span>
+</h1>
+</div>
+<div class="lg:col-span-4 pb-2">
+<p class="text-on-surface-variant leading-relaxed text-lg font-light italic">
+                        "Khám phá các phương pháp dự báo nhu cầu hiện đại và mô hình hoạch định tích hợp trong kỷ nguyên số."
+                    </p>
+</div>
+</div>
+</section>
+<!-- Search & Filter Bar -->
+<section class="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-md py-6 border-b border-outline-variant/10">
+<div class="max-w-7xl mx-auto px-6">
+<div class="relative max-w-2xl">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border border-outline-variant/20 rounded-lg focus:ring-1 focus:ring-primary/50 focus:border-primary outline-none text-on-surface-variant transition-all" placeholder="Tìm kiếm tài liệu dự báo và lập kế hoạch..." type="text"/>
+</div>
+</div>
+</section>
+<!-- Landscape Suggestions Grid -->
+<section class="max-w-7xl mx-auto px-6 mt-16">
+<div class="grid grid-cols-1 gap-12">
+<!-- Suggestion Card 1 -->
+<div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-center surface-container-low p-1 rounded-xl hover:bg-surface-container transition-colors duration-500">
+<div class="md:col-span-4 h-64 overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="professional logistics planner analyzing complex data charts on multiple screens in a modern dark office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrR3DMS3UfeNt_EP7x7zLxKRUqQOUUss9Z2gqftE2MO_ZpM_0LZngTdIPh0Gyz0f3HIfXnl7P8FGkRHnmvV3AD1keUiYsW9lxwgoCixPIzgxxiReTpX2EON4ZhortPebOjOMekNflllptCQ-zqZYBf5VRPCo9M9Qv3cVb3Uk4YlXVNXDj6bDONzaEZLEpDvmxrU7jBdyn2slKk-ZK--qZ7F6esU8iiwohyJRN6SHwQELZfTnvVj7QXxAR6YYYHZrJJxczz8Lg9dUg"/>
+</div>
+<div class="md:col-span-8 pr-6 py-4">
+<div class="flex items-center gap-4 mb-3">
+<span class="text-label-md text-outline uppercase tracking-widest font-semibold">Cập nhật: 12/05/2024</span>
+<span class="flex items-center gap-1 bg-primary/5 text-primary px-2 py-0.5 rounded text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">picture_as_pdf</span> PDF AVAILABLE
+                            </span>
+</div>
+<h3 class="font-headline text-3xl text-primary mb-4 group-hover:text-primary-container transition-colors">Chiến lược Hoạch định Tích hợp S&amp;OP trong Doanh nghiệp FMCG</h3>
+<p class="text-on-surface-variant leading-relaxed font-light mb-6">
+                            Bài viết phân tích các giai đoạn chuyển đổi từ lập kế hoạch truyền thống sang mô hình hoạch định tích hợp (Sales and Operations Planning), tập trung vào sự phối hợp liên phòng ban và tối ưu hóa tồn kho đầu cuối.
+                        </p>
+<a class="inline-flex items-center text-primary font-bold text-sm tracking-tight border-b border-primary/20 pb-0.5 group-hover:border-primary transition-all" href="#">
+                            ĐỌC CHI TIẾT <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Suggestion Card 2 -->
+<div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-center surface-container-low p-1 rounded-xl hover:bg-surface-container transition-colors duration-500">
+<div class="md:col-span-4 h-64 overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="abstract digital visualization of global trade routes and demand forecasting nodes on a deep navy background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwnsR9PV6kfSYiB4m0fDl0WDwZi6m9OG3kvue2n12XUOTGc75vujyokZZ4JO8803fA_xhkPiiyAf5hpgC0pyLvvU5Y1MjqXnTPby5IYECZMN5rK87m20pzpG23bacIvetbXx8QCdEP4R2wNxWkHR8B0mE0tuEzCqZyzFDbjGzjImoKudrprFpjhYQdoByxAS5Zw_autxZV1rrMMA8CM2sS7U_lCUdF826us3osHzeOwej5uWcPEoma7TjEs7OHjFEtJjo0uReZaEU"/>
+</div>
+<div class="md:col-span-8 pr-6 py-4">
+<div class="flex items-center gap-4 mb-3">
+<span class="text-label-md text-outline uppercase tracking-widest font-semibold">Cập nhật: 08/05/2024</span>
+<span class="flex items-center gap-1 bg-primary/5 text-primary px-2 py-0.5 rounded text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">picture_as_pdf</span> PDF AVAILABLE
+                            </span>
+</div>
+<h3 class="font-headline text-3xl text-primary mb-4 group-hover:text-primary-container transition-colors">Ứng dụng Machine Learning trong Dự báo Nhu cầu Biến động</h3>
+<p class="text-on-surface-variant leading-relaxed font-light mb-6">
+                            Khám phá cách các thuật toán học máy xử lý dữ liệu lớn để giảm thiểu sai số dự báo, đặc biệt trong các ngành hàng có tính mùa vụ cao và vòng đời sản phẩm ngắn.
+                        </p>
+<a class="inline-flex items-center text-primary font-bold text-sm tracking-tight border-b border-primary/20 pb-0.5 group-hover:border-primary transition-all" href="#">
+                            ĐỌC CHI TIẾT <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Suggestion Card 3 -->
+<div class="group grid grid-cols-1 md:grid-cols-12 gap-8 items-center surface-container-low p-1 rounded-xl hover:bg-surface-container transition-colors duration-500">
+<div class="md:col-span-4 h-64 overflow-hidden rounded-lg">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="top down view of a massive organized warehouse with automated systems and clean geometric lines at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0iFE64FINUcsA2uIPuNlmpXqwgJ2F6SfxOQt7dLIEws4quSGm-NrRou9wOWvujkDcFuDHn2eJ4NA32T-TeTh2q-BwQZbRYzNqhyyh7cAYOzzi5Vy-QGeyJn3mSE0iSDoWrPU6xaKerJT-EnV7ArNZXYRJDcxxGpZJ0NswAjVmNKsdFZ4evUqD1hKkS1KO3p2Lqw3TnqFCXld1a-ZDzevJZacsRpopVuZhqc4G9Egzgg4THUK0j9UJ5oYXsp3PiurXSTta2dUbAO4"/>
+</div>
+<div class="md:col-span-8 pr-6 py-4">
+<div class="flex items-center gap-4 mb-3">
+<span class="text-label-md text-outline uppercase tracking-widest font-semibold">Cập nhật: 01/05/2024</span>
+<span class="flex items-center gap-1 bg-primary/5 text-primary px-2 py-0.5 rounded text-[10px] font-bold">
+<span class="material-symbols-outlined text-xs">picture_as_pdf</span> PDF AVAILABLE
+                            </span>
+</div>
+<h3 class="font-headline text-3xl text-primary mb-4 group-hover:text-primary-container transition-colors">Mô hình Tối ưu hóa Tồn kho Đa điểm (MEIO)</h3>
+<p class="text-on-surface-variant leading-relaxed font-light mb-6">
+                            Nghiên cứu học thuật về việc cân bằng mức phục vụ khách hàng và chi phí lưu kho thông qua các mô hình toán học tối ưu hóa tồn kho trên toàn mạng lưới phân phối.
+                        </p>
+<a class="inline-flex items-center text-primary font-bold text-sm tracking-tight border-b border-primary/20 pb-0.5 group-hover:border-primary transition-all" href="#">
+                            ĐỌC CHI TIẾT <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<div class="mt-20 flex justify-center">
+<button class="group flex flex-col items-center gap-4">
+<span class="text-label-md font-bold text-primary tracking-[0.2em] uppercase">Xem thêm</span>
+<div class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
+<span class="material-symbols-outlined group-hover:translate-y-1 transition-transform">keyboard_double_arrow_down</span>
+</div>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
+<div class="flex flex-col gap-4">
+<div class="font-newsreader italic text-xl text-blue-900 dark:text-blue-50">Logiverse</div>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Nền tảng tri thức chuyên sâu về Logistics và Chuỗi cung ứng toàn cầu, kết nối học thuật và thực tiễn doanh nghiệp.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-blue-900 dark:text-white font-semibold text-sm uppercase tracking-wider mb-2">Thư viện</h4>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30" href="#">Vận tải</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30" href="#">Kho bãi</a>
+<a class="text-blue-900 dark:text-white font-semibold text-sm hover:underline decoration-blue-900/30" href="#">Lập kế hoạch</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30" href="#">Mua hàng</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-blue-900 dark:text-white font-semibold text-sm uppercase tracking-wider mb-2">Hỗ trợ</h4>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30" href="#">Liên hệ</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30" href="#">Đăng ký bản tin</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30" href="#">Chính sách bảo mật</a>
+<a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-900/30" href="#">Điều khoản sử dụng</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-blue-900 dark:text-white font-semibold text-sm uppercase tracking-wider mb-2">Đăng ký</h4>
+<div class="flex">
+<input class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-4 py-2 text-sm rounded-l-md outline-none focus:ring-1 focus:ring-blue-900" placeholder="Email của bạn" type="email"/>
+<button class="bg-blue-900 text-white px-4 py-2 rounded-r-md text-sm hover:bg-blue-800 transition-colors">Gửi</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-6 border-t border-slate-200/50 dark:border-slate-800/50 text-center text-slate-500 dark:text-slate-400 text-xs">
+            © 2024 Logiverse - Bản tin Logistics &amp; Học thuật Toàn cầu
+        </div>
+</footer>
+</body></html>

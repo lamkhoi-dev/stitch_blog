@@ -1,0 +1,52 @@
+Blog sticth
+1/ Trang Chủ Logiverse - Cập nhật Tin tức 2 Cột v2:
+	◦	bấm “khám phá” sẽ cuộn xuống “xứ mệnh và mục tiêu”
+	◦	Bấm “tài liệu nghiên cứu” sẽ vào mục thư viện trên Nav bar
+	◦	Mục tin tức nóng, bấm xem thèm sẽ vào subtab tin tức
+	◦	Case study thực tiễn, bấm vào “khám phá kho thư viện” sẽ vào case stydy thực tiễn
+2/ Minh họa Menu Logiverse: drop down của library
+3/ lấy footer và header của trang chủ: Trang Chủ Logiverse - Cập nhật Tin tức 2 Cột v2, làm chính
+4/ Trang Trang Thư viện (Library Hub):
+	◦	bấm Xem tất cả thư mục ở Thư viện sách và ấn phẩm sẽ đến subtab Subtab Sách - Thư viện Logiverse
+	◦	bấm Mẫu hợp đồng Ngoại thương, hoặc bộ chứng từ xuất nhập khẩu sẽ đến Subtab Hợp đồng & Chứng từ
+	◦	Các card hoặc Chữ Phương thức vận tải toàn cầu sẽ đến Subtab Logistics - Thư viện Logiverse
+	◦	Tương tự bên dưới, bấm vào Mô hình chuỗi cung ứng Toàn Diện hoặc các card của chúng cũng sẽ sang Subtab Chuỗi cung ứng - Thư viện Logiverse
+5/Tin tức Thị trường - Cập nhật Giao diện v2:
+	◦	bấm vào bất kì bài viết nào cũng sẽ hiện nội dung và trình bày như Chi tiết Tin tức - Logiverse Tri thức ( xem kĩ phần này nhé), ở trang Chi tiết Tin tức - Logiverse Tri thức các tin bên dưới cũng bấm được nhé
+6/ Subtab Hợp đồng & Chứng từ
+	◦	Khi bấm xe chi tiết các hợp đồng, chứng từ này sẽ hiện giao diện tương tự Chi tiết Sách - Giao diện Tối giản (Updated), tuỳ thiết kế sao cho đẹp và phù hợp
+7/ Subtab Sách - Thư viện Logiverse
+	◦	Khi bấm xem chi tiết sách thì cũng vào trang Chi tiết Sách - Giao diện Tối giản (Updated) 
+8/ Tại Subtab Logistics - Thư viện Logiverse, khi bấm các card sẽ vào các trang loggistic tương ứng: Vận tải Đường biển & Đường thủy Nội địa - Thư viện Logiverse, Vận tải Hàng không - Thư viện Logiverse, Vận tải Đường bộ - Thư viện Logiverse, Vận tải Đường sắt - Thư viện Logiverse, Vận tải Đa phương thức - Thư viện Logiverse
+9/ Subtab Chuỗi cung ứng - Thư viện Logiverse, trong đó có 4 mục, bấm vào cũng sẽ vào các trang Sourcing - Chuỗi cung ứng Logiverse, Procurement - Chuỗi cung ứng Logiverse, Manufacturing - Chuỗi cung ứng Logiverse,Planning - Chuỗi cung ứng Logiverse
+
+
+map:
+HỆ THỐNG CHÍNH
+│
+├── 1. THƯ VIỆN
+│   ├── Hợp đồng và chứng từ
+│   │   ├── Hợp đồng (Đăng bài)
+│   │   └── Chứng từ (Đăng bài)
+│   │
+│   ├── Sách
+│   │   ├── Quyển A (Bài đăng)
+│   │   ├── Quyển B (Bài đăng)
+│   │   └── Quyển C (Bài đăng)
+│   │
+│   ├── Logistics
+│   │   ├── Biển (Bài đăng)
+│   │   ├── Hàng không (Bài đăng)
+│   │   ├── Bộ (Bài đăng)
+│   │   ├── Sắt (Bài đăng)
+│   │   └── Đa phương thức (Bài đăng)
+│   │
+│   └── Chuỗi cung ứng
+│       ├── Procurement (Bài đăng)
+│       ├── Sourcing (Bài đăng)
+│       ├── Planning (Bài đăng)
+│       └── Manufacturing (Bài đăng)
+│
+├── 2. TIN TỨC (Bài đăng)
+│
+└── 3. CASE STUDY (Bài đăng)

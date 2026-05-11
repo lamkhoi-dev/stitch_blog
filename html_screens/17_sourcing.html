@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sourcing - Tìm kiếm Nguồn hàng | Logiverse</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#ffdbcf",
+                    "surface-container-highest": "#d9e3f4",
+                    "on-tertiary-fixed-variant": "#812900",
+                    "on-surface": "#121c28",
+                    "surface-container": "#e5eeff",
+                    "tertiary": "#4d1500",
+                    "outline-variant": "#c3c7ce",
+                    "surface-container-high": "#dfe9fa",
+                    "primary-fixed": "#d0e4ff",
+                    "on-secondary-fixed": "#2a1803",
+                    "on-primary-fixed-variant": "#294969",
+                    "inverse-primary": "#aac9f0",
+                    "on-secondary-fixed-variant": "#5a4228",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-background": "#121c28",
+                    "on-tertiary-container": "#ff885b",
+                    "on-surface-variant": "#43474e",
+                    "on-primary-fixed": "#001d35",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-dim": "#d1dbec",
+                    "primary-container": "#1f4060",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#785e42",
+                    "on-error": "#ffffff",
+                    "secondary-fixed": "#ffdcbb",
+                    "outline": "#73777e",
+                    "secondary-fixed-dim": "#e3c09f",
+                    "secondary": "#74593e",
+                    "primary": "#022a49",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#aac9f0",
+                    "surface": "#f8f9ff",
+                    "inverse-surface": "#27313e",
+                    "background": "#f8f9ff",
+                    "surface-variant": "#d9e3f4",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#722300",
+                    "on-tertiary-fixed": "#380d00",
+                    "surface-tint": "#426182",
+                    "surface-bright": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#8dacd1",
+                    "on-primary": "#ffffff",
+                    "surface-container-low": "#eef4ff",
+                    "secondary-container": "#fdd9b6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .tonal-transition { transition: background-color 0.3s ease; }
+      .newsreader-italic { font-family: 'Newsreader', serif; font-style: italic; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-newsreader font-bold text-blue-900 dark:text-blue-50">Logiverse</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Trang chủ</a>
+<a class="text-blue-900 dark:text-blue-50 font-bold border-b-2 border-blue-900 dark:border-blue-50 pb-1" href="#">Thư viện</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Tin tức</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Case study</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-800 transition-colors duration-300" href="#">Về chúng tôi</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-blue-900 dark:text-blue-200 scale-95 active:scale-90 transition-transform font-bold px-4 py-2">Đăng nhập</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img alt="Người dùng hệ thống" class="w-full h-full object-cover" data-alt="professional portrait of a supply chain executive in a clean minimalist office setting with soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKIOpLMfcqde9pwgGq570hT-tVDhuQ2BblfNZ-xjb6TIqypAMg0kG6434HTwaEI0DiQZNFX1q9-Czm-_HczlqeFI3-HWtzrPUs2eKnOxIfusfjl_y5ydIu07ns4-9dfzUtfPBH3DZ3I_Ui2NSzGIYoZeIqVYBjmduuRaa1mxWhXwfMQxMF0ism99QRiH4lljTZgVKHh8WkcpzpKQ4kwuBpYZsljopmFc9VRwBHgb30cn1jiNz8BwL759SCTMYEPJLi-8N_JkdBhO8"/>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20">
+<!-- Hero Section / Title Anchor -->
+<header class="max-w-7xl mx-auto px-6 mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/10 pb-8">
+<div class="max-w-2xl">
+<nav class="flex items-center gap-2 mb-4 text-label-md text-on-surface-variant font-medium">
+<span>Supply Chain</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Sourcing</span>
+</nav>
+<h1 class="text-5xl md:text-6xl font-headline font-bold text-primary tracking-tight leading-tight">
+                        Sourcing - Tìm kiếm Nguồn hàng
+                    </h1>
+<p class="mt-4 text-lg text-on-surface-variant font-body leading-relaxed max-w-xl">
+                        Khám phá các chiến lược cung ứng hiện đại, phân tích rủi ro địa chính trị và tối ưu hóa danh mục nhà cung cấp toàn cầu.
+                    </p>
+</div>
+<!-- Sourcing Search Bar -->
+<div class="w-full md:w-96">
+<div class="relative group">
+<input class="w-full bg-surface-container-low border-outline-variant/30 rounded-lg px-4 py-3 pl-11 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-body text-on-surface" placeholder="Tìm kiếm chiến lược sourcing..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary">search</span>
+</div>
+<p class="mt-2 text-xs text-on-surface-variant italic px-1">Gợi ý: Reshoring, ESG Compliance, SRM</p>
+</div>
+</div>
+</header>
+<!-- Sourcing Landscape Suggestion Cards -->
+<section class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="group relative flex flex-col md:flex-row gap-6 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 transition-all hover:shadow-xl hover:shadow-primary/5">
+<div class="w-full md:w-48 h-48 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Logistic hub" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="high-angle shot of an automated logistics warehouse with rows of shelving and bright clean industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDR_UXWmWqoUs_jEP7Gax4S-38Qshd3YHyFYjXvf6sXPB8GZxXSLdsXoVf5VQh6tzMvF20yy5wIRhBB6B35ZM_wW3LV_xkQZMLAxuLxd8iMeVgR-2vmg_p_TQX2wDWuZk10YhM-48JnBsOZQx6br1oWN1q9vqRySFM8Crzu0gctQRL9UXTEOX51TAyggWZfM3XSygx4QasT6IguNamxZXcwSTBLRIAj_JKtTOhkYSUP4Q5zW9gFNO-YSDj-TQIMEuSkQjuoZWSi5g"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider">Research paper</span>
+<span class="text-xs text-on-surface-variant">Cập nhật: 12/10/2024</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-3 leading-snug">
+                                Chiến lược Đa dạng hóa Nguồn cung tại Đông Nam Á 2025
+                            </h3>
+<p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed">
+                                Phân tích chuyên sâu về sự dịch chuyển chuỗi cung ứng từ Trung Quốc sang khu vực ASEAN, tập trung vào hạ tầng và rào cản pháp lý.
+                            </p>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<span class="text-xs font-semibold text-on-surface">Dr. Nguyen Minh</span>
+</div>
+<button class="flex items-center gap-2 text-primary hover:underline font-semibold text-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                                PDF (4.2MB)
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative flex flex-col md:flex-row gap-6 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 transition-all hover:shadow-xl hover:shadow-primary/5">
+<div class="w-full md:w-48 h-48 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Strategic meeting" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="top down view of a collaborative business meeting with maps and procurement documents spread across a minimalist table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSgFghQDhP_UkljgG3NXuI2iuVzSns3IGDwpbUjhQooLUetga3G3ibozlNlayVHTDKLhxJW5NDJ5c_sS5iG8peAJtlVnUDG_nIrC6GqzP9WhVeA6WXRBTgRwkI0g1d0JaYStoA5gktHd1bQihzuqXRAUJonzFR5mjo4CaEeoHE-qV97jmW6sgWa--iqrIkirySZoTbPrpyjIwmwowA78Fihy8SnzRU-a6yis3g6-6Tlk6Eg3uZUzVF-BozR_4JXPr19QIMgn5lMZs"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider">Guide</span>
+<span class="text-xs text-on-surface-variant">Cập nhật: 05/10/2024</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-3 leading-snug">
+                                Quản trị Rủi ro Nhà cung cấp: Khung tiêu chuẩn ESG
+                            </h3>
+<p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed">
+                                Hướng dẫn thiết lập bộ chỉ số đánh giá bền vững cho đối tác chiến lược theo tiêu chuẩn châu Âu mới nhất.
+                            </p>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<span class="text-xs font-semibold text-on-surface">Prof. Elena Smith</span>
+</div>
+<button class="flex items-center gap-2 text-primary hover:underline font-semibold text-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                                PDF (2.8MB)
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative flex flex-col md:flex-row gap-6 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 transition-all hover:shadow-xl hover:shadow-primary/5">
+<div class="w-full md:w-48 h-48 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Shipping containers" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="abstract close up of stacked vibrant blue shipping containers under a clear sky highlighting geometric patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtmUFsVcbZzKNIwrQnLQX12bYOc2mAGgzmPo3-2_JDM2lioNpIojf3oZWNe3cvPHC3KPEWxpJWWr-X8Qgx0jpCFSdpcTRHDnryX1zM0a670bFaAoct8B-u5nQs3cwOCuRYQCmKWYfCPtO-ca9l3YL99gkc44aeNe2UhdM3KdWYXO5i4w-V9l6DE05a8Cc2swC7CnvXnzpBdDm8VtgRINQ-Owf7C0u1AnOINE4QJgJZXSl0vlQHZHPWt37qsboERgxRZI8Z1DDO3yA"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider">Intelligence</span>
+<span class="text-xs text-on-surface-variant">Cập nhật: 28/09/2024</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-3 leading-snug">
+                                Tương lai của Procurement: AI trong Sourcing
+                            </h3>
+<p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed">
+                                Ứng dụng mô hình ngôn ngữ lớn để tự động hóa quy trình RFQ và đàm phán giá với hàng ngàn nhà cung cấp quy mô nhỏ.
+                            </p>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<span class="text-xs font-semibold text-on-surface">Alex Nguyen</span>
+</div>
+<button class="flex items-center gap-2 text-primary hover:underline font-semibold text-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                                PDF (5.1MB)
+                            </button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group relative flex flex-col md:flex-row gap-6 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 transition-all hover:shadow-xl hover:shadow-primary/5">
+<div class="w-full md:w-48 h-48 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Partnership" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="close up of a firm handshake between two business people in formal attire with sunlight flares" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXFSvjTGSY21aorySDxyCaaJoDKEky8B_kW7zv7eM-gTbHr4SW2mW6cCn4R1zig37yJcHQ2SsZ98QcLA1TZW1suHJleJeJeRxn1qUb2E3Akl4SRVPBS71AKZuHEgXqD6ZI_PhdysED5PiOJ8cm5oo-snfuft4cYpktw1BmsNkCc-mvodqGXh2w6OUI-T0WWqp2rYG-p8GGJEncEZPb6ZDydMox7SV-z2EFze7g85Y2gbU6vDK0GdivTRcbc8QHrWxFBz-WKAoOcyc"/>
+</div>
+<div class="flex flex-col justify-between flex-grow">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-sm text-[10px] font-bold uppercase tracking-wider">Whitepaper</span>
+<span class="text-xs text-on-surface-variant">Cập nhật: 20/09/2024</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors mb-3 leading-snug">
+                                Xây dựng Hệ sinh thái Đối tác Bền vững
+                            </h3>
+<p class="text-sm text-on-surface-variant line-clamp-3 leading-relaxed">
+                                Làm thế nào để chuyển đổi từ quan hệ giao dịch thuần túy sang liên minh chiến lược nhằm tăng cường khả năng chống chịu.
+                            </p>
+</div>
+<div class="mt-6 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">person</span>
+</div>
+<span class="text-xs font-semibold text-on-surface">Sarah Chang</span>
+</div>
+<button class="flex items-center gap-2 text-primary hover:underline font-semibold text-sm">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                                PDF (3.5MB)
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- View More Button -->
+<div class="mt-16 flex justify-center">
+<button class="flex items-center gap-2 bg-gradient-to-br from-primary to-primary-container text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
+                    Xem thêm
+                    <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Academic Quote / Insight -->
+<aside class="max-w-4xl mx-auto px-6 mt-24 text-center">
+<div class="bg-surface-container-low p-10 rounded-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-9xl">format_quote</span>
+</div>
+<p class="font-headline italic text-2xl text-primary leading-relaxed">
+                    "Trong thế giới đa cực ngày nay, sourcing không còn chỉ là việc tìm giá rẻ nhất, mà là việc xây dựng một mạng lưới linh hoạt có thể hấp thụ các cú sốc toàn cầu."
+                </p>
+<div class="mt-6 font-body text-on-surface-variant font-medium">
+                    — Editorial Board Intelligence Report, Oct 2024
+                </div>
+</div>
+</aside>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-950 font-sans font-inter text-sm">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 px-8 py-12 max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="font-newsreader italic text-xl text-blue-900 dark:text-blue-50 mb-4">Logiverse</div>
+<p class="text-slate-500 dark:text-slate-400">Nền tảng tri thức Logistics chuyên sâu dành cho chuyên gia và học giả toàn cầu.</p>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-blue-900 dark:text-white font-semibold mb-1">Tài nguyên</span>
+<a class="text-slate-500 dark:text-slate-400 hover:underline decoration-blue-900/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Thư viện Case study</a>
+<a class="text-slate-500 dark:text-slate-400 hover:underline decoration-blue-900/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Báo cáo thị trường</a>
+<a class="text-slate-500 dark:text-slate-400 hover:underline decoration-blue-900/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Đăng ký bản tin</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-blue-900 dark:text-white font-semibold mb-1">Về chúng tôi</span>
+<a class="text-slate-500 dark:text-slate-400 hover:underline decoration-blue-900/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Liên hệ</a>
+<a class="text-slate-500 dark:text-slate-400 hover:underline decoration-blue-900/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Chính sách bảo mật</a>
+<a class="text-slate-500 dark:text-slate-400 hover:underline decoration-blue-900/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Điều khoản sử dụng</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-blue-900 dark:text-white font-semibold mb-1">Kết nối</span>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary transition-transform hover:scale-110" href="#">
+<span class="material-symbols-outlined text-[18px]">language</span>
+</a>
+<a class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary transition-transform hover:scale-110" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 pb-8 flex flex-col md:flex-row justify-between items-center border-t border-slate-200 dark:border-slate-800 pt-6">
+<span class="text-slate-500 dark:text-slate-400">© 2024 Logiverse - Bản tin Logistics &amp; Học thuật Toàn cầu</span>
+<div class="flex gap-6 mt-4 md:mt-0">
+<span class="text-slate-400">v1.2.0 Intelligence Platform</span>
+</div>
+</div>
+</footer>
+</body></html>

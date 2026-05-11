@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quản trị Chuỗi cung ứng Toàn cầu | The Editorial Cartographer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ffdbcf",
+                        "surface-container-highest": "#d9e3f4",
+                        "primary-container": "#1f4060",
+                        "on-secondary-container": "#785e42",
+                        "surface-container": "#e5eeff",
+                        "inverse-primary": "#aac9f0",
+                        "background": "#f8f9ff",
+                        "on-background": "#121c28",
+                        "secondary-fixed": "#ffdcbb",
+                        "surface-container-low": "#eef4ff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#d9e3f4",
+                        "secondary-fixed-dim": "#e3c09f",
+                        "on-surface": "#121c28",
+                        "inverse-surface": "#27313e",
+                        "surface-bright": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "secondary": "#74593e",
+                        "on-surface-variant": "#43474e",
+                        "surface-dim": "#d1dbec",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#fdd9b6",
+                        "outline": "#73777e",
+                        "on-tertiary-fixed-variant": "#812900",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#426182",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#294969",
+                        "on-primary-fixed": "#001d35",
+                        "inverse-on-surface": "#eaf1ff",
+                        "tertiary-container": "#722300",
+                        "outline-variant": "#c3c7ce",
+                        "primary": "#0f3453",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-fixed": "#380d00",
+                        "tertiary": "#4d1500",
+                        "on-tertiary-container": "#ff885b",
+                        "on-secondary-fixed-variant": "#5a4228",
+                        "on-primary-container": "#8dacd1",
+                        "on-secondary-fixed": "#2a1803",
+                        "surface-container-high": "#dfe9fa",
+                        "primary-fixed": "#d0e4ff",
+                        "primary-fixed-dim": "#aac9f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition { transition: background-color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f8f9ff]/80 dark:bg-[#121c28]/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-12 py-6 w-full max-w-[1920px] mx-auto">
+<div class="flex items-center gap-12">
+<a class="font-serif italic text-2xl text-[#0f3453] dark:text-[#e5eeff] tracking-tight" href="#">The Editorial Cartographer</a>
+<nav class="hidden md:flex gap-8">
+<a class="text-[#1F4060]/70 dark:text-[#dfe9fa]/70 hover:text-[#0f3453] font-medium transition-all" href="#">Global Trade</a>
+<a class="text-[#1F4060]/70 dark:text-[#dfe9fa]/70 hover:text-[#0f3453] font-medium transition-all" href="#">Supply Chain</a>
+<a class="text-[#0f3453] dark:text-white border-b-2 border-[#0f3453] pb-1 font-medium" href="#">Logistics Lab</a>
+<a class="text-[#1F4060]/70 dark:text-[#dfe9fa]/70 hover:text-[#0f3453] font-medium transition-all" href="#">Academic Journal</a>
+<a class="text-[#1F4060]/70 dark:text-[#dfe9fa]/70 hover:text-[#0f3453] font-medium transition-all" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-[#1F4060] dark:text-[#dfe9fa] font-medium cursor-pointer transition-all active:scale-95">Login</button>
+<button class="bg-[#0f3453] text-white px-6 py-2.5 rounded-lg font-medium shadow-md hover:opacity-90 transition-all active:scale-95">Access Hub</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-24">
+<div class="max-w-[1440px] mx-auto px-12">
+<!-- Breadcrumb -->
+<nav class="flex items-center gap-2 mb-12 text-on-surface-variant font-label text-sm uppercase tracking-widest">
+<a class="hover:text-primary" href="#">Repository</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-primary" href="#">Logistics Lab</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-bold">Academic Monograph</span>
+</nav>
+<!-- Book Detail Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-24">
+<!-- Book Cover -->
+<div class="lg:col-span-4">
+<div class="relative group">
+<div class="absolute -inset-4 bg-surface-container-low rounded-xl -z-10 group-hover:bg-surface-container transition-colors duration-500"></div>
+<img alt="Quản trị Chuỗi cung ứng Toàn cầu" class="w-full aspect-[3/4] object-cover rounded shadow-2xl ring-1 ring-outline-variant/15" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCX9gpsySAdJt9vgN1QbCqDimiEfMFkstBo-qOGuz6UDhaOoj3PM5DxE41BfCx2659Ddiz2mk1qQM02IIsxaBEdhAg6Q7IuIuXByoIhPvewlc_ZZTQS2tAz65sh1wwO0nPm04Na1ZphnAIj2U-O-1BNG9AP6xpoWj46HzM_6_ptPR235d3xilSS7TS5z7TXRWnmsBLbFVfbjf6I1nlErVXayLemwO9AIxP0W5PuYHvzW4BRNP3WdKsgfFa8rvPOczC7sOXv5yhzXrg"/>
+<div class="mt-8 grid grid-cols-1 gap-4"><button class="w-full flex items-center justify-center gap-2 bg-surface-container-low text-[#0f3453] py-4 rounded-md font-medium hover:bg-surface-container-high transition-all border border-outline-variant/30">
+<span class="material-symbols-outlined">bookmark</span>
+                                Lưu lại
+                            </button></div>
+</div>
+</div>
+<!-- Simplified Main Content Area (Cohesive Section) -->
+<div class="lg:col-span-8 flex flex-col">
+<div class="border-l-4 border-[#0f3453] pl-8 mb-8">
+<h1 class="font-headline text-5xl lg:text-6xl text-on-background mb-4 font-medium leading-tight">Quản trị Chuỗi cung ứng Toàn cầu</h1>
+<p class="font-headline italic text-2xl text-on-surface-variant mb-6">Chiến lược tối ưu hóa mạng lưới trong kỷ nguyên số</p>
+<div class="flex items-center gap-2">
+<span class="text-xs font-label uppercase tracking-widest text-outline">Tác giả:</span>
+<p class="font-medium text-on-surface">Prof. Adrian Walker</p>
+</div>
+</div>
+<!-- Articles Section -->
+<div class="space-y-6">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline text-2xl text-[#0f3453]">Bài báo chuyên sâu</h3>
+<span class="flex items-center gap-1 text-[10px] font-label uppercase tracking-tighter text-secondary bg-secondary-container px-2 py-1 rounded">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            Curated Content
+                        </span>
+</div>
+<!-- Article 1 -->
+<div class="p-6 bg-surface-container-lowest border border-outline-variant/15 rounded-xl hover:shadow-md transition-shadow group">
+<h4 class="font-headline text-xl text-on-surface mb-2 group-hover:text-[#0f3453] transition-colors">Tích hợp Blockchain trong truy xuất nguồn gốc thực phẩm</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4 line-clamp-2">
+                            Nghiên cứu về cách các hợp đồng thông minh tự động hóa việc xác minh chứng chỉ bền vững tại các nút thắt chuỗi cung ứng nông sản toàn cầu.
+                        </p>
+<a class="text-[#0f3453] font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                            Đọc tiếp
+                            <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</a>
+</div>
+<!-- Article 2 -->
+<div class="p-6 bg-surface-container-lowest border border-outline-variant/15 rounded-xl hover:shadow-md transition-shadow group">
+<h4 class="font-headline text-xl text-on-surface mb-2 group-hover:text-[#0f3453] transition-colors">Chiến lược Logistics xanh: Từ lý thuyết đến thực tiễn Net-Zero</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4 line-clamp-2">
+                            Phân tích các mô hình tối ưu hóa quãng đường và sử dụng nhiên liệu thay thế để đạt được mục tiêu giảm phát thải carbon vào năm 2040.
+                        </p>
+<a class="text-[#0f3453] font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                            Đọc tiếp
+                            <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</a>
+</div>
+<!-- Article 3 -->
+<div class="p-6 bg-surface-container-lowest border border-outline-variant/15 rounded-xl hover:shadow-md transition-shadow group">
+<h4 class="font-headline text-xl text-on-surface mb-2 group-hover:text-[#0f3453] transition-colors">Dự báo nhu cầu bằng AI trong bối cảnh biến động địa chính trị</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-4 line-clamp-2">
+                            Cách thức các thuật toán học máy xử lý dữ liệu phi cấu trúc từ tin tức thế giới để điều chỉnh tồn kho an toàn một cách chủ động.
+                        </p>
+<a class="text-[#0f3453] font-medium text-sm flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                            Đọc tiếp
+                            <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Documents -->
+<section class="mt-32">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="font-headline text-4xl text-on-background mb-2">Tài liệu liên quan</h2>
+<p class="text-on-surface-variant">Các nghiên cứu chuyên sâu bổ trợ cho chủ đề Logistics &amp; Chuỗi cung ứng.</p>
+</div>
+<a class="text-[#0f3453] font-medium flex items-center gap-2 group" href="#">
+                    Xem tất cả
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Related Item 1 -->
+<div class="bg-surface-container-low p-6 rounded-lg border border-transparent hover:border-outline-variant/20 hover:bg-surface-container transition-all group cursor-pointer">
+<img alt="Logistics in Emerging Markets" class="w-full aspect-[2/3] object-cover rounded mb-6 shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWa6qozuCWNz4Q6X-dC5gVgfsVdJSfYSw5TBVTgCP3ii-00V9UYP3li_BX17sQhxSAICuoqlDHYkthHPFuxE7csv9flspENPnmY9-LP9KQOfB-6mAielVfwQA4z9vdPLhxouBm8QXzqxRMnp8EULPyP0OrlP-9EJYnN4Y-Ql2j90D8Q-gdKvL5vUWNQpCPLLXje9r2ZgBk7_bqGshzUfpwhq8ziLvhypKOnpNId7j7t0dSohgDyif-Z8Brrr6eY7HkZzZYGLxnmuo"/>
+<span class="text-[10px] font-label uppercase tracking-widest text-outline mb-2 block">Journal Article</span>
+<h4 class="font-headline text-xl text-on-surface mb-2 group-hover:text-[#0f3453] transition-colors">Logistics tại Thị trường Mới nổi</h4>
+<p class="text-sm text-on-surface-variant line-clamp-2">Phân tích hạ tầng vận tải tại khu vực Đông Nam Á giai đoạn 2020-2025.</p>
+</div>
+<!-- Related Item 2 -->
+<div class="bg-surface-container-low p-6 rounded-lg border border-transparent hover:border-outline-variant/20 hover:bg-surface-container transition-all group cursor-pointer">
+<img alt="Green Shipping Practices" class="w-full aspect-[2/3] object-cover rounded mb-6 shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpzxyXxnmGP6c9jDVcWZyjxJPQZcKJJ4fjJi1E2x2Q1jgcRnJWe7-LUTeoTjlw1XrKD1RPiBoKDyZhaBqDLao6TVsRnNn2KXI1vTF_K7REiru2I0ewt0CvUf5GM8bW1DWZpW47PlEOIKCf3hAI-b8CTgp3vo4OR0D8KB6Ei7ePFMiJHOveQkPs3FznZlc9VZF7giXo27owwXuiWNk2CjGfLjGm8o8h1Oqr1-Poty1qPKt6apjfAx82SC2pgPOAYZGyEoMGeHACeXM"/>
+<span class="text-[10px] font-label uppercase tracking-widest text-outline mb-2 block">Case Study</span>
+<h4 class="font-headline text-xl text-on-surface mb-2 group-hover:text-[#0f3453] transition-colors">Vận tải Xanh &amp; Net-Zero</h4>
+<p class="text-sm text-on-surface-variant line-clamp-2">Lộ trình cắt giảm khí thải trong vận tải đường thủy nội địa châu Âu.</p>
+</div>
+<!-- Related Item 3 -->
+<div class="bg-surface-container-low p-6 rounded-lg border border-transparent hover:border-outline-variant/20 hover:bg-surface-container transition-all group cursor-pointer">
+<img alt="Inventory Management" class="w-full aspect-[2/3] object-cover rounded mb-6 shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHZ2M7enB1FWR_3MCrxho3pun307r2EXXQ7Bosi8_oJQrYLNlZIHyTnDMEk4FWliPe5zODYbED_nittvWwvrliMXAiIbSQOI__ORcTQytJ7FWq9RxWCbZeKh3kyUiEQzLy3arYhP-24R4L-bptOjZQ3hYOjaFWtNnhpBOPpBz2qMAayaY11LVIsi26lb6lNYAS-TZmuXSF5WsMF9vrI9mz37N5c0KNb7ly6Miz7yNVe_ThRf3J6dTLjrKLQfQj25oImVnDep9ZYFg"/>
+<span class="text-[10px] font-label uppercase tracking-widest text-outline mb-2 block">Standard Text</span>
+<h4 class="font-headline text-xl text-on-surface mb-2 group-hover:text-[#0f3453] transition-colors">Quản trị Kho hàng Hiện đại</h4>
+<p class="text-sm text-on-surface-variant line-clamp-2">Tối ưu hóa không gian và robot hóa trong các trung tâm phân loại tự động.</p>
+</div>
+<!-- Related Item 4 -->
+<div class="bg-surface-container-low p-6 rounded-lg border border-transparent hover:border-outline-variant/20 hover:bg-surface-container transition-all group cursor-pointer">
+<div class="w-full aspect-[2/3] bg-surface-container-high rounded mb-6 flex flex-col items-center justify-center p-8 text-center">
+<span class="material-symbols-outlined text-4xl text-primary-container mb-4">analytics</span>
+<p class="font-headline text-lg">Dữ liệu Thương mại Thế giới Q4/2023</p>
+</div>
+<span class="text-[10px] font-label uppercase tracking-widest text-outline mb-2 block">Dataset</span>
+<h4 class="font-headline text-xl text-on-surface mb-2 group-hover:text-[#0f3453] transition-colors">Báo cáo Chỉ số Logistics</h4>
+<p class="text-sm text-on-surface-variant line-clamp-2">Số liệu thô về chi phí vận hành container trên các tuyến Thái Bình Dương.</p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-12 border-t border-[#c3c7ce]/15 bg-[#eef4ff] dark:bg-[#0f3453]">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 w-full max-w-[1920px] mx-auto">
+<div class="space-y-6">
+<span class="font-serif text-xl text-[#0f3453] dark:text-white">Editorial Cartographer</span>
+<p class="text-[#1F4060]/60 dark:text-[#dfe9fa]/60 text-sm leading-relaxed">
+                Nền tảng trí tuệ học thuật hàng đầu về chuỗi cung ứng và vận tải toàn cầu. Chúng tôi ánh xạ tương lai của ngành logistics thông qua dữ liệu và nghiên cứu chuyên sâu.
+            </p>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-[#0f3453] dark:text-white uppercase text-xs tracking-widest">Resources</h4>
+<nav class="flex flex-col gap-3">
+<a class="text-[#1F4060]/60 dark:text-[#dfe9fa]/60 text-sm hover:underline decoration-[#1F4060]/30 underline-offset-4 transition-opacity duration-200 hover:opacity-80" href="#">Subscription</a>
+<a class="text-[#1F4060]/60 dark:text-[#dfe9fa]/60 text-sm hover:underline decoration-[#1F4060]/30 underline-offset-4 transition-opacity duration-200 hover:opacity-80" href="#">Global Transit Maps</a>
+<a class="text-[#1F4060]/60 dark:text-[#dfe9fa]/60 text-sm hover:underline decoration-[#1F4060]/30 underline-offset-4 transition-opacity duration-200 hover:opacity-80" href="#">Methodology</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-[#0f3453] dark:text-white uppercase text-xs tracking-widest">Institutional</h4>
+<nav class="flex flex-col gap-3">
+<a class="text-[#1F4060]/60 dark:text-[#dfe9fa]/60 text-sm hover:underline decoration-[#1F4060]/30 underline-offset-4 transition-opacity duration-200 hover:opacity-80" href="#">Contact Archival Support</a>
+<a class="text-[#1F4060]/60 dark:text-[#dfe9fa]/60 text-sm hover:underline decoration-[#1F4060]/30 underline-offset-4 transition-opacity duration-200 hover:opacity-80" href="#">Privacy Protocol</a>
+</nav>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-[#0f3453] dark:text-white uppercase text-xs tracking-widest">Join the Registry</h4>
+<div class="flex">
+<input class="bg-white/50 dark:bg-white/5 border-none px-4 py-2 w-full text-sm focus:ring-1 focus:ring-primary" placeholder="Email address" type="email"/>
+<button class="bg-[#0f3453] text-white px-4 py-2 text-sm font-medium">Join</button>
+</div>
+<p class="text-[10px] text-[#1F4060]/40 dark:text-[#dfe9fa]/40 italic">Nhận các bản tin chuyên môn hàng tuần về Logistics.</p>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-[#c3c7ce]/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-[#1F4060]/60 dark:text-[#dfe9fa]/60 font-sans text-sm tracking-tight">© 2024 Editorial Cartographer. Academic Journalism &amp; Global Logistics Intelligence.</p>
+<div class="flex gap-6">
+<a class="text-[#1F4060]/40 dark:text-[#dfe9fa]/40 hover:text-[#0f3453] transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-[#1F4060]/40 dark:text-[#dfe9fa]/40 hover:text-[#0f3453] transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .mega-menu-blur {
+            backdrop-filter: blur(8px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-surface": "#27313e",
+                      "tertiary": "#4d1500",
+                      "on-primary-container": "#8dacd1",
+                      "inverse-primary": "#aac9f0",
+                      "secondary-fixed-dim": "#e3c09f",
+                      "on-surface-variant": "#43474e",
+                      "surface-container-low": "#eef4ff",
+                      "on-tertiary-container": "#ff885b",
+                      "on-secondary-container": "#785e42",
+                      "outline": "#73777e",
+                      "surface-dim": "#d1dbec",
+                      "surface-container-high": "#dfe9fa",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f8f9ff",
+                      "background": "#f8f9ff",
+                      "on-primary-fixed-variant": "#294969",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#ffb59b",
+                      "secondary": "#74593e",
+                      "primary-fixed": "#d0e4ff",
+                      "surface-container": "#e5eeff",
+                      "primary": "#022a49",
+                      "primary-fixed-dim": "#aac9f0",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#fdd9b6",
+                      "on-secondary-fixed-variant": "#5a4228",
+                      "on-secondary-fixed": "#2a1803",
+                      "primary-container": "#1f4060",
+                      "secondary-fixed": "#ffdcbb",
+                      "surface-tint": "#426182",
+                      "on-primary-fixed": "#001d35",
+                      "on-background": "#121c28",
+                      "tertiary-fixed": "#ffdbcf",
+                      "surface": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#722300",
+                      "on-tertiary-fixed-variant": "#812900",
+                      "on-tertiary-fixed": "#380d00",
+                      "outline-variant": "#c3c7ce",
+                      "surface-variant": "#d9e3f4",
+                      "surface-container-highest": "#d9e3f4",
+                      "on-surface": "#121c28",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Newsreader"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body min-h-screen overflow-hidden">
+<!-- NAVIGATION SHELL -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-12 py-4 max-w-[1920px] mx-auto bg-[#f8f9ff]/80 dark:bg-[#121c28]/80 backdrop-blur-xl shadow-sm z-[100] transition-all">
+<div class="flex items-center gap-12">
+<span class="font-['Newsreader'] text-2xl font-bold italic text-[#022a49] dark:text-[#f8f9ff]">Logiverse</span>
+<nav class="hidden md:flex items-center gap-8">
+<div class="relative group h-full py-2">
+<button class="flex items-center gap-1 font-['Newsreader'] text-lg font-medium tracking-tight text-[#022a49] dark:text-[#f8f9ff] border-b-2 border-[#022a49] dark:border-[#f8f9ff] pb-1">
+                        Library
+                        <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+</button>
+</div>
+<a class="font-['Newsreader'] text-lg font-medium tracking-tight text-[#1f4060]/70 dark:text-[#e5eeff]/60 hover:text-[#022a49] dark:hover:text-[#f8f9ff] transition-colors" href="#">Intelligence</a>
+<a class="font-['Newsreader'] text-lg font-medium tracking-tight text-[#1f4060]/70 dark:text-[#e5eeff]/60 hover:text-[#022a49] dark:hover:text-[#f8f9ff] transition-colors" href="#">Dispatch</a>
+<a class="font-['Newsreader'] text-lg font-medium tracking-tight text-[#1f4060]/70 dark:text-[#e5eeff]/60 hover:text-[#022a49] dark:hover:text-[#f8f9ff] transition-colors" href="#">Archive</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#eef4ff]/50 p-2 rounded-full transition-all duration-300">menu_book</span>
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#eef4ff]/50 p-2 rounded-full transition-all duration-300">language</span>
+</div>
+<div class="h-6 w-px bg-outline-variant/30"></div>
+<button class="text-[#022a49] font-medium hover:opacity-80 transition-opacity">Sign In</button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2 rounded-lg font-semibold shadow-md active:scale-95 transition-transform">Subscribe</button>
+</div>
+</header>
+<!-- MEGA MENU OVERLAY -->
+<div class="fixed inset-0 top-[72px] z-[90] bg-[#121c28]/20 backdrop-blur-sm transition-all duration-500">
+<div class="absolute top-0 left-0 w-full bg-surface-container-lowest shadow-2xl border-t border-outline-variant/10 animate-in slide-in-from-top duration-300">
+<div class="max-w-7xl mx-auto px-12 py-12 grid grid-cols-4 gap-12">
+<!-- Column 1 -->
+<div class="space-y-6">
+<h3 class="font-headline text-xl font-bold text-primary tracking-tight border-b border-surface-container pb-3">Hợp đồng &amp; Chứng từ</h3>
+<ul class="space-y-4">
+<li>
+<a class="group flex items-center justify-between hover:text-primary transition-colors" href="#">
+<span class="font-body text-base text-on-surface-variant group-hover:text-primary">Hợp đồng</span>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">arrow_forward</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center justify-between hover:text-primary transition-colors" href="#">
+<span class="font-body text-base text-on-surface-variant group-hover:text-primary">Chứng từ</span>
+<span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0">arrow_forward</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Column 2 -->
+<div class="space-y-6">
+<h3 class="font-headline text-xl font-bold text-primary tracking-tight border-b border-surface-container pb-3">Sách</h3>
+<div class="bg-surface-container-low p-4 rounded-xl space-y-4">
+<div class="h-32 bg-surface-variant rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of a premium leather-bound book on a wooden library table with warm focused spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKVUNd1uJFzto0zZahHuLGT04gRkOaQFQgcVSJvirksqMkxDxEA-aSZt8N5VUKpJ3yPONi4upJqBgv1MYKZU40VSfFohBFg5VLIzsbNeXTjXUl0iObvZo5YtIztFRwMkUQNNQna9oNUtGYfFSanWe9uQtQpRgFN5h-OhOiPbbSt5qn44MKuQvkKmfQ-S5FVLAMjyWVKvAYRXvjJCGu-IU6ZU2l2BfC1k6PIax6BzV_65pYs6brhGdzqb1YlymFXwnJD8vBxwjeTOk"/>
+</div>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">Khám phá kho tàng kiến thức logistics được biên soạn bởi các chuyên gia đầu ngành.</p>
+<a class="inline-flex items-center text-primary font-semibold text-sm hover:underline" href="#">Xem danh mục <span class="material-symbols-outlined text-xs ml-1">open_in_new</span></a>
+</div>
+</div>
+<!-- Column 3 -->
+<div class="space-y-6">
+<h3 class="font-headline text-xl font-bold text-primary tracking-tight border-b border-surface-container pb-3">Logistics</h3>
+<ul class="space-y-4">
+<li>
+<a class="group flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-primary-container">directions_boat</span>
+<span class="font-body text-base">Đường biển &amp; Thủy nội địa</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-primary-container">flight</span>
+<span class="font-body text-base">Đường hàng không</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-primary-container">local_shipping</span>
+<span class="font-body text-base">Đường bộ</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-primary-container">train</span>
+<span class="font-body text-base">Đường sắt</span>
+</a>
+</li>
+<li>
+<a class="group flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-primary-container">dynamic_feed</span>
+<span class="font-body text-base">Đa phương thức</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Column 4 -->
+<div class="space-y-6">
+<h3 class="font-headline text-xl font-bold text-primary tracking-tight border-b border-surface-container pb-3">Chuỗi cung ứng</h3>
+<div class="grid grid-cols-1 gap-2">
+<a class="p-3 hover:bg-surface-container rounded-lg transition-colors flex items-center gap-4 group" href="#">
+<div class="w-10 h-10 rounded bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">shopping_cart</span>
+</div>
+<div>
+<span class="block font-bold text-on-surface">Procurement</span>
+<span class="text-xs text-on-surface-variant">Quy trình thu mua &amp; tối ưu</span>
+</div>
+</a>
+<a class="p-3 hover:bg-surface-container rounded-lg transition-colors flex items-center gap-4 group" href="#">
+<div class="w-10 h-10 rounded bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">search</span>
+</div>
+<div>
+<span class="block font-bold text-on-surface">Sourcing</span>
+<span class="text-xs text-on-surface-variant">Tìm kiếm nguồn hàng toàn cầu</span>
+</div>
+</a>
+<a class="p-3 hover:bg-surface-container rounded-lg transition-colors flex items-center gap-4 group" href="#">
+<div class="w-10 h-10 rounded bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">event_note</span>
+</div>
+<div>
+<span class="block font-bold text-on-surface">Planning</span>
+<span class="text-xs text-on-surface-variant">Lập kế hoạch nhu cầu và sản xuất</span>
+</div>
+</a>
+<a class="p-3 hover:bg-surface-container rounded-lg transition-colors flex items-center gap-4 group" href="#">
+<div class="w-10 h-10 rounded bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">factory</span>
+</div>
+<div>
+<span class="block font-bold text-on-surface">Manufacturing</span>
+<span class="text-xs text-on-surface-variant">Quản trị sản xuất thông minh</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Footer of Mega Menu -->
+<div class="bg-surface-container-low px-12 py-6 border-t border-outline-variant/10">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<div class="flex items-center gap-6">
+<span class="text-xs font-bold text-on-surface-variant tracking-widest uppercase">Trực quan hóa dữ liệu:</span>
+<div class="flex gap-4">
+<span class="px-2 py-1 bg-surface-container-highest text-[10px] rounded border border-outline-variant/20">Real-time Map</span>
+<span class="px-2 py-1 bg-surface-container-highest text-[10px] rounded border border-outline-variant/20">Metric Dashboard</span>
+</div>
+</div>
+<button class="text-sm font-semibold text-primary flex items-center gap-2 hover:translate-x-1 transition-transform">
+                        Explore Full Library
+                        <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- BACKGROUND CONTENT (BLURRED) -->
+<main class="pt-32 px-12 max-w-[1920px] mx-auto filter blur-md grayscale-[0.2] opacity-40">
+<section class="max-w-4xl mb-24">
+<span class="font-label text-sm uppercase tracking-widest text-primary mb-4 block">Editorial Intelligence</span>
+<h1 class="font-headline text-7xl font-bold leading-tight mb-8">The Future of Global Trade, <br/><span class="italic text-primary-container">Architected for Precision.</span></h1>
+<p class="font-body text-xl text-on-surface-variant leading-relaxed max-w-2xl mb-10">An authoritative digital ecosystem for academic logistics research, real-time supply chain mapping, and editorial journalism on the movement of global goods.</p>
+<div class="flex gap-4">
+<button class="bg-primary text-white px-8 py-4 rounded-lg font-bold flex items-center gap-2">Read Latest Dispatch <span class="material-symbols-outlined">trending_flat</span></button>
+<button class="bg-surface-container-highest text-primary px-8 py-4 rounded-lg font-bold border border-outline-variant/10">Global Transit Map</button>
+</div>
+</section>
+<!-- Bento Grid Section (Blurred) -->
+<div class="grid grid-cols-12 gap-6 pb-24">
+<div class="col-span-8 h-[500px] bg-surface-container-low rounded-2xl overflow-hidden relative group">
+<img class="w-full h-full object-cover" data-alt="Wide aerial shot of a massive container port at dawn with industrial cranes and vibrant morning sky reflecting on the deep blue water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM735B17_Qz5u6Mj_kIm2x57maLxuUxhTnHY7oDW1C0Ug6s-S_tA5CGGgDGgVC70NBs4VEABb0G1ZblOQWuENwOMTxAMRCPsSM_gLswyuVwXlpOK3Pf9k5_wFqqjXzZy56iKYDMFFZiaSHu4wEooZsUiXu0w9sS88UMYHr4e178BHoEWw_Tk0GjHLkrTfBrPEY_2ht92k7R6PEPcMac9ez4tkqBPvxdvkW8LF-qRr6BsSrczc__LBclQFHsz_nczcSHtDV3NJrTLw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-12">
+<span class="text-on-primary/70 font-label text-xs uppercase tracking-widest mb-2">Deep Dive</span>
+<h2 class="font-headline text-4xl text-on-primary font-bold max-w-xl">Maritime Bottlenecks: A Statistical Post-Mortem of the Suez Expansion</h2>
+</div>
+</div>
+<div class="col-span-4 grid grid-rows-2 gap-6">
+<div class="bg-surface-container-lowest border border-outline-variant/15 p-8 rounded-2xl">
+<h3 class="font-headline text-2xl font-bold mb-4">Volume Metrics</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-2">
+<span class="text-sm text-on-surface-variant">Global TEU throughput</span>
+<span class="font-bold text-xl">+4.2%</span>
+</div>
+<div class="flex justify-between items-end border-b border-outline-variant/10 pb-2">
+<span class="text-sm text-on-surface-variant">Fuel Volatility Index</span>
+<span class="font-bold text-xl text-error">128.4</span>
+</div>
+</div>
+</div>
+<div class="bg-primary-container p-8 rounded-2xl text-on-primary-container relative overflow-hidden">
+<span class="material-symbols-outlined absolute top-4 right-4 text-6xl opacity-10">hub</span>
+<h3 class="font-headline text-2xl font-bold text-white mb-2">Logistics Hub</h3>
+<p class="text-sm opacity-80 leading-relaxed">Access our interconnected node network and fleet optimization tools.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FLOATING ACTION BUTTON (SUPPRESSED ON THIS VIEW PER RULES, BUT ILLUSTRATIVE OF BRAND) -->
+<!-- Suppressed due to Detail/Mega-menu focus state -->
+</body></html>

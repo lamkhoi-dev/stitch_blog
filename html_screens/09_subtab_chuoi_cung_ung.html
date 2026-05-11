@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Knowledge Hub - Supply Chain Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#001d35",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed-variant": "#294969",
+                    "primary-fixed-dim": "#aac9f0",
+                    "primary": "#022a49",
+                    "surface-container-low": "#eef4ff",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#2a1803",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#ffdcbb",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#d9e3f4",
+                    "on-primary-container": "#8dacd1",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#aac9f0",
+                    "surface-bright": "#f8f9ff",
+                    "surface": "#f8f9ff",
+                    "surface-container-high": "#dfe9fa",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#27313e",
+                    "tertiary-fixed-dim": "#ffb59b",
+                    "on-surface-variant": "#43474e",
+                    "on-tertiary-fixed": "#380d00",
+                    "surface-container": "#e5eeff",
+                    "secondary": "#74593e",
+                    "background": "#f8f9ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#785e42",
+                    "tertiary-fixed": "#ffdbcf",
+                    "secondary-fixed-dim": "#e3c09f",
+                    "tertiary-container": "#722300",
+                    "on-background": "#121c28",
+                    "on-error": "#ffffff",
+                    "on-surface": "#121c28",
+                    "surface-dim": "#d1dbec",
+                    "outline": "#73777e",
+                    "inverse-on-surface": "#eaf1ff",
+                    "surface-tint": "#426182",
+                    "on-secondary-fixed-variant": "#5a4228",
+                    "primary-container": "#1f4060",
+                    "surface-container-highest": "#d9e3f4",
+                    "outline-variant": "#c3c7ce",
+                    "tertiary": "#4d1500",
+                    "on-tertiary-container": "#ff885b",
+                    "primary-fixed": "#d0e4ff",
+                    "secondary-container": "#fdd9b6",
+                    "on-tertiary-fixed-variant": "#812900"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #022a49 0%, #1f4060 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface flex min-h-screen">
+<!-- SideNavBar (Suppressed for Hub Overview but included as part of Supply Chain Context if needed, however per instructions, we follow the predicted components) -->
+<div class="flex-1 flex flex-col">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center px-8 w-full h-16 bg-slate-50 dark:bg-slate-950 border-b border-blue-100/50 dark:border-blue-900/50 z-50">
+<div class="font-serif italic text-2xl text-blue-950 dark:text-blue-50">Knowledge Hub</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors cursor-pointer duration-200 py-5" href="#">Home</a>
+<a class="text-blue-900 dark:text-blue-100 border-b-2 border-blue-900 dark:border-blue-100 font-bold transition-colors cursor-pointer duration-200 py-5" href="#">Library</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors cursor-pointer duration-200 py-5" href="#">News</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors cursor-pointer duration-200 py-5" href="#">Case Study</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-colors cursor-pointer duration-200 py-5" href="#">About Us</a>
+</nav>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined cursor-pointer text-blue-900 dark:text-blue-200" data-icon="search">search</span>
+<span class="material-symbols-outlined cursor-pointer text-blue-900 dark:text-blue-200" data-icon="bookmark">bookmark</span>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Editorial Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a professional editorial manager with a neutral background, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtTKk9MKJu3Xr1TYi2ZsEIOylC_We4Ml53B8FXlSMOeMIvV4yLPhfWNdcOnuNslTpP_LKdkBJGkHFw3DN7OMS7GUSf6Vn8T7_RFrr-oSTTqiGEwDy8FMgMg8fwg4rh84zdPgME36HsvzC5C0wQzryM2oig0isQboSfYyAX2BeI6ENyTnxcOUgPdESFo5Jo-wD3lEm3vsSl68-QCqGFAAjVTNWFUQdvcdFH2DPayTF-Qp3k_I8DTR0R2Ndlmh4JTunO3aJd0iOFpk0"/>
+</div>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<!-- Hero Section -->
+<section class="pt-32 pb-24 px-8 lg:px-24 relative overflow-hidden bg-white">
+<div class="relative z-10 max-w-4xl">
+<span class="uppercase tracking-widest font-label text-xs mb-4 block text-on-surface-variant">Library / Supply Chain Architecture</span>
+<h1 class="font-headline text-5xl lg:text-7xl font-light leading-tight mb-6 font-display" style="color: #0F3453;">Chuỗi Cung Ứng <br/><span class="text-3xl lg:text-4xl font-light italic opacity-90 block mt-2" style="color: #0F3453; opacity: 0.9;">Kiến trúc Vận hành &amp; Quản trị</span></h1>
+<p class="font-body text-xl lg:text-2xl max-w-2xl leading-relaxed text-on-surface-variant">
+                        Khám phá các trụ cột kiến thức cốt lõi trong chuỗi cung ứng toàn cầu từ thu mua đến sản xuất.
+                    </p>
+</div>
+<!-- Background Pattern (Subtle Blueprint) -->
+</section>
+<!-- Main Content: Bento Grid Layout -->
+<section class="px-8 lg:px-24 py-20 bg-surface">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- 1. Procurement -->
+<div class="group bg-surface-container-lowest border border-outline-variant/15 p-8 flex flex-col justify-between transition-all hover:bg-surface-container-low">
+<div>
+<div class="w-12 h-12 bg-primary/5 flex items-center justify-center mb-8 rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shopping_cart">shopping_cart</span>
+</div>
+<h3 class="font-headline text-3xl font-semibold mb-4 text-on-surface">Quản trị Thu mua</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                                Tối ưu hóa quy trình mua sắm, quản lý nhà cung cấp và chiến lược cắt giảm chi phí hiệu quả trong hệ sinh thái doanh nghiệp hiện đại.
+                            </p>
+</div>
+<a class="inline-flex items-center gap-2 font-label text-sm font-bold text-primary hover:gap-4 transition-all" href="#">
+                            Xem chi tiết
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- 2. Sourcing -->
+<div class="group bg-surface-container-lowest border border-outline-variant/15 p-8 flex flex-col justify-between transition-all hover:bg-surface-container-low">
+<div>
+<div class="w-12 h-12 bg-primary/5 flex items-center justify-center mb-8 rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="lan">lan</span>
+</div>
+<h3 class="font-headline text-3xl font-semibold mb-4 text-on-surface">Tìm kiếm Nguồn hàng</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                                Phân tích thị trường toàn cầu, định vị đối tác chiến lược và xây dựng mạng lưới cung ứng linh hoạt và bền vững.
+                            </p>
+</div>
+<a class="inline-flex items-center gap-2 font-label text-sm font-bold text-primary hover:gap-4 transition-all" href="#">
+                            Xem chi tiết
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- 3. Planning -->
+<div class="group bg-surface-container-lowest border border-outline-variant/15 p-8 flex flex-col justify-between transition-all hover:bg-surface-container-low">
+<div>
+<div class="w-12 h-12 bg-primary/5 flex items-center justify-center mb-8 rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="event_note">event_note</span>
+</div>
+<h3 class="font-headline text-3xl font-semibold mb-4 text-on-surface">Lập kế hoạch</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                                Dự báo nhu cầu, cân bằng tồn kho và điều phối luồng hàng hóa để đảm bảo sự ổn định của toàn bộ chuỗi giá trị.
+                            </p>
+</div>
+<a class="inline-flex items-center gap-2 font-label text-sm font-bold text-primary hover:gap-4 transition-all" href="#">
+                            Xem chi tiết
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- 4. Manufacturing -->
+<div class="group bg-surface-container-lowest border border-outline-variant/15 p-8 flex flex-col justify-between transition-all hover:bg-surface-container-low">
+<div>
+<div class="w-12 h-12 bg-primary/5 flex items-center justify-center mb-8 rounded">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="factory">factory</span>
+</div>
+<h3 class="font-headline text-3xl font-semibold mb-4 text-on-surface">Quản trị Sản xuất</h3>
+<p class="font-body text-on-surface-variant leading-relaxed mb-8">
+                                Điều hành quy trình sản xuất tinh gọn, quản lý chất lượng và ứng dụng công nghệ 4.0 trong vận hành nhà máy.
+                            </p>
+</div>
+<a class="inline-flex items-center gap-2 font-label text-sm font-bold text-primary hover:gap-4 transition-all" href="#">
+                            Xem chi tiết
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Insight Section (Asymmetric Editorial Style) -->
+<section class="bg-surface-container-low py-24 px-8 lg:px-24">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="lg:w-1/2">
+<div class="relative">
+<img alt="Abstract Logistics Visualization" class="w-full h-[500px] object-cover shadow-2xl" data-alt="abstract artistic visualization of global logistics networks with glowing interconnected nodes and lines over a deep navy background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_hHFOt8kbMotnRY9v8sykHGSSTxAMqmcwAHUWr7OgbnS5msKy95wUkPodl5_J3DezS-EKq5pp44SN8jTLEqZ0xU8w7E2iAG3RJgBMQXVR-ja1rvjVmVaJ0dhWEs0OMid9ii-mXhsueXwgOmLIged2GTXdQA1R5DodQOAxYOsvsIBoMutXhk3qoH-ZIgZVhIqGpFXvuDrwfH5lYEpquawlE1iQiFgV4Zk1ADNkEBW2pph2QnzIokoVICXJgEgMV_xgV29YJMRtfNw"/>
+<div class="absolute -bottom-8 -right-8 bg-primary p-8 text-white hidden lg:block">
+<p class="font-headline text-2xl italic">"Logistics is the map; <br/>Strategy is the compass."</p>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 space-y-8">
+<h2 class="font-headline text-4xl text-on-surface">Tầm nhìn Vận hành Toàn cầu</h2>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed">
+                            Trong kỷ nguyên biến động, chuỗi cung ứng không chỉ là một quy trình hỗ trợ mà là trái tim của sự cạnh tranh. Chúng tôi cung cấp những phân tích sâu sắc nhất về cách các doanh nghiệp hàng đầu tái cấu trúc mạng lưới của họ để đạt được hiệu suất tối đa.
+                        </p>
+<div class="flex gap-4">
+<button class="px-6 py-3 editorial-gradient text-white font-label text-sm font-bold rounded-lg shadow-lg">Tải Báo Cáo 2024</button>
+<button class="px-6 py-3 border border-primary text-primary font-label text-sm font-bold rounded-lg hover:bg-primary/5">Tìm hiểu thêm</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Consistent with Logiverse Style) -->
+<footer class="bg-primary text-white py-16 px-8 lg:px-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
+<div class="col-span-1 md:col-span-2">
+<h3 class="font-headline text-2xl mb-6 italic">Knowledge Hub</h3>
+<p class="font-body text-on-primary-container max-w-sm">
+                        Nền tảng tri thức chuyên sâu về Logistics và Chuỗi cung ứng toàn cầu, được biên soạn bởi các chuyên gia hàng đầu.
+                    </p>
+</div>
+<div>
+<h4 class="font-label text-xs uppercase tracking-widest mb-6 opacity-50">Danh mục</h4>
+<ul class="space-y-4 font-body text-sm text-on-primary-container">
+<li><a class="hover:text-white" href="#">Procurement</a></li>
+<li><a class="hover:text-white" href="#">Sourcing</a></li>
+<li><a class="hover:text-white" href="#">Planning</a></li>
+<li><a class="hover:text-white" href="#">Manufacturing</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label text-xs uppercase tracking-widest mb-6 opacity-50">Liên hệ</h4>
+<ul class="space-y-4 font-body text-sm text-on-primary-container">
+<li><a class="hover:text-white" href="#">editorial@logiverse.hub</a></li>
+<li><a class="hover:text-white" href="#">LinkedIn Intelligence</a></li>
+<li><a class="hover:text-white" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-label text-on-primary-container opacity-50">
+<p>© 2024 Logiverse Knowledge Hub. All Rights Reserved.</p>
+<div class="flex gap-8 mt-4 md:mt-0">
+<span>Global Standards</span>
+<span>Editorial Integrity</span>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

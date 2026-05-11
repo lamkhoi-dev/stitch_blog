@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#623f12",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#43474e",
+                        "tertiary-fixed-dim": "#f0bd84",
+                        "tertiary-fixed": "#ffddba",
+                        "outline": "#73777e",
+                        "primary-fixed-dim": "#a9c9f0",
+                        "inverse-surface": "#2f3033",
+                        "inverse-on-surface": "#f1f0f3",
+                        "surface-tint": "#416182",
+                        "surface-bright": "#faf9fc",
+                        "background": "#faf9fc",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#40627d",
+                        "on-primary-fixed": "#001d34",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#dadadd",
+                        "tertiary": "#2d1800",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#284969",
+                        "tertiary-container": "#4a2b00",
+                        "surface-container-high": "#e8e8eb",
+                        "secondary-fixed": "#cce5ff",
+                        "surface-variant": "#e3e2e5",
+                        "on-tertiary-container": "#c0915d",
+                        "on-background": "#1a1c1e",
+                        "primary-container": "#0f3453",
+                        "on-surface": "#1a1c1e",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#001e31",
+                        "error-container": "#ffdad6",
+                        "surface-container": "#eeedf0",
+                        "surface": "#faf9fc",
+                        "surface-container-low": "#f4f3f6",
+                        "on-secondary-container": "#41627e",
+                        "secondary-fixed-dim": "#a8caea",
+                        "secondary-container": "#bcdeff",
+                        "primary": "#001e37",
+                        "on-primary-container": "#7d9dc1",
+                        "inverse-primary": "#a9c9f0",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#d0e4ff",
+                        "outline-variant": "#c3c7ce",
+                        "surface-container-highest": "#e3e2e5",
+                        "on-tertiary-fixed": "#2b1700",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#284a64"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .serif { font-family: 'Newsreader', serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar Shell -->
+<header class="bg-surface/85 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-[#40627d]/10">
+<nav class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+<div class="font-serif text-2xl font-black text-[#001e37]">Logiverse</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-serif font-bold text-lg tracking-tight text-[#40627d] hover:text-[#001e37] transition-colors duration-300" href="#">Trang chủ</a>
+<!-- Active Tab: Thư viện -->
+<a class="font-serif font-bold text-lg tracking-tight text-[#001e37] border-b-2 border-[#0F3453] pb-1" href="#">Thư viện</a>
+<a class="font-serif font-bold text-lg tracking-tight text-[#40627d] hover:text-[#001e37] transition-colors duration-300" href="#">Tin tức</a>
+<a class="font-serif font-bold text-lg tracking-tight text-[#40627d] hover:text-[#001e37] transition-colors duration-300" href="#">Case Study</a>
+<a class="font-serif font-bold text-lg tracking-tight text-[#40627d] hover:text-[#001e37] transition-colors duration-300" href="#">Về chúng tôi</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 text-[#001e37]">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-20 max-w-7xl mx-auto px-8">
+<!-- Hero Section -->
+<section class="mb-20">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-8">
+<span class="label-md uppercase tracking-[0.2em] text-secondary font-bold mb-4 block">Thư viện học thuật</span>
+<h1 class="text-6xl md:text-7xl font-headline font-bold text-primary tracking-tight leading-none mb-6">
+                        Hợp đồng &amp; Chứng từ
+                    </h1>
+<p class="text-lg text-on-surface-variant max-w-2xl font-body leading-relaxed">
+                        Kho lưu trữ các biểu mẫu pháp lý, quy trình vận hành tiêu chuẩn và tài liệu chứng từ chuyên ngành logistics dành cho doanh nghiệp.
+                    </p>
+</div>
+<div class="md:col-span-4 flex justify-end">
+<div class="w-full bg-surface-container-low p-1 rounded-lg">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-lowest border-none rounded-md focus:ring-2 focus:ring-primary placeholder:text-outline-variant font-body" placeholder="Tìm kiếm tài liệu..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Area: Academic Ledger Style -->
+<div class="space-y-12">
+<!-- Filter / Metadata Bar -->
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-4">
+<div class="flex gap-4">
+<span class="bg-tertiary-fixed-dim text-on-tertiary-fixed px-3 py-1 rounded-sm text-xs font-bold uppercase tracking-wider">Mới nhất</span>
+<span class="text-on-surface-variant text-sm font-medium">Hiển thị 24 kết quả</span>
+</div>
+<button class="flex items-center gap-2 text-primary text-sm font-bold uppercase tracking-widest hover:translate-x-1 transition-transform">
+                    Lọc tài liệu <span class="material-symbols-outlined text-sm">filter_list</span>
+</button>
+</div>
+<!-- Landscape Document Cards Grid -->
+<div class="grid grid-cols-1 gap-8">
+<!-- Card 1 -->
+<div class="group grid grid-cols-1 md:grid-cols-12 bg-surface-container-low hover:bg-surface-container-high transition-colors duration-500 overflow-hidden rounded-md">
+<div class="md:col-span-4 h-64 md:h-auto relative">
+<img class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="close-up of professional legal documents with a fountain pen on a textured paper background, dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYK3DCoaaDiTVZva0iQuR3-w5VcPO4zuYQbquIdUt-L9zPn_l6FuMwreK7OGvBxQ8DYx8NA5q5doVlJ1qutfR9bOYAQCKT64P3z1r5FMJDVVr72Di7uAX1FqKfaGmlALsNLzcKO9EHrLqjZ49b4LVW4foGgFmzkS6wh-LkunsgRjFRNbFSayO-9Eu3xzoLUPL0zmGHpdJAdyqPWd7gifwh7In6axMKFbRrxsl9sHmcqH26K3FYLKRLyUhvMkuampNQs-tlN4kfvVI"/>
+</div>
+<div class="md:col-span-8 p-8 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline font-bold text-primary group-hover:text-primary-container transition-colors">Hợp đồng Vận chuyển Đa phương thức Quốc tế</h3>
+<div class="flex items-center gap-2 bg-primary/5 px-2 py-1">
+<span class="material-symbols-outlined text-primary text-lg" data-weight="fill">picture_as_pdf</span>
+<span class="text-[10px] font-bold text-primary uppercase">PDF Available</span>
+</div>
+</div>
+<p class="text-on-surface-variant line-clamp-3 mb-6 font-body leading-relaxed">
+                                Bản thảo hợp đồng chuẩn hóa cho các giao dịch vận tải xuyên biên giới, tích hợp các điều khoản Incoterms 2020 và quy định về bảo hiểm hàng hải quốc tế. Bao gồm phụ lục về trách nhiệm bồi thường và xử lý tranh chấp.
+                            </p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="text-xs">
+<span class="text-outline uppercase tracking-tighter block mb-1">Ngày cập nhật</span>
+<span class="text-primary font-bold">12 Tháng 10, 2024</span>
+</div>
+<div class="text-xs">
+<span class="text-outline uppercase tracking-tighter block mb-1">Dung lượng</span>
+<span class="text-primary font-bold">2.4 MB</span>
+</div>
+</div>
+<button class="text-primary font-bold text-sm underline decoration-secondary/30 underline-offset-8 hover:decoration-primary transition-all">Tải xuống tài liệu</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group grid grid-cols-1 md:grid-cols-12 bg-surface-container-low hover:bg-surface-container-high transition-colors duration-500 overflow-hidden rounded-md">
+<div class="md:col-span-4 h-64 md:h-auto relative">
+<img class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="aerial view of large cargo shipping containers at a terminal in soft blue morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDet6keH1s-Kauaht9lvzUjZSQnfxck6PLh98SlaJSVoUKHDp7CrzMf-uHh8xEs1Yc8dEjcyrMniDDmSBRz1sVxMH-EJSbvHYGBTUF70l778fMQB43RZUQZyWoP-NqsZu5owmiL5HCIguW_BIZRsM-XwPiYu5uYjXZCQh5CbmPFS8cvXRYPcIm7imv85xmBwO_Hzoa5WM5rCLKZ_WE56f7jKq36LY3cVVPMiituJUYsKx3oXmRBgZwUgGBLJlEjzybePoGazH5ctVc"/>
+</div>
+<div class="md:col-span-8 p-8 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline font-bold text-primary group-hover:text-primary-container transition-colors">Quy trình Khai báo Hải quan Điện tử (VNACCS/VCIS)</h3>
+<div class="flex items-center gap-2 bg-primary/5 px-2 py-1">
+<span class="material-symbols-outlined text-primary text-lg" data-weight="fill">description</span>
+<span class="text-[10px] font-bold text-primary uppercase">DOCX Available</span>
+</div>
+</div>
+<p class="text-on-surface-variant line-clamp-3 mb-6 font-body leading-relaxed">
+                                Tài liệu hướng dẫn chi tiết các bước khai báo hải quan điện tử cho hàng hóa nhập khẩu kinh doanh. Bao gồm danh mục mã loại hình, cách tra cứu thuế suất và xử lý các luồng xanh, vàng, đỏ.
+                            </p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="text-xs">
+<span class="text-outline uppercase tracking-tighter block mb-1">Ngày cập nhật</span>
+<span class="text-primary font-bold">05 Tháng 10, 2024</span>
+</div>
+<div class="text-xs">
+<span class="text-outline uppercase tracking-tighter block mb-1">Tác giả</span>
+<span class="text-primary font-bold">Hội đồng Pháp chế</span>
+</div>
+</div>
+<button class="text-primary font-bold text-sm underline decoration-secondary/30 underline-offset-8 hover:decoration-primary transition-all">Tải xuống tài liệu</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group grid grid-cols-1 md:grid-cols-12 bg-surface-container-low hover:bg-surface-container-high transition-colors duration-500 overflow-hidden rounded-md">
+<div class="md:col-span-4 h-64 md:h-auto relative">
+<img class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="minimalist office interior with a single wooden table and professional leather folders under soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOuPcDaVKm9TF3pdH2zUPbQh6ZcXjdGsSuRWSS7_TfikrWFjM0I5DwrSpGTHrVD-vU00SNuZPWXHfrr365Py3BPocMcaj6OZFzDfrLh4gITuJAo2zr63VNBovCqGY8BuTXHWG6-YkbDHEFEpvHK7mzK4bm6nzgXxFgaGv4N5ITPura-8zgeZZ_rbVM_sk7O0eQDxQOLQAl-nG71J8DWb7jWkou68TMKsTjtzNuOYXakov8fbKcd1kQ-ZPG0iGXCco4KKPYQ_3okRI"/>
+</div>
+<div class="md:col-span-8 p-8 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="text-2xl font-headline font-bold text-primary group-hover:text-primary-container transition-colors">Mẫu Ủy thác Xuất nhập khẩu cho Doanh nghiệp SME</h3>
+<div class="flex items-center gap-2 bg-primary/5 px-2 py-1">
+<span class="material-symbols-outlined text-primary text-lg" data-weight="fill">picture_as_pdf</span>
+<span class="text-[10px] font-bold text-primary uppercase">PDF Available</span>
+</div>
+</div>
+<p class="text-on-surface-variant line-clamp-3 mb-6 font-body leading-relaxed">
+                                Tài liệu tinh gọn dành riêng cho các doanh nghiệp vừa và nhỏ khi thực hiện ủy thác xuất nhập khẩu qua các đại lý trung gian. Tập trung vào việc bảo vệ quyền sở hữu hàng hóa và minh bạch chi phí dịch vụ.
+                            </p>
+</div>
+<div class="flex items-center justify-between pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-6">
+<div class="text-xs">
+<span class="text-outline uppercase tracking-tighter block mb-1">Ngày cập nhật</span>
+<span class="text-primary font-bold">28 Tháng 09, 2024</span>
+</div>
+<div class="text-xs">
+<span class="text-outline uppercase tracking-tighter block mb-1">Loại</span>
+<span class="text-primary font-bold">Mẫu Biểu</span>
+</div>
+</div>
+<button class="text-primary font-bold text-sm underline decoration-secondary/30 underline-offset-8 hover:decoration-primary transition-all">Tải xuống tài liệu</button>
+</div>
+</div>
+</div>
+</div>
+<!-- View More Button -->
+<div class="flex justify-center pt-12">
+<button class="group flex flex-col items-center gap-4">
+<div class="w-16 h-16 rounded-full border border-primary/20 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+<span class="font-bold text-primary tracking-widest uppercase text-xs">Xem thêm tài liệu</span>
+</button>
+</div>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-[#0F3453] w-full py-16 mt-20 text-white font-sans text-sm tracking-wide">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto px-8">
+<div class="space-y-6">
+<div class="font-serif text-xl font-bold text-white">Logiverse</div>
+<p class="text-slate-300/80 leading-relaxed max-w-xs">
+                    Nền tảng tri thức logistics và chuỗi cung ứng hàng đầu Việt Nam, cung cấp các giải pháp học thuật và thực tiễn cho doanh nghiệp hiện đại.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<h4 class="font-bold text-white uppercase tracking-widest text-xs">Liên kết</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-300/80 hover:text-white underline decoration-slate-400 underline-offset-4 transition-all block" href="#">Subscribe</a></li>
+<li><a class="text-slate-300/80 hover:text-white underline decoration-slate-400 underline-offset-4 transition-all block" href="#">YouTube</a></li>
+<li><a class="text-slate-300/80 hover:text-white underline decoration-slate-400 underline-offset-4 transition-all block" href="#">WordPress</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-white uppercase tracking-widest text-xs">Hỗ trợ</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-300/80 hover:text-white underline decoration-slate-400 underline-offset-4 transition-all block" href="#">Email</a></li>
+<li><a class="text-slate-300/80 hover:text-white underline decoration-slate-400 underline-offset-4 transition-all block" href="#">Phone</a></li>
+</ul>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold text-white uppercase tracking-widest text-xs">Bản tin học thuật</h4>
+<div class="flex">
+<input class="bg-white/10 border-none rounded-l-sm focus:ring-0 text-white placeholder:text-slate-400 w-full" placeholder="Địa chỉ email của bạn" type="email"/>
+<button class="bg-white text-primary px-6 py-2 font-bold rounded-r-sm hover:bg-slate-200 transition-colors">Gửi</button>
+</div>
+<div class="text-xs text-slate-400">© 2024 Logiverse Academic Ledger. All rights reserved.</div>
+</div>
+</div>
+</footer>
+</body></html>

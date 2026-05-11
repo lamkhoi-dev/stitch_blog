@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#a8caea",
+                        "surface": "#faf9fc",
+                        "surface-container": "#eeedf0",
+                        "surface-dim": "#dadadd",
+                        "tertiary-fixed-dim": "#f0bd84",
+                        "surface-container-highest": "#e3e2e5",
+                        "primary-fixed-dim": "#a9c9f0",
+                        "on-secondary-container": "#41627e",
+                        "on-primary-container": "#7d9dc1",
+                        "primary-fixed": "#d0e4ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e3e2e5",
+                        "on-secondary-fixed": "#001e31",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#2d1800",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#416182",
+                        "on-secondary": "#ffffff",
+                        "background": "#faf9fc",
+                        "tertiary-container": "#4a2b00",
+                        "primary-container": "#0f3453",
+                        "on-primary-fixed": "#001d34",
+                        "outline-variant": "#c3c7ce",
+                        "on-tertiary-fixed": "#2b1700",
+                        "outline": "#73777e",
+                        "on-tertiary-container": "#c0915d",
+                        "inverse-surface": "#2f3033",
+                        "surface-bright": "#faf9fc",
+                        "secondary-container": "#bcdeff",
+                        "secondary": "#40627d",
+                        "on-background": "#1a1c1e",
+                        "on-surface-variant": "#43474e",
+                        "on-primary-fixed-variant": "#284969",
+                        "secondary-fixed": "#cce5ff",
+                        "on-tertiary-fixed-variant": "#623f12",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f1f0f3",
+                        "tertiary-fixed": "#ffddba",
+                        "inverse-primary": "#a9c9f0",
+                        "primary": "#001e37",
+                        "surface-container-low": "#f4f3f6",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#284a64",
+                        "surface-container-high": "#e8e8eb",
+                        "on-surface": "#1a1c1e",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-newsreader { font-family: 'Newsreader', serif; }
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 5rem;
+            line-height: 4rem;
+            padding-right: 0.75rem;
+            font-family: 'Newsreader', serif;
+            font-weight: 700;
+            color: #0f3453;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar -->
+<header class="bg-white/85 backdrop-blur-md sticky top-0 z-50 border-b border-slate-900/10">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-12">
+<a class="font-['Newsreader'] font-black text-2xl tracking-tighter text-[#001e37]" href="#">Logiverse</a>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-slate-600 font-medium font-sans hover:text-[#40627d] transition-colors duration-200" href="#">Trang chủ</a>
+<a class="text-slate-600 font-medium font-sans hover:text-[#40627d] transition-colors duration-200" href="#">Thư viện</a>
+<a class="text-[#001e37] font-bold border-b-2 border-[#001e37] hover:text-[#40627d] transition-colors duration-200" href="#">Tin tức</a>
+<a class="text-slate-600 font-medium font-sans hover:text-[#40627d] transition-colors duration-200" href="#">Case Study</a>
+<a class="text-slate-600 font-medium font-sans hover:text-[#40627d] transition-colors duration-200" href="#">Về chúng tôi</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-[#001e37] scale-100 hover:opacity-80 transition-opacity">search</button>
+<button class="material-symbols-outlined text-[#001e37] scale-100 hover:opacity-80 transition-opacity">bookmark</button>
+<button class="material-symbols-outlined text-[#001e37] scale-100 hover:opacity-80 transition-opacity">account_circle</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-8 py-16 grid grid-cols-12 gap-16">
+<!-- Main Content Article -->
+<article class="col-span-12 lg:col-span-8">
+<header class="mb-12">
+<div class="flex items-center gap-4 mb-6">
+<span class="bg-tertiary-fixed-dim text-on-tertiary-fixed-variant text-[10px] uppercase tracking-[0.2em] font-bold px-3 py-1 rounded-sm">Phân tích thực chứng</span>
+<span class="text-on-surface-variant text-sm font-medium">15 Tháng 5, 2024</span>
+<span class="text-on-surface-variant text-sm">• 12 phút đọc</span>
+</div>
+<h1 class="font-newsreader text-5xl md:text-6xl font-bold leading-[1.1] text-primary mb-8 tracking-tight italic">
+                    Biến động chuỗi cung ứng khu vực Châu Á - Thái Bình Dương: Phân tích thực chứng
+                </h1>
+<div class="flex items-center gap-4 py-6 border-y border-outline-variant/20">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Professional portrait of a male logistics analyst in a library setting with warm lighting and intellectual atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8-ginUdaxpXnxdp9mhRhXjnc2RYO7mCfYU4bYrt51VYkOF0IPr__CiMbibhLBsZdp7IkYL0-F0-RQpyO2zlEeBxetSXhp8J8R83No6M952skXHlnmtg6EJNUXI7Ielnoga6uhoafh4-CYLHyjOL7uCwVDJsoNqBtrFoeymRssDFrTR9kWhXUMReQkf-CVEr3hzTOFvja7ebHvAlNSjUfhW6xVVvC3UciTh5fQKxB5wAMOBLwyG1YPom3KeNSpJqXyWE00E_zyA60"/>
+<div>
+<p class="font-bold text-primary">TS. Đặng Minh Quân</p>
+<p class="text-sm text-on-surface-variant">Chuyên gia phân tích chiến lược Logistics toàn cầu</p>
+</div>
+</div>
+</header>
+<figure class="mb-12 relative">
+<img class="w-full aspect-[21/9] object-cover rounded-md shadow-sm" data-alt="A massive modern container port at dusk with thousands of stacked shipping containers and glowing orange cranes against a deep navy sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFcPwwecuE-orijD353drsbxUNIxhIYCCcMq1N1MbgSm2KzY43Vo4MhaP6dLlQD3bNk_QOeZA3lskmct0hxhNDWSWy_6eiyG5QY0HL4wPKFxx4_73Hp46eVaRky4rc8LUrH7fKTPo5_RVgAcK7T3DIjDX3yVfjwnUki-RZhblhHMcvZAQJvh-MuEpLPHvVjRqU74kiRSkJg4CW7salgoPigPY40GkrS3teXOPGorrB-q9L6lItl04IWx1t_KxStavAQUJFUppq0hE"/>
+<figcaption class="mt-4 text-sm italic text-on-surface-variant font-newsreader">
+                    Hình 1: Cảng Singapore - Nút thắt chiến lược trong mạng lưới giao thương khu vực APAC.
+                </figcaption>
+</figure>
+<div class="font-newsreader text-xl leading-relaxed text-on-surface space-y-8">
+<p class="drop-cap">
+                    Trong bối cảnh kinh tế toàn cầu đang đối mặt với những thay đổi cấu trúc sâu sắc, khu vực Châu Á - Thái Bình Dương (APAC) nổi lên như một điểm nóng của sự biến động và chuyển dịch chuỗi cung ứng. Nghiên cứu thực chứng này đi sâu vào việc phân tích các yếu tố tác động đến hiệu suất logistics và khả năng phục hồi của các doanh nghiệp trong khu vực.
+                </p>
+<p>
+                    Dữ liệu từ quý I năm 2024 cho thấy sự gia tăng đáng kể trong chi phí vận hành tại các cảng trung chuyển lớn. Nguyên nhân không chỉ đến từ sự bất ổn địa chính trị mà còn từ việc áp dụng các tiêu chuẩn phát thải mới của IMO. Các doanh nghiệp đang dần chuyển đổi từ mô hình "Just-in-Time" sang "Just-in-Case", ưu tiên sự ổn định hơn là tối ưu hóa chi phí ngắn hạn.
+                </p>
+<div class="my-12 py-10 px-12 bg-surface-container-low border-l-4 border-primary italic">
+<p class="text-2xl md:text-3xl text-primary-container font-medium leading-snug">
+                        "Sự dịch chuyển không còn là một lựa chọn phòng vệ, mà đã trở thành một yêu cầu sinh tồn. Các dữ liệu thực chứng chỉ ra rằng những đơn vị đầu tư vào công nghệ theo dõi thời gian thực có khả năng phục hồi sau sự cố nhanh hơn gấp 2.4 lần."
+                    </p>
+<p class="mt-4 font-sans text-sm font-bold uppercase tracking-widest text-secondary">— Báo cáo Logistics Châu Á 2024</p>
+</div>
+<p>
+                    Đặc biệt, Việt Nam, Indonesia và Thái Lan đang khẳng định vị thế là những mắt xích thay thế quan trọng. Việc đa dạng hóa nguồn cung (China + 1) đã thúc đẩy hạ tầng logistics tại các quốc gia này phát triển với tốc độ chưa từng thấy. Tuy nhiên, thách thức về chất lượng nguồn nhân lực và sự đồng bộ trong hạ tầng số vẫn là những rào cản cần được tháo gỡ.
+                </p>
+<h2 class="text-3xl font-bold text-primary mt-12 mb-6">Tác động của Số hóa và AI</h2>
+<p>
+                    Phân tích định lượng từ 500 doanh nghiệp logistics hàng đầu cho thấy sự tương quan thuận giữa mức độ số hóa và biên lợi nhuận ròng. Việc sử dụng các thuật toán dự báo nhu cầu dựa trên AI đã giúp giảm thiểu 15% lượng hàng tồn kho không cần thiết và tối ưu hóa 22% quãng đường vận chuyển nội địa.
+                </p>
+</div>
+<footer class="mt-16 pt-8 border-t border-outline-variant/30 flex flex-wrap gap-4">
+<span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold">Thẻ:</span>
+<a class="bg-surface-container text-primary text-xs px-4 py-1.5 rounded-full hover:bg-secondary-container transition-colors" href="#">Chuỗi cung ứng</a>
+<a class="bg-surface-container text-primary text-xs px-4 py-1.5 rounded-full hover:bg-secondary-container transition-colors" href="#">APAC</a>
+<a class="bg-surface-container text-primary text-xs px-4 py-1.5 rounded-full hover:bg-secondary-container transition-colors" href="#">Logistics 4.0</a>
+<a class="bg-surface-container text-primary text-xs px-4 py-1.5 rounded-full hover:bg-secondary-container transition-colors" href="#">Kinh tế vĩ mô</a>
+</footer>
+</article>
+<!-- Sidebar -->
+<aside class="col-span-12 lg:col-span-4 space-y-12">
+<!-- Tin vắn 24h -->
+<section class="bg-surface-container-low p-8 rounded-md">
+<div class="flex items-center gap-2 mb-8 border-b border-outline-variant pb-4">
+<span class="material-symbols-outlined text-primary">bolt</span>
+<h3 class="font-sans font-bold text-lg uppercase tracking-tight text-primary">Tin vắn 24h</h3>
+</div>
+<div class="space-y-6">
+<div class="group cursor-pointer">
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">08:30 AM</span>
+<h4 class="font-bold text-primary group-hover:text-secondary transition-colors mt-1">Giá cước container đường biển từ Thượng Hải đi Châu Âu tăng 4% trong tuần qua.</h4>
+</div>
+<div class="group cursor-pointer">
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">10:15 AM</span>
+<h4 class="font-bold text-primary group-hover:text-secondary transition-colors mt-1">Singapore công bố kế hoạch mở rộng giai đoạn 3 cảng Tuas với công nghệ tự động hoàn toàn.</h4>
+</div>
+<div class="group cursor-pointer">
+<span class="text-[10px] text-secondary font-bold uppercase tracking-wider">02:45 PM</span>
+<h4 class="font-bold text-primary group-hover:text-secondary transition-colors mt-1">Việt Nam thăng hạng trong chỉ số Hiệu suất Logistics (LPI) của World Bank.</h4>
+</div>
+</div>
+</section>
+<!-- Đọc nhiều nhất -->
+<section>
+<h3 class="font-sans font-bold text-lg uppercase tracking-tight text-primary mb-8 border-b border-outline-variant pb-4">Đọc nhiều nhất</h3>
+<div class="space-y-8">
+<div class="flex gap-4 group cursor-pointer">
+<span class="text-4xl font-newsreader font-black text-outline-variant/30 group-hover:text-primary transition-colors">01</span>
+<div>
+<h4 class="font-bold text-primary leading-tight mb-1">Ảnh hưởng của lạm phát đến chi phí vận tải đường bộ 2024.</h4>
+<p class="text-xs text-on-surface-variant italic font-newsreader">Bởi Lê Hoài Nam</p>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<span class="text-4xl font-newsreader font-black text-outline-variant/30 group-hover:text-primary transition-colors">02</span>
+<div>
+<h4 class="font-bold text-primary leading-tight mb-1">Lộ trình chuyển đổi sang xe tải điện trong vận tải hàng hóa.</h4>
+<p class="text-xs text-on-surface-variant italic font-newsreader">Bởi Nguyễn Thùy Linh</p>
+</div>
+</div>
+<div class="flex gap-4 group cursor-pointer">
+<span class="text-4xl font-newsreader font-black text-outline-variant/30 group-hover:text-primary transition-colors">03</span>
+<div>
+<h4 class="font-bold text-primary leading-tight mb-1">Blockchain và sự minh bạch hóa vận đơn quốc tế.</h4>
+<p class="text-xs text-on-surface-variant italic font-newsreader">Bởi Đặng Minh Quân</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Form -->
+<section class="bg-primary-container text-white p-8 rounded-md shadow-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">mail</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-newsreader text-3xl font-bold mb-4">Nhận bản tin hàng tuần</h3>
+<p class="text-sm text-secondary-fixed-dim mb-8 leading-relaxed">
+                        Cập nhật những phân tích sâu sắc nhất về thị trường Logistics và Chuỗi cung ứng toàn cầu trực tiếp vào hộp thư của bạn.
+                    </p>
+<form class="space-y-4">
+<input class="w-full bg-white/10 border-b border-white/20 text-white placeholder:text-white/50 py-3 px-0 focus:outline-none focus:border-white transition-colors font-sans text-sm" placeholder="Email của bạn..." type="email"/>
+<button class="w-full bg-surface-container-lowest text-primary-container font-bold py-4 text-xs uppercase tracking-widest hover:bg-secondary-fixed transition-colors rounded-sm" type="submit">
+                            Đăng ký ngay
+                        </button>
+</form>
+<p class="mt-4 text-[10px] text-white/40 text-center">Chúng tôi tôn trọng quyền riêng tư của bạn. Không spam.</p>
+</div>
+</section>
+</aside>
+</main>
+<!-- Related Articles - Asymmetric Layout -->
+<section class="bg-surface-container-low py-24 mt-16 px-8">
+<div class="max-w-[1440px] mx-auto">
+<h2 class="font-newsreader text-4xl font-bold text-primary mb-12">Nội dung liên quan</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white p-2 rounded-md shadow-sm group">
+<div class="overflow-hidden mb-6">
+<img class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Interior of a massive warehouse with high ceilings and automated sorting systems under bright industrial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsBAdKdqtfcoLiZVmGPdSYlRedleG-z81AeIqef2e1cgaHd2k7r_S3EQCWuz2zqaW0HrEJp-Rz3huSewO9yCBm45NO5RcP6IzvwnYG0IX8FzTXIrg3wKSFTg5IXsRhUzI9db8pDYEKYTJr8Fk7tczEviPXuKZtD_aV2ZcQnybBGWX3kjmnpP6SdgbROMZnJL3bLvxHTqgDjZK6MTQiqpOeaOA5XsWhHPOKJg1YHR9m3TIsQsJ0mgmnPo2DQynTyy3JUY4Ry9ooHiI"/>
+</div>
+<div class="px-4 pb-6">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Công nghệ</span>
+<h3 class="font-newsreader text-2xl font-bold text-primary mt-2 group-hover:text-secondary transition-colors">Tự động hóa kho bãi: Xu hướng 2024</h3>
+</div>
+</div>
+<div class="bg-white p-2 rounded-md shadow-sm group">
+<div class="overflow-hidden mb-6">
+<img class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern logistics truck driving on a scenic coastal highway at sunrise with lens flare and soft morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5i1c0u9BDpsn5-dXBDNi0n63_bhNVFDnKknTQezXgpKhdY1xqnvPL0y7H_QNPrDI3goGC5ZD0fgZ3dvnAYP7uyNGzeEwB-Xzao-PzoQCZ0uR0ev_4UjSEq5kEZ6CsvL-02OsiHcp1SpvUZH-MScqMk_24S1YAsX9jai9Cp_CbBN3yh2Cdo-S9gjaMsxaDdzx7-tktT6OE3k6FTTZ665JXuoS9435DWtNm7gSet7xDYuHBGl2eRfhRjkSiH4IMpoZigBEDd2M7tw8"/>
+</div>
+<div class="px-4 pb-6">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Phân tích</span>
+<h3 class="font-newsreader text-2xl font-bold text-primary mt-2 group-hover:text-secondary transition-colors">Tối ưu hóa chặng cuối (Last-mile)</h3>
+</div>
+</div>
+<div class="bg-white p-2 rounded-md shadow-sm group">
+<div class="overflow-hidden mb-6">
+<img class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A diverse group of professionals in business casual attire shaking hands in a bright corporate office overlooking a harbor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVNLtpdH99x7XDxngTIzi6Vb1dkOUOcJHi_4vRQHRVZIW5BGJt3enJMSD8UHdTor6w_CpSxlyUT1nA0kGNuzKRLBydQZpmO3KsbN1QHbBf4nvRqePzEcd0pS1ar-PKpo2HN6yXbcVLDDLHSRU8-NTtgTufUa6NfVdGOdjQYjSfrwijymP13ahp6r9_xybHPCpda1Z_2-pDw8UbEpLooxUZIVT3o3f_4vBwGONBME5f7bcKylr14vyuZ3R8zrTbK55mguz-XAm9O8o"/>
+</div>
+<div class="px-4 pb-6">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Thị trường</span>
+<h3 class="font-newsreader text-2xl font-bold text-primary mt-2 group-hover:text-secondary transition-colors">Hợp tác công tư trong hạ tầng Logistics</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0F3453] text-white py-16 px-8 mt-24 flex flex-col items-center gap-8 w-full">
+<div class="max-w-[1440px] w-full grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
+<div class="col-span-1 md:col-span-2">
+<a class="font-['Newsreader'] font-bold text-3xl text-white mb-6 block" href="#">Logiverse</a>
+<p class="text-slate-300 max-w-md font-sans text-sm leading-relaxed">
+                    Logiverse Editorial là nền tảng tri thức hàng đầu dành cho các chuyên gia và học giả trong lĩnh vực logistics toàn cầu. Chúng tôi cung cấp những góc nhìn độc lập, sâu sắc và dựa trên dữ liệu.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold uppercase tracking-widest text-xs text-secondary-fixed-dim">Liên kết</h4>
+<a class="text-slate-300 text-xs uppercase tracking-[0.2em] hover:text-white transition-colors" href="#">Về tạp chí</a>
+<a class="text-slate-300 text-xs uppercase tracking-[0.2em] hover:text-white transition-colors" href="#">Tiêu chuẩn đạo đức</a>
+<a class="text-slate-300 text-xs uppercase tracking-[0.2em] hover:text-white transition-colors" href="#">Liên hệ tòa soạn</a>
+<a class="text-slate-300 text-xs uppercase tracking-[0.2em] hover:text-white transition-colors" href="#">Đăng ký bản tin</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold uppercase tracking-widest text-xs text-secondary-fixed-dim">Kết nối</h4>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#0F3453] transition-all" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#0F3453] transition-all" href="#">
+<span class="material-symbols-outlined text-sm">link</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#0F3453] transition-all" href="#">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] w-full pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+<p class="text-slate-300 text-[10px] uppercase tracking-[0.2em]">
+                © 2024 Logiverse Editorial. All rights reserved. Curated global narratives for the modern academic.
+            </p>
+<div class="flex gap-8">
+<a class="text-slate-400 text-[10px] uppercase tracking-[0.2em] hover:text-white transition-colors" href="#">Quyền riêng tư</a>
+<a class="text-slate-400 text-[10px] uppercase tracking-[0.2em] hover:text-white transition-colors" href="#">Điều khoản</a>
+</div>
+</div>
+</footer>
+</body></html>

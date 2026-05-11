@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#2a1803",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#d0e4ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "on-primary-fixed-variant": "#294969",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#8dacd1",
+                        "surface-tint": "#426182",
+                        "outline": "#73777e",
+                        "on-tertiary-fixed": "#380d00",
+                        "error": "#ba1a1a",
+                        "surface": "#f8f9ff",
+                        "on-surface": "#121c28",
+                        "primary-container": "#1f4060",
+                        "tertiary-fixed": "#ffdbcf",
+                        "inverse-on-surface": "#eaf1ff",
+                        "outline-variant": "#c3c7ce",
+                        "secondary-container": "#fdd9b6",
+                        "surface-container-high": "#dfe9fa",
+                        "surface-container-highest": "#d9e3f4",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#722300",
+                        "on-error": "#ffffff",
+                        "secondary": "#74593e",
+                        "on-tertiary-fixed-variant": "#812900",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d1dbec",
+                        "on-surface-variant": "#43474e",
+                        "primary": "#022a49",
+                        "on-primary-fixed": "#001d35",
+                        "on-tertiary-container": "#ff885b",
+                        "inverse-primary": "#aac9f0",
+                        "inverse-surface": "#27313e",
+                        "tertiary": "#4d1500",
+                        "on-background": "#121c28",
+                        "surface-variant": "#d9e3f4",
+                        "secondary-fixed": "#ffdcbb",
+                        "primary-fixed-dim": "#aac9f0",
+                        "on-secondary-fixed-variant": "#5a4228",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eef4ff",
+                        "secondary-fixed-dim": "#e3c09f",
+                        "on-secondary-container": "#785e42",
+                        "background": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #022a49 0%, #1f4060 100%);
+        }
+        .glass-panel {
+            background-color: rgba(238, 244, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 bg-[#f8f9ff] h-20 border-b-0 tonal-transition bg-[#eef4ff] shadow-none">
+<div class="flex justify-between items-center w-full px-10 h-full max-w-screen-2xl mx-auto">
+<div class="font-headline text-2xl font-bold text-[#022a49]">The Editorial Cartographer</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#121c28]/60 font-medium hover:text-[#1F4060] transition-colors duration-200" href="#">Intelligence</a>
+<a class="text-[#121c28]/60 font-medium hover:text-[#1F4060] transition-colors duration-200" href="#">Network</a>
+<a class="text-[#121c28]/60 font-medium hover:text-[#1F4060] transition-colors duration-200" href="#">Archive</a>
+<a class="text-[#121c28]/60 font-medium hover:text-[#1F4060] transition-colors duration-200" href="#">Logistics</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 transition-all active:scale-95"><span class="material-symbols-outlined text-[#1F4060]">notifications</span></button>
+<button class="p-2 transition-all active:scale-95"><span class="material-symbols-outlined text-[#1F4060]">account_circle</span></button>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex fixed left-0 top-20 h-[calc(100vh-5rem)] w-72 flex-col gap-2 p-6 border-r border-[#c3c7ce]/15 glass-panel z-40">
+<div class="mb-6">
+<h3 class="font-headline italic text-[#1F4060] text-xl">Global Modalities</h3>
+<p class="font-label text-xs uppercase tracking-wider text-[#121c28]/70">Logistic Intelligence Mapping</p>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#121c28]/70 hover:bg-[#e5eeff] transition-all duration-300 rounded-md" href="#">
+<span class="material-symbols-outlined">directions_boat</span>
+<span class="font-label text-xs uppercase tracking-wider">Sea &amp; Inland Waterway</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#dfe9fa] text-[#022a49] rounded-md font-semibold" href="#">
+<span class="material-symbols-outlined">flight</span>
+<span class="font-label text-xs uppercase tracking-wider">Air Transport</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#121c28]/70 hover:bg-[#e5eeff] transition-all duration-300 rounded-md" href="#">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label text-xs uppercase tracking-wider">Road Logistics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#121c28]/70 hover:bg-[#e5eeff] transition-all duration-300 rounded-md" href="#">
+<span class="material-symbols-outlined">train</span>
+<span class="font-label text-xs uppercase tracking-wider">Rail Freight</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#121c28]/70 hover:bg-[#e5eeff] transition-all duration-300 rounded-md" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span class="font-label text-xs uppercase tracking-wider">Multimodal Transport</span>
+</a>
+</div>
+<div class="mt-auto">
+<button class="w-full editorial-gradient text-on-primary py-3 px-4 rounded-md font-medium text-sm transition-all hover:opacity-90 active:scale-95">
+                    Download Reports
+                </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 p-8 md:p-12 max-w-6xl">
+<!-- Page Header -->
+<header class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<span class="font-label text-xs uppercase tracking-widest text-secondary font-bold mb-2 block">Cơ sở dữ liệu Vận tải</span>
+<h1 class="font-headline text-5xl md:text-6xl font-bold text-primary mb-4 leading-tight">Vận tải Hàng không</h1>
+<p class="text-on-surface-variant font-body leading-relaxed text-lg border-l-2 border-primary-container pl-6 italic">
+                            Phân tích chuyên sâu về luồng hàng hóa hàng không toàn cầu, các quy chuẩn an ninh IATA và chiến lược tối ưu hóa trọng tải trong kỷ nguyên logistics kỹ thuật số.
+                        </p>
+</div>
+</div>
+</header>
+<!-- Search Section -->
+<section class="mb-12">
+<div class="relative group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="w-full bg-surface-container-low border-0 border-b border-outline-variant/15 py-5 pl-14 pr-6 focus:ring-0 focus:bg-surface-container-high transition-all text-on-surface placeholder:text-on-surface-variant/50 font-body" placeholder="Tìm kiếm tài liệu vận đơn, quy chuẩn hoặc báo cáo kỹ thuật..." type="text"/>
+</div>
+<div class="flex gap-2 mt-4 overflow-x-auto pb-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-tighter rounded-sm">IATA 2024</span>
+<span class="px-3 py-1 bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-tighter rounded-sm">Hàng nguy hiểm</span>
+<span class="px-3 py-1 bg-surface-container-highest text-primary text-[10px] font-bold uppercase tracking-tighter rounded-sm">Phụ phí xăng dầu</span>
+</div>
+</section>
+<!-- Documents Grid -->
+<section class="space-y-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest flex flex-col md:flex-row gap-6 p-6 group transition-all duration-300 hover:bg-surface-bright relative overflow-hidden">
+<div class="absolute left-0 top-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-full md:w-48 h-32 flex-shrink-0 bg-surface-container-low overflow-hidden rounded-sm">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Technical illustration of an airplane cargo hold with grid lines and safety markers in navy and blueprint blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs-44blAIz6U46vNTSX2kU5coPY1Z79lNWeLlNUZjuJNTwapgsbwbEX1gjc7Y_xtGA_jDY56LouEzLcYP90kpUmnKDCVj7hKcbr2GNGc07eQMoYhFvDUXl5E6j4PoAL34p_ahyfC8UbRjv5B_yJE1swu0QMI7ayANBfYA3-XX857Q4kZbKg-XNPUV-DNcb5nD4BQIzbPl26TsR2FYMiTY6ukOPnyHIbsYOcHnIq_eyeXTmGc0gleobbOvp0Kq93lrpwvV89fadX-Y"/>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline text-2xl text-primary leading-tight font-bold group-hover:text-primary-container transition-colors">An ninh hàng không và Quy định IATA</h2>
+<button class="p-2 text-primary hover:bg-surface-container transition-colors rounded-full" title="Tải xuống PDF">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">download</span>
+</button>
+</div>
+<p class="text-on-surface-variant font-body text-sm mb-4 line-clamp-2">Cập nhật toàn diện các quy chuẩn mới nhất của Hiệp hội Vận tải Hàng không Quốc tế về kiểm soát hàng hóa và quy trình quét an ninh đa tầng.</p>
+<div class="mt-auto flex items-center gap-4">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">calendar_today</span>
+                                Cập nhật: 12 Th05, 2024
+                            </span>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">description</span>
+                                4.2 MB • PDF
+                            </span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest flex flex-col md:flex-row gap-6 p-6 group transition-all duration-300 hover:bg-surface-bright relative overflow-hidden">
+<div class="absolute left-0 top-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-full md:w-48 h-32 flex-shrink-0 bg-surface-container-low overflow-hidden rounded-sm">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Close-up of cargo containers being loaded onto a freighter aircraft at night with high contrast yellow and blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd76E9ZwV0hvJPAIw-Wiamb5dpafFDBxtGxXEBVJ0lLwOZomMgd13Pv_HCie8oFw37iqw2eZJJAXFMT1H-ZRXxX-8vVnDxOpk0oMn9HgRzt0SaTDayoOZDuj4CnOw0ECGHqn5SdE7T58iXdP-Ov1-nNoV6Gw-qrC-J3KbYTQIAcfbukyRz-mn6tbJ1N3bOhhiQK5adG3NeqJdlo5xPcOlelQCwFZMwSuSd7TvLQVI7WEsUGipCXGQQviHhVcqMpyHp8yMe1g4A_hQ"/>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline text-2xl text-primary leading-tight font-bold group-hover:text-primary-container transition-colors">Tối ưu hóa tải trọng máy bay vận tải</h2>
+<button class="p-2 text-primary hover:bg-surface-container transition-colors rounded-full" title="Tải xuống PDF">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<p class="text-on-surface-variant font-body text-sm mb-4 line-clamp-2">Phân tích các thuật toán sắp xếp container (ULD) nhằm cân bằng trọng tâm và tối đa hóa hiệu suất nhiên liệu cho các dòng máy bay Boeing 777F và Airbus A350F.</p>
+<div class="mt-auto flex items-center gap-4">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">calendar_today</span>
+                                Cập nhật: 08 Th05, 2024
+                            </span>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">description</span>
+                                12.8 MB • PDF
+                            </span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest flex flex-col md:flex-row gap-6 p-6 group transition-all duration-300 hover:bg-surface-bright relative overflow-hidden">
+<div class="absolute left-0 top-0 w-1 h-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-full md:w-48 h-32 flex-shrink-0 bg-surface-container-low overflow-hidden rounded-sm">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Digital map of global air routes with illuminated lines connecting major hubs like Dubai, Singapore, and Frankfurt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1SFMQj3U76YYj2kMrvHvj7kCDieiWcn52cq3vkl7R3wqXUSZ-Gig5_I-KVCRMyw9JPOuj79Yo0dnzj0_7Coud07AtGAip48V2dYcgoVMJ2aGItLHyJXSaa2Eb8us1A4Hmnnxho_daKmVGmgLYTjUxPng0VIHoRo64ue5vY0F_reGoeohdo8twKuML2l3QUO8QwIhVUHncxwBeiE6EUpUTTIK5kfu93khNwLoa39Unsx3nL_rMEUnnnBwX-xV_Cev-OFt3x6kQiO8"/>
+</div>
+<div class="flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline text-2xl text-primary leading-tight font-bold group-hover:text-primary-container transition-colors">Báo cáo mạng lưới Hub hàng không Á-Âu</h2>
+<button class="p-2 text-primary hover:bg-surface-container transition-colors rounded-full" title="Tải xuống PDF">
+<span class="material-symbols-outlined">download</span>
+</button>
+</div>
+<p class="text-on-surface-variant font-body text-sm mb-4 line-clamp-2">Nghiên cứu về sự dịch chuyển các điểm trung chuyển hàng hóa chính và ảnh hưởng của giá nhiên liệu đến các tuyến bay thẳng khu vực Đông Nam Á.</p>
+<div class="mt-auto flex items-center gap-4">
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">calendar_today</span>
+                                Cập nhật: 02 Th05, 2024
+                            </span>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">description</span>
+                                8.5 MB • PDF
+                            </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Load More Section -->
+<footer class="mt-16 flex justify-center">
+<button class="group flex items-center gap-4 px-12 py-4 bg-surface-container hover:bg-surface-container-high transition-all text-primary font-bold text-sm tracking-widest uppercase border border-outline-variant/15">
+                    Xem thêm
+                    <span class="material-symbols-outlined transition-transform group-hover:translate-y-1">expand_more</span>
+</button>
+</footer>
+</main>
+</div>
+<!-- Floating Action Element (Contextual) -->
+<div class="fixed bottom-8 right-8 z-50">
+<button class="editorial-gradient text-on-primary w-14 h-14 rounded-md shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+</body></html>

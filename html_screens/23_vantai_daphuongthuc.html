@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vận tải Đa phương thức | The Editorial Cartographer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#2a1803",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#d0e4ff",
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "on-primary-fixed-variant": "#294969",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#8dacd1",
+                        "surface-tint": "#426182",
+                        "outline": "#73777e",
+                        "on-tertiary-fixed": "#380d00",
+                        "error": "#ba1a1a",
+                        "surface": "#f8f9ff",
+                        "on-surface": "#121c28",
+                        "primary-container": "#1f4060",
+                        "tertiary-fixed": "#ffdbcf",
+                        "inverse-on-surface": "#eaf1ff",
+                        "outline-variant": "#c3c7ce",
+                        "secondary-container": "#fdd9b6",
+                        "surface-container-high": "#dfe9fa",
+                        "surface-container-highest": "#d9e3f4",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#722300",
+                        "on-error": "#ffffff",
+                        "secondary": "#74593e",
+                        "on-tertiary-fixed-variant": "#812900",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d1dbec",
+                        "on-surface-variant": "#43474e",
+                        "primary": "#022a49",
+                        "on-primary-fixed": "#001d35",
+                        "on-tertiary-container": "#ff885b",
+                        "inverse-primary": "#aac9f0",
+                        "inverse-surface": "#27313e",
+                        "tertiary": "#4d1500",
+                        "on-background": "#121c28",
+                        "surface-variant": "#d9e3f4",
+                        "secondary-fixed": "#ffdcbb",
+                        "primary-fixed-dim": "#aac9f0",
+                        "on-secondary-fixed-variant": "#5a4228",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#eef4ff",
+                        "secondary-fixed-dim": "#e3c09f",
+                        "on-secondary-container": "#785e42",
+                        "background": "#f8f9ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #022a49 0%, #1f4060 100%);
+        }
+        .glass-nav {
+            background: rgba(238, 244, 255, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#f8f9ff] flex justify-between items-center w-full px-10 h-20 max-w-screen-2xl mx-auto">
+<div class="font-serif text-2xl font-bold text-[#022a49]">The Editorial Cartographer</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#121c28]/60 font-medium hover:text-[#1F4060] transition-colors duration-200" href="#">Intelligence</a>
+<a class="text-[#121c28]/60 font-medium hover:text-[#1F4060] transition-colors duration-200" href="#">Network</a>
+<a class="text-[#121c28]/60 font-medium hover:text-[#1F4060] transition-colors duration-200" href="#">Archive</a>
+<a class="text-[#022a49] font-bold border-b-2 border-[#022a49] pb-1 hover:text-[#1F4060] transition-colors duration-200" href="#">Logistics</a>
+</div>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-primary cursor-pointer">notifications</span>
+<span class="material-symbols-outlined text-primary cursor-pointer">account_circle</span>
+</div>
+</nav>
+<div class="flex pt-20">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-20 h-screen w-72 bg-[#eef4ff]/80 backdrop-blur-2xl flex flex-col gap-2 p-6 border-r border-[#c3c7ce]/15 hidden lg:flex">
+<div class="mb-8">
+<div class="flex items-center gap-3 mb-4">
+<img alt="Academic profile" class="w-12 h-12 rounded-full border border-outline-variant/30 object-cover" data-alt="Professional academic headshot of a logistics researcher in a library setting with soft focus books" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFk1Dlb-th3bkBh_wT7WVXELaSJP0OCXEO1i1oYCkpwI9C9JefYe3nLIJ2R99660wpDtZZMlMbb8MGEtvOYpR-Nyr-xiA-GgjaNQqwdKZR6bhV-IC6jqJrfQrP--8blT9SiGNsQUw3JMgRcF04v_92zZtIb70d2qYxd5Cj-6nebuqwZd7nONZkFarxvtvm1boY7PNQtDBonMX323UFzZFA-PEDabldavvTebttN2NhIKbOPI5CgWBhqmJYuvgGM74sJ8kI78m2XkQ"/>
+<div>
+<h3 class="font-headline italic text-lg leading-tight">Global Modalities</h3>
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant">Logistic Intelligence Mapping</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#121c28]/70 hover:bg-[#e5eeff] transition-all duration-300 rounded-md" href="#">
+<span class="material-symbols-outlined text-xl">directions_boat</span>
+<span class="text-xs uppercase tracking-wider font-medium">Sea &amp; Inland Waterway</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#121c28]/70 hover:bg-[#e5eeff] transition-all duration-300 rounded-md" href="#">
+<span class="material-symbols-outlined text-xl">flight</span>
+<span class="text-xs uppercase tracking-wider font-medium">Air Transport</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#121c28]/70 hover:bg-[#e5eeff] transition-all duration-300 rounded-md" href="#">
+<span class="material-symbols-outlined text-xl">local_shipping</span>
+<span class="text-xs uppercase tracking-wider font-medium">Road Logistics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#121c28]/70 hover:bg-[#e5eeff] transition-all duration-300 rounded-md" href="#">
+<span class="material-symbols-outlined text-xl">train</span>
+<span class="text-xs uppercase tracking-wider font-medium">Rail Freight</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#dfe9fa] text-[#022a49] rounded-md font-semibold" href="#">
+<span class="material-symbols-outlined text-xl">hub</span>
+<span class="text-xs uppercase tracking-wider">Multimodal Transport</span>
+</a>
+</nav>
+<div class="mt-auto pb-10">
+<button class="w-full editorial-gradient text-white py-3 rounded-md text-sm font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Download Reports
+                </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-0 lg:ml-72 min-h-screen bg-surface px-6 md:px-12 py-12">
+<!-- Header Section -->
+<header class="max-w-4xl mb-16">
+<div class="flex items-center gap-2 mb-4">
+<span class="h-[1px] w-8 bg-primary"></span>
+<span class="text-label-md font-medium uppercase tracking-[0.2em] text-on-surface-variant">Modalities &amp; Intelligence</span>
+</div>
+<h1 class="font-headline text-5xl md:text-6xl text-primary font-bold mb-8 leading-tight">
+                    Vận tải Đa phương thức
+                </h1>
+<!-- Search Component -->
+<div class="relative max-w-2xl group">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border border-outline-variant/15 rounded-xl focus:ring-0 focus:border-primary/50 focus:bg-surface-container transition-all outline-none text-body font-medium placeholder:text-outline/60" placeholder="Tìm kiếm tài liệu, hồ sơ vận tải đa phương thức..." type="text"/>
+<div class="absolute inset-y-0 right-4 flex items-center">
+<kbd class="hidden md:inline-flex items-center gap-1 px-2 py-1 text-xs font-sans font-medium text-outline bg-white border border-outline-variant/30 rounded shadow-sm">
+<span class="text-[10px]">⌘</span>K
+                        </kbd>
+</div>
+</div>
+</header>
+<!-- Content Grid / List -->
+<section class="space-y-6 max-w-5xl">
+<!-- Card 1 -->
+<article class="group bg-surface-container-lowest border border-outline-variant/15 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 p-6 flex flex-col md:flex-row gap-6 items-start rounded-lg">
+<div class="w-full md:w-48 h-32 flex-shrink-0 bg-surface-container overflow-hidden rounded">
+<img alt="Logistics Hub" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Aerial drone shot of a busy logistics hub with shipping containers and cargo cranes in blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd5I4cI-hdA6yag2OkvKDkIHa5ufeebMGJxPlt2kSIwob-AoYxrNJg5uXKpxp8vilPxiJkIiO6_YzokSyqC-FasjES7GxTz8N7kOnEI1XDCLTEC_1Wcr0xLYn69jhoVK8fexypvy85woxcVZa4DpfbYLDOxlGg2MD84quwS3nxTp07kG0a8Q2WsJ9nFxoengyMEewDHyynj-f7jtKYzjd5pQcfh2ED9y6v_qp2bhy64dnkcI6Etj3HYIiYRML-6oZHRZZYChuavYk"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline text-2xl text-primary font-bold leading-tight group-hover:text-primary-container transition-colors">
+                                Giải pháp Logistics đa phương thức tối ưu
+                            </h2>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-weight="fill">download</span>
+</button>
+</div>
+<p class="text-on-surface-variant text-body leading-relaxed mb-4 max-w-2xl">
+                            Phân tích chuyên sâu về việc tích hợp các phương thức vận tải đường biển, sắt và bộ để giảm thiểu chi phí và thời gian lưu kho trong chuỗi cung ứng toàn cầu hiện đại.
+                        </p>
+<div class="flex items-center gap-4 text-label-md text-outline">
+<span class="flex items-center gap-1 italic">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                                Cập nhật: 12 Th05, 2024
+                            </span>
+<span class="flex items-center gap-1 px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-sm text-[10px] font-bold uppercase tracking-tighter">
+                                PDF DOCUMENT
+                            </span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group bg-surface-container-lowest border border-outline-variant/15 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 p-6 flex flex-col md:flex-row gap-6 items-start rounded-lg">
+<div class="w-full md:w-48 h-32 flex-shrink-0 bg-surface-container overflow-hidden rounded">
+<img alt="Terminal at Night" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Night view of a container terminal with bright artificial lights and silhouettes of ships and machinery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzB-ZKsWsvNGHpSVxrprWgjwpfDY0AlP-UMrKTuKwBAT2BX89Km1Aw-FsZAigx-RICWzw3GZLWRxjOJwxjg00NgIMFLH909D7kEFBIPilNykVmrFq7ActGk4fAa61d5Aomw__lphsGZ-turVFKQRQ2NDbqsiKkEarZ3qN2zh9d7oulYFq2IQf_Izy_sm-L4c-NXRt_Wt6KxmJh6mv_WAkzOIAtRdGtaAsvLqKiE4uShItTaMclx0akId2wPY8mN25qDuD4mHvZqDw"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline text-2xl text-primary font-bold leading-tight group-hover:text-primary-container transition-colors">
+                                Incoterms và vận tải đa phương thức
+                            </h2>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-weight="fill">download</span>
+</button>
+</div>
+<p class="text-on-surface-variant text-body leading-relaxed mb-4 max-w-2xl">
+                            Hướng dẫn áp dụng các điều khoản thương mại quốc tế mới nhất trong các hợp đồng vận chuyển kết hợp nhiều phương tiện, đảm bảo tính pháp lý và an toàn hàng hóa.
+                        </p>
+<div class="flex items-center gap-4 text-label-md text-outline">
+<span class="flex items-center gap-1 italic">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                                Cập nhật: 28 Th04, 2024
+                            </span>
+<span class="flex items-center gap-1 px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-sm text-[10px] font-bold uppercase tracking-tighter">
+                                LEGAL GUIDE
+                            </span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group bg-surface-container-lowest border border-outline-variant/15 hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 p-6 flex flex-col md:flex-row gap-6 items-start rounded-lg">
+<div class="w-full md:w-48 h-32 flex-shrink-0 bg-surface-container overflow-hidden rounded">
+<img alt="Freight Train" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-speed freight train moving through a scenic landscape with motion blur representing speed and efficiency" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4B0huMVwD-dcfZLocpDeMumZTSw_zEU3OVUq1SsKIji5lVrzIeR2SFmDb590m27wLEKAgdPMc6HM9udckXcwmLpu2lm_h4Z2F-40OtJTAq5D8-7hg55Fty1OJ9hVhEMAfPXdB6b4-V-XTxgIL4Wxp9_5_9Eov01Y_wZ15pQ7FYsbDxwzTGLayUs1hah01fFnqlAmSB84R0KfO-hQBaF2lokRpMByts0JkNuGGZVOF-x_jNHiDN-bkCE5z_ix4A5IKR56nMZr7bzM"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h2 class="font-headline text-2xl text-primary font-bold leading-tight group-hover:text-primary-container transition-colors">
+                                Công nghệ Blockchain trong Multimodal
+                            </h2>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary" data-weight="fill">download</span>
+</button>
+</div>
+<p class="text-on-surface-variant text-body leading-relaxed mb-4 max-w-2xl">
+                            Khám phá cách số hóa vận đơn và hợp đồng thông minh đang làm thay đổi cách thức các bên liên quan tương tác trong hệ thống vận tải đa phương thức.
+                        </p>
+<div class="flex items-center gap-4 text-label-md text-outline">
+<span class="flex items-center gap-1 italic">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+                                Cập nhật: 15 Th04, 2024
+                            </span>
+<span class="flex items-center gap-1 px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-sm text-[10px] font-bold uppercase tracking-tighter">
+                                TECH REPORT
+                            </span>
+</div>
+</div>
+</article>
+<!-- Footer Action -->
+<div class="pt-12 flex justify-center">
+<button class="px-12 py-4 border border-outline-variant text-primary font-bold hover:bg-surface-container-low transition-all rounded-md flex items-center gap-2">
+                        Xem thêm
+                        <span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</section>
+<!-- Bottom Navigation for Mobile -->
+<div class="fixed bottom-0 left-0 right-0 bg-white border-t border-outline-variant/15 md:hidden flex justify-around p-4 z-50">
+<div class="flex flex-col items-center gap-1 text-outline">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined">hub</span>
+<span class="text-[10px] font-bold">Logistics</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-outline">
+<span class="material-symbols-outlined">archive</span>
+<span class="text-[10px] font-bold">Archive</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-outline">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold">Profile</span>
+</div>
+</div>
+</main>
+</div>
+<!-- Decorative background element -->
+<div class="fixed top-0 right-0 -z-10 w-1/3 h-full opacity-[0.03] pointer-events-none overflow-hidden">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path class="text-primary" d="M0,0 L100,0 L100,100 L0,100 Z" fill="currentColor"></path>
+<path d="M0,10 Q50,5 100,10 L100,12 Q50,7 0,12 Z" fill="white"></path>
+<path d="M0,30 Q50,25 100,30 L100,32 Q50,27 0,32 Z" fill="white"></path>
+<path d="M0,50 Q50,45 100,50 L100,52 Q50,47 0,52 Z" fill="white"></path>
+<path d="M0,70 Q50,65 100,70 L100,72 Q50,67 0,72 Z" fill="white"></path>
+</svg>
+</div>
+</body></html>

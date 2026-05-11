@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@6..72,200..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9ff",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#722300",
+                        "surface-variant": "#d9e3f4",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#426182",
+                        "on-tertiary-fixed": "#380d00",
+                        "surface-container-low": "#eef4ff",
+                        "secondary-container": "#fdd9b6",
+                        "on-primary-container": "#8dacd1",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#e3c09f",
+                        "secondary": "#74593e",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#aac9f0",
+                        "primary": "#022a49",
+                        "surface-dim": "#d1dbec",
+                        "primary-container": "#1f4060",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdcbb",
+                        "outline": "#73777e",
+                        "on-secondary-container": "#785e42",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9ff",
+                        "surface": "#f8f9ff",
+                        "inverse-surface": "#27313e",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#ff885b",
+                        "on-surface-variant": "#43474e",
+                        "on-background": "#121c28",
+                        "on-secondary-fixed-variant": "#5a4228",
+                        "inverse-primary": "#aac9f0",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-primary-fixed": "#001d35",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-surface": "#121c28",
+                        "surface-container-highest": "#d9e3f4",
+                        "on-tertiary-fixed-variant": "#812900",
+                        "surface-container-high": "#dfe9fa",
+                        "primary-fixed": "#d0e4ff",
+                        "on-secondary-fixed": "#2a1803",
+                        "on-primary-fixed-variant": "#294969",
+                        "surface-container": "#e5eeff",
+                        "tertiary": "#4d1500",
+                        "outline-variant": "#c3c7ce"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface-bright text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar (Updated to Logiverse standard) -->
+<header class="sticky top-0 w-full z-50 glass-nav border-b border-primary/10 shadow-sm">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<a class="font-headline text-2xl font-bold tracking-tighter text-primary italic" href="#">The Cartographer</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 font-medium hover:text-primary transition-colors font-headline italic tracking-tight text-lg" href="#">Trang chủ</a>
+<a class="text-slate-600 font-medium hover:text-primary transition-colors font-headline italic tracking-tight text-lg" href="#">Thư viện</a>
+<a class="text-slate-600 font-medium hover:text-primary transition-colors font-headline italic tracking-tight text-lg" href="#">Tin tức</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-headline italic tracking-tight text-lg" href="#">Case Study</a>
+<a class="text-slate-600 font-medium hover:text-primary transition-colors font-headline italic tracking-tight text-lg" href="#">Về chúng tôi</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity">search</button>
+<button class="bg-primary text-surface-bright px-6 py-2 rounded-sm text-sm font-bold tracking-wide hover:opacity-90 transition-all active:scale-95 uppercase">Subscribe</button>
+<button class="text-primary font-bold text-sm hover:underline">Sign In</button>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24 px-8 max-w-7xl mx-auto">
+<!-- Hero Header -->
+<section class="mb-16 border-l-8 border-primary pl-8 mt-12">
+<p class="font-label text-xs tracking-widest uppercase text-outline mb-4">Case Studies &amp; Intelligence</p>
+<h1 class="font-headline text-6xl md:text-7xl font-extrabold text-primary tracking-tight mb-6">
+                Case Study Thực tiễn
+            </h1>
+<p class="font-headline italic text-xl md:text-2xl text-on-surface-variant max-w-3xl leading-relaxed">
+                Phân tích sâu về các giải pháp chuỗi cung ứng hiện đại, từ tối ưu hóa cảng biển đến mạng lưới phân phối logistics lạnh toàn cầu.
+            </p>
+</section>
+<!-- Search & Filters Container -->
+<section class="mb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-4 group">
+<label class="font-label text-xs uppercase text-outline mb-2 block">Tìm kiếm tài liệu</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 transition-all text-sm font-medium placeholder:text-outline/60" placeholder="Nhập từ khóa hoặc mã dự án..." type="text"/>
+</div>
+</div>
+<div class="md:col-span-8 overflow-x-auto pb-2">
+<label class="font-label text-xs uppercase text-outline mb-4 block">Lọc theo ngành hàng</label>
+<div class="flex gap-3">
+<button class="px-5 py-2 bg-primary text-surface-bright text-xs font-semibold rounded-sm whitespace-nowrap">Tất cả bài viết</button>
+<button class="px-5 py-2 bg-surface-container-high text-primary text-xs font-semibold rounded-sm hover:bg-surface-container-highest transition-colors whitespace-nowrap">FMCG</button>
+<button class="px-5 py-2 bg-surface-container-high text-primary text-xs font-semibold rounded-sm hover:bg-surface-container-highest transition-colors whitespace-nowrap">Retail &amp; E-commerce</button>
+<button class="px-5 py-2 bg-surface-container-high text-primary text-xs font-semibold rounded-sm hover:bg-surface-container-highest transition-colors whitespace-nowrap">Manufacturing</button>
+<button class="px-5 py-2 bg-surface-container-high text-primary text-xs font-semibold rounded-sm hover:bg-surface-container-highest transition-colors whitespace-nowrap">Pharmaceuticals</button>
+<button class="px-5 py-2 bg-surface-container-high text-primary text-xs font-semibold rounded-sm hover:bg-surface-container-highest transition-colors whitespace-nowrap">Energy &amp; Oil</button>
+</div>
+</div>
+</section>
+<!-- Case Study Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Card 1 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative aspect-[16/10] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="high-angle wide shot of Cat Lai Port with rows of colorful shipping containers and large industrial cranes under clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvD6yDsfiMFb3-MkJpTjcwoO1irijlcD3AZ2CtzxsNL6w6K5pn7j5kN9ZlBEVm49wtjskqZ4nQALZ57lE10lzoXrTRvN7KYzAFmSqnF6taZzIqdoFGTNvcY8V9_BlH0-zpGRDAEjhFVxEgy_vc1ibBvEacmU9SBzm0-dlXrzRgaGaIkZ9BSWnxHYuQ3fRCh_z1zG6RzgvAIowhmR47YKqSYhuP7kv2t8yhVIImGtBL_H4YK4UellIRBkqTUkzLJKTMTXKQW5igNFI"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Manufacturing</span>
+</div>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-4 leading-tight group-hover:underline decoration-1 underline-offset-4">
+                    Giải mã mô hình vận hành tại Cảng Cát Lái
+                </h2>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3 leading-relaxed">
+                    Nghiên cứu về việc áp dụng hệ thống điều hành cảng (TOS) thế hệ mới nhằm giảm thiểu thời gian quay vòng tàu và tối ưu hóa diện tích bãi chứa container trong bối cảnh quá tải hạ tầng.
+                </p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="font-label text-xs text-outline italic">Xuất bản: 14/03/2024</span>
+<a class="text-primary font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
+                        Đọc chi tiết
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative aspect-[16/10] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="interior of a high-tech refrigerated warehouse with blue industrial lighting and rows of neatly stacked dairy products" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWhbyWBrjkcwiNSPulP3Di_R-gSZsPJazbmLLlmevifPDOLf3eyMLFCUeHljSdGlQlrhsD0PdyqmrF-XEmz0M1GULWSmAwCpDu8B0BfPNxYKKdKVQLk0q6mxx3yaRntALEM9cCNf3LmxhCIAYuaGOu6M48Fz7-b8SMc6tHHRiuAMny7MmYdBISJiErtRlW0WrUA5pyduJSz0R7ymg_VLOOlH_-W0Jl9ehHz8C6KzdUJZBTvj8Aa_vQp1XLDv88_X-7j0J6WBQhzv8"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">FMCG</span>
+</div>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-4 leading-tight group-hover:underline decoration-1 underline-offset-4">
+                    Chuỗi cung ứng Vinamilk: Bài toán tối ưu hóa Logistics lạnh
+                </h2>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3 leading-relaxed">
+                    Phân tích cách thức Vinamilk kiểm soát nhiệt độ thời gian thực trên toàn bộ mạng lưới vận tải 3.000 xe tải lạnh, giúp giảm tỷ lệ hư hỏng sản phẩm xuống dưới 0.5% trên toàn quốc.
+                </p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="font-label text-xs text-outline italic">Xuất bản: 02/03/2024</span>
+<a class="text-primary font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
+                        Đọc chi tiết
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative aspect-[16/10] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="modern distribution center interior with automated robotic sorting arms and high-speed conveyor belts in a clean environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPNXy9vnfKVK_C4mtDmQ62JqLWcz2B6e30b6eq1zDBoM3FKdOMlIJmc_TMrHFT_QpE26tBbxcUvxvNrJEy-bBEDHmNWnXrj28UzmXxikuGm2Dhwb_yl6fbADWo9nBEU8nlWl9JFPntneEyXPBP7BAgUq3ka-h0hkKe-UANWcyclMPuE2zu9wzR31wU7grOceDWBIfBCrvUxy7ztNXbrWFQBPTD6xGEpwN_BXfI-n3gG-xGv6WIBEvz_9DnahHcG49_tSrdhu2b_8w"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Retail</span>
+</div>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-4 leading-tight group-hover:underline decoration-1 underline-offset-4">
+                    Số hóa kho hàng Omni-channel tại Central Retail
+                </h2>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3 leading-relaxed">
+                    Ứng dụng giải pháp Warehouse Management System (WMS) tích hợp AI để dự báo nhu cầu hàng hóa tại điểm bán, giúp rút ngắn thời gian xử lý đơn hàng từ 24h xuống còn 4h.
+                </p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="font-label text-xs text-outline italic">Xuất bản: 28/02/2024</span>
+<a class="text-primary font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
+                        Đọc chi tiết
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative aspect-[16/10] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="aerial drone view of a massive logistics park at dusk with vibrant truck lights and geometric warehouse structures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHjhuNhFZffLqpcIw-sLOUmjBFVf8OKBy4EEVG2s-gweZ-z77KmeJzDpbGFm72DZL8WoNSUPscZvGCmIdDWGDS0xd9QwpJTuy-EBHIdsgRm6fi1IK6pJVhHaHf4sfeSeyGO1yrhPu7_z_Uccd95TrHaduHoBO_R42iLBOgANHRRQ_GpFKRXyPgRfO_3x-QfDaYObwrM2aAFJ6RnUunzrcsppA_pf1HajP9X0inW47foplKXUiXADn9W94U_PcaXCWOij192PomNvE"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Logistics</span>
+</div>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-4 leading-tight group-hover:underline decoration-1 underline-offset-4">
+                    Quy hoạch Trung tâm Logistics ICD Long Bình
+                </h2>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3 leading-relaxed">
+                    Đánh giá hiệu quả kinh tế của mô hình trung tâm phân phối tích hợp đa phương thức tại khu vực kinh tế trọng điểm phía Nam, đóng vai trò cửa ngõ xuất khẩu chính.
+                </p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="font-label text-xs text-outline italic">Xuất bản: 15/02/2024</span>
+<a class="text-primary font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
+                        Đọc chi tiết
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative aspect-[16/10] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="close-up of electronic pharmaceutical packaging on a conveyor belt in a high-precision medical manufacturing facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-TZVED8OOHc779aN7pVQybz47MIPIyeL5IWS55tz6EovPmsT-i2NxW8duf4H8VpDPNCBLCK_U5P44DiJD-fue7uwJam4PuyZ7bHlKqFGS-O0YHBzWGk5kbuPD7omQCDkXhi5ZWVhrNst-Quz4LtAIZT7XhXCDbVvgpz__0f5qzOAqIfQlZ3OV-Iee_H0tECXC05w6dxnGY9qlaePhw4C1z1aIjiv8DfR73UFw1HjhIWOGytjJ-2v4uXPoUIiV7DjpnOy7bjVOULY"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Pharma</span>
+</div>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-4 leading-tight group-hover:underline decoration-1 underline-offset-4">
+                    Logistics Dược phẩm: Quy trình tuân thủ GSP/GDP
+                </h2>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3 leading-relaxed">
+                    Khám phá các tiêu chuẩn khắt khe trong vận chuyển vaccine và thuốc sinh học, đảm bảo tính toàn vẹn của chuỗi giá trị từ nhà máy đến tay bệnh nhân.
+                </p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="font-label text-xs text-outline italic">Xuất bản: 10/02/2024</span>
+<a class="text-primary font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
+                        Đọc chi tiết
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="flex flex-col group cursor-pointer">
+<div class="relative aspect-[16/10] overflow-hidden mb-6 bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="modern freight train moving through a green mountain valley with solar panels and wind turbines in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzbrYKcA9sH53BmzycjH4s8zU08NPLkOi17cGzhSjj6d5BxtixGN2hf-aBRoqEnJSab_rT2P3B8astFuYi-zAg5_0d2NMNiW42Cqul5GtjvCmGxSx7KzILfoTwsDG4rXBqwm1fibJBrdc63Aoxdl-5A29jBjbJWmKUZhGlBgp0Ywim_BEcC-vNfmdENtK9xKvad0HVXBULINDxNPi5pxpW0i4Ep0hF-cBl2ydwfb3Ew0N7ZKNUSEodBR5jVUT_7fEvqqXEz1cnV_s"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider">Manufacturing</span>
+</div>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-4 leading-tight group-hover:underline decoration-1 underline-offset-4">
+                    Samsung Vietnam: Chiến lược Logistics Xanh
+                </h2>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3 leading-relaxed">
+                    Lộ trình chuyển đổi sang sử dụng phương thức vận tải đa phương thức (Đường thủy - Đường sắt) nhằm cắt giảm 20% lượng phát thải carbon trong chuỗi cung ứng linh kiện điện tử.
+                </p>
+<div class="mt-auto pt-4 border-t border-outline-variant/15 flex justify-between items-center">
+<span class="font-label text-xs text-outline italic">Xuất bản: 05/02/2024</span>
+<a class="text-primary font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all" href="#">
+                        Đọc chi tiết
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</article>
+</section>
+<!-- Newsletter Section (Editorial style) -->
+<section class="mt-32 p-12 bg-primary-container text-surface-bright flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="max-w-xl">
+<h3 class="font-headline text-4xl font-bold mb-4">Nhận báo cáo chuyên sâu hàng tháng</h3>
+<p class="font-body text-on-primary-container text-lg">Cập nhật những xu hướng và nghiên cứu điển hình mới nhất trong ngành Logistics Việt Nam và Quốc tế.</p>
+</div>
+<div class="w-full md:w-auto flex flex-col sm:flex-row gap-4">
+<input class="px-6 py-4 bg-primary text-surface-bright border-none focus:ring-2 focus:ring-secondary-container min-w-[300px]" placeholder="Email của bạn..." type="email"/>
+<button class="px-8 py-4 bg-secondary-container text-on-secondary-container font-bold uppercase tracking-widest hover:opacity-90 transition-opacity">Đăng ký ngay</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 py-12 bg-[#0F3453]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-8">
+<div class="flex flex-col gap-4">
+<span class="font-headline text-surface-bright text-lg">The Editorial Cartographer</span>
+<p class="font-label text-xs tracking-wide uppercase text-on-primary-container">© 2024 Logiverse. Academic Journalism for Global Logistics.</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-8">
+<a class="font-label text-xs tracking-wide uppercase text-outline-variant hover:text-secondary-container transition-opacity" href="#">Newsletter</a>
+<a class="font-label text-xs tracking-wide uppercase text-outline-variant hover:text-secondary-container transition-opacity" href="#">Contact Editorial</a>
+<a class="font-label text-xs tracking-wide uppercase text-outline-variant hover:text-secondary-container transition-opacity" href="#">Privacy Policy</a>
+<a class="font-label text-xs tracking-wide uppercase text-outline-variant hover:text-secondary-container transition-opacity" href="#">Ethical Guidelines</a>
+<a class="font-label text-xs tracking-wide uppercase text-outline-variant hover:text-secondary-container transition-opacity" href="#">Sponsorship</a>
+</nav>
+</div>
+</footer>
+</body></html>

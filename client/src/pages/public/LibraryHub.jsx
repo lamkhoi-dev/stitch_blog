@@ -1,0 +1,289 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useBooks } from '../../hooks/useBooks';
+import { useDocuments } from '../../hooks/useDocuments';
+import { getImageUrl } from '../../utils/imageUtils';
+
+const FALLBACK_BOOK = 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop';
+const FALLBACK_DOC = 'https://images.unsplash.com/photo-1568667256549-094345857637?w=400&h=300&fit=crop';
+
+const LibraryHub = () => {
+  const { books, isLoading: booksLoading } = useBooks({ limit: 5 });
+  const { documents: contractDocs, isLoading: contractsLoading } = useDocuments({ limit: 2 });
+  const { documents: incotermsDocs, isLoading: incotermsLoading } = useDocuments({ type: 'incoterms', limit: 4 });
+
+  return (
+    <main>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-[#0F3453] py-24 lg:py-32">
+        <div className="absolute inset-0 opacity-10 bg-logistics-pattern"></div>
+        <div className="absolute -right-24 -top-24 w-96 h-96 bg-primary-container rounded-full blur-3xl opacity-20"></div>
+        <div className="max-w-screen-2xl mx-auto px-8 relative z-10">
+          <div className="max-w-3xl">
+            <h1 className="font-headline text-5xl md:text-7xl font-bold text-on-primary mb-6 leading-tight">
+              Thư viện Tri thức <br/><span className="italic font-normal text-primary-fixed-dim">Logistics Toàn cầu</span>
+            </h1>
+            <p className="font-body text-lg text-surface-container-highest leading-relaxed mb-8 max-w-2xl">
+              Cổng thông tin tổng hợp các học thuyết, quy chuẩn vận hành và kho tàng tư liệu chuyên ngành dành cho những nhà kiến tạo chuỗi cung ứng hiện đại. Nghiên cứu chiều sâu về dòng chảy thương mại thế giới.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <span className="inline-flex items-center px-4 py-1 rounded-full bg-surface-container-low/10 border border-surface-container-low/20 text-surface-container-low text-xs uppercase tracking-widest font-semibold">
+                Cập nhật 2024
+              </span>
+              <span className="inline-flex items-center px-4 py-1 rounded-full bg-surface-container-low/10 border border-surface-container-low/20 text-surface-container-low text-xs uppercase tracking-widest font-semibold">
+                +5,000 Tài liệu
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hợp đồng & Chứng từ — Dynamic from API */}
+      <section className="py-24 bg-surface-container-low">
+        <div className="max-w-screen-2xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-4 sticky top-32">
+              <h2 className="font-headline text-4xl font-bold text-[#0F3453] mb-6">Hợp đồng &amp; <br/>Chứng từ Pháp lý</h2>
+              <p className="text-on-surface-variant mb-8 leading-relaxed">
+                Cung cấp các biểu mẫu chuẩn hóa quốc tế theo Incoterms 2020 và các quy định pháp lý đường biển, đường hàng không hiện hành.
+              </p>
+              <div className="flex flex-col gap-3">
+                <Link to="/thu-vien/hop-dong-chung-tu" className="flex items-center justify-between w-full p-4 bg-primary text-on-primary rounded-xl group transition-all">
+                  <span className="font-semibold">Mẫu Hợp đồng Ngoại thương</span>
+                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </Link>
+                <Link to="/thu-vien/hop-dong-chung-tu?type=chung-tu" className="flex items-center justify-between w-full p-4 bg-surface-container-highest text-primary rounded-xl group transition-all border border-outline-variant/20">
+                  <span className="font-semibold">Bộ Chứng từ Xuất nhập khẩu</span>
+                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {contractsLoading ? (
+                [1, 2].map((i) => (
+                  <div key={i} className="bg-surface-container-lowest rounded-xl border border-outline-variant/10 overflow-hidden animate-pulse">
+                    <div className="w-full h-48 bg-slate-200" />
+                    <div className="p-8 space-y-4">
+                      <div className="h-4 bg-slate-200 rounded w-3/4" />
+                      <div className="h-3 bg-slate-200 rounded w-1/2" />
+                    </div>
+                  </div>
+                ))
+              ) : contractDocs.length > 0 ? (
+                contractDocs.map((doc) => (
+                  <div key={doc._id} className="bg-surface-container-lowest p-0 overflow-hidden rounded-xl border border-outline-variant/10 shadow-sm transition-all hover:shadow-md">
+                    <img
+                      className="w-full h-48 object-cover object-top border-b border-outline-variant/10"
+                      alt={doc.title}
+                      src={getImageUrl(doc.coverImage) || FALLBACK_DOC}
+                      onError={(e) => { e.target.src = FALLBACK_DOC; }}
+                    />
+                    <div className="p-8">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+                          <span className="material-symbols-outlined text-on-secondary-container">
+                            {doc.type === 'hop-dong' ? 'assignment' : 'description'}
+                          </span>
+                        </div>
+                        <span className="font-bold text-lg text-[#0F3453] line-clamp-1">{doc.title}</span>
+                      </div>
+                      {doc.description && (
+                        <p className="text-sm text-on-surface-variant line-clamp-3">{doc.description}</p>
+                      )}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                /* Fallback khi chưa có document */
+                <div className="col-span-2 text-center py-12 text-on-surface-variant italic">
+                  <span className="material-symbols-outlined text-4xl mb-3 block opacity-40">folder_open</span>
+                  Chưa có tài liệu nào được xuất bản.
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 🆕 Incoterms Section — Clone layout from HĐ & Chứng từ */}
+      <section className="py-24 bg-surface">
+        <div className="max-w-screen-2xl mx-auto px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-4 sticky top-32">
+              <h2 className="font-headline text-4xl font-bold text-[#0F3453] mb-6">Incoterms <br/>2020</h2>
+              <p className="text-on-surface-variant mb-8 leading-relaxed">
+                Bộ điều kiện thương mại quốc tế do ICC (International Chamber of Commerce) ban hành, quy định quyền và nghĩa vụ của người mua – người bán trong hợp đồng mua bán quốc tế.
+              </p>
+              <div className="flex flex-col gap-3">
+                <Link to="/thu-vien/hop-dong-chung-tu?type=incoterms" className="flex items-center justify-between w-full p-4 bg-teal-700 text-white rounded-xl group transition-all">
+                  <span className="font-semibold">Tra cứu Incoterms 2020</span>
+                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                </Link>
+                <div className="flex items-center justify-between w-full p-4 bg-surface-container-highest text-primary rounded-xl border border-outline-variant/20">
+                  <span className="font-semibold">11 điều kiện giao hàng</span>
+                  <span className="material-symbols-outlined text-outline-variant">swap_horiz</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {incotermsLoading ? (
+                [1, 2, 3, 4].map((i) => (
+                  <div key={i} className="bg-surface-container-lowest rounded-xl border border-outline-variant/10 overflow-hidden animate-pulse">
+                    <div className="w-full h-40 bg-slate-200" />
+                    <div className="p-6 space-y-3">
+                      <div className="h-4 bg-slate-200 rounded w-3/4" />
+                      <div className="h-3 bg-slate-200 rounded w-1/2" />
+                    </div>
+                  </div>
+                ))
+              ) : incotermsDocs.length > 0 ? (
+                incotermsDocs.map((doc) => (
+                  <div key={doc._id} className="bg-surface-container-lowest p-0 overflow-hidden rounded-xl border border-outline-variant/10 shadow-sm transition-all hover:shadow-md">
+                    <img
+                      className="w-full h-40 object-cover object-top border-b border-outline-variant/10"
+                      alt={doc.title}
+                      src={getImageUrl(doc.coverImage) || FALLBACK_DOC}
+                      onError={(e) => { e.target.src = FALLBACK_DOC; }}
+                    />
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 rounded-lg bg-teal-100 flex items-center justify-center">
+                          <span className="material-symbols-outlined text-teal-700">swap_horiz</span>
+                        </div>
+                        <span className="font-bold text-lg text-[#0F3453] line-clamp-1">{doc.title}</span>
+                      </div>
+                      {doc.description && (
+                        <p className="text-sm text-on-surface-variant line-clamp-2">{doc.description}</p>
+                      )}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-2 text-center py-12 text-on-surface-variant italic">
+                  <span className="material-symbols-outlined text-4xl mb-3 block opacity-40">swap_horiz</span>
+                  Nội dung Incoterms sẽ được cập nhật sớm.
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sách Recommendation — Dynamic from API */}
+      <section className="py-24 bg-surface-container-low">
+        <div className="max-w-screen-2xl mx-auto px-8">
+          <div className="flex justify-between items-end mb-16">
+            <div>
+              <h2 className="font-headline text-4xl font-bold text-[#0F3453] mb-4">Thư viện Sách &amp; Ấn phẩm</h2>
+              <p className="text-on-surface-variant max-w-xl">Tuyển tập những đầu sách kinh điển và nghiên cứu mới nhất về quản trị Logistics từ các giáo sư đầu ngành.</p>
+            </div>
+            <Link to="/thu-vien/sach" className="hidden md:flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-1">
+              Xem tất cả thư mục <span className="material-symbols-outlined">trending_flat</span>
+            </Link>
+          </div>
+          
+          <div className="flex overflow-x-auto gap-8 pb-12 no-scrollbar">
+            {booksLoading ? (
+              [1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className="flex-none w-64 animate-pulse">
+                  <div className="mb-6 rounded-lg bg-slate-200 aspect-[3/4]" />
+                  <div className="h-4 bg-slate-200 rounded w-3/4 mb-2" />
+                  <div className="h-3 bg-slate-200 rounded w-1/2" />
+                </div>
+              ))
+            ) : books.length > 0 ? (
+              books.map((book) => (
+                <Link to={`/thu-vien/sach/${book.slug}`} key={book._id} className="flex-none w-64 group">
+                  <div className="relative mb-6 overflow-hidden rounded-lg shadow-xl bg-white aspect-[3/4]">
+                    <img
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      alt={book.title}
+                      src={getImageUrl(book.coverImage) || FALLBACK_BOOK}
+                      onError={(e) => { e.target.src = FALLBACK_BOOK; }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                      <span className="bg-white text-primary py-2 px-4 rounded text-sm font-bold w-full text-center transform translate-y-4 group-hover:translate-y-0 transition-transform">Đọc bản tóm tắt</span>
+                    </div>
+                  </div>
+                  <h3 className="font-headline text-xl font-bold text-[#0F3453] line-clamp-2">{book.title}</h3>
+                  <p className="text-sm text-on-surface-variant mt-1">{book.author}{book.year ? `, ${book.year}` : ''}</p>
+                </Link>
+              ))
+            ) : (
+              <div className="w-full text-center py-12 text-on-surface-variant italic">
+                <span className="material-symbols-outlined text-4xl mb-3 block opacity-40">menu_book</span>
+                Thư viện sách sẽ được cập nhật sớm.
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Logistics Transport Modes — Static (taxonomy) */}
+      <section className="py-24 bg-surface-container overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full opacity-5 pointer-events-none">
+          <img className="w-full h-full object-contain object-right" alt="ship" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-ejDFNUUu4J3Exh1iJxgaGpACO_Q1D-yb-zVfwOcc_T0bvyPP8hgHcLPmk3TeRKu48O3TTi6ve55mpOal_eUz9KSFWRF8JoPi4Bd5P2_J73RAS1WiHgillqGcZMsepaAMONAE6lpvlsraAx_5SLaRHSNF97cLnseZNdBpw3U_plpfG-VSc3OWWeDgd30ZcEbwfDEdep_cIal6QABV6sIaIzDkUjDxXRPb9VOMUnCiPEBEwotXim4SdVo25zrg_eM-tbrUENq8MRc"/>
+        </div>
+        <div className="max-w-screen-2xl mx-auto px-8 relative z-10 text-center">
+          <h2 className="font-headline text-4xl font-bold text-[#0F3453] mb-16">Phương thức Vận tải Toàn cầu</h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
+            {[
+              { title: 'Sea Freight', sub: 'Đường biển', icon: 'directions_boat', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtZJpMiQj-dZzk0pKXUJqPud0grGGzXia3abJOAdqtWpVK9ztXYseq8cRG8VI0cEarlO1_KxIKrqdsqMDwgJe2Vv-pimTUrl68uIKlVncLH47I4g3Zz1xAnJgI0f33mdAjOUDkgtMvr1qxN6CVPE8JS888HhGBPLZ8abi-SiRtZ-RYQ6pMgEEtx18X21BNCld1vaeaUTKgy9D89Olgy6nFitmUZ-sWeVD6cHCrK5ToHYRl__kU-7QOwI40zYu4hKdT5IjKuLVGExQ' },
+              { title: 'Air Freight', sub: 'Hàng không', icon: 'flight_takeoff', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBOrRlRuXhjXcMlHn3khiJUaopr4dwAz4NEVDSnmJl0z7iDHwoft0XT_bGIx_5zOQW0pVMMWDINLN10N6TeovO9LGbEWBgqesZWqh56EnhfwLEAbmfybNdej_QBPb7ruNOExQPSNLiF6py8gZcfnVqdAPHQspT8iHrraZdkXYkbUXxlfxy43jvBq451Qf8GaMrU8u3EG1P0RYTcx0llBykvEtDiui44Fs8e3LTJ_Z_jVc0zsrkOcvkTO0qukjSmXrbuK20gAldd8Xk' },
+              { title: 'Road Transport', sub: 'Đường bộ', icon: 'local_shipping', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzu3H9lxQ9KVs1JRZvEdzLegjBrZfJ_pr9ikem5W6xXYj5QI6TGnR02kfTRfkemXvHYW1v1mWIWaeN2MCSJlQ57fJCEv8FKFE2mTWHX991RMEwRw0L9DTh9qbREMMryHU_VkqMNzDChWcUK5rt0xOC9I4jhyac1DPO1Bv04NrUOblps5JI33nQPMmdNa_2sc0NFRqkSAR1FB1kmhlmCh43J3EOLRbor5rjqRZjF-pujDdm0oXcVNfSFdXc7zsXl9lligEh6O5Tal4' },
+              { title: 'Rail Freight', sub: 'Đường sắt', icon: 'train', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBNLZJHv1ZNLFByIDFvaukn9Hr9_pH0DXuXALZXijBWC31uBBWroNt6lD0HLuMVzMkcSa_RKKWaU20l0IfEkJm4INmrB46pkD47FKkf4Y20SEhxfaO2YkW7MM4uvd9ueRMNnpTjnzbGFcSOmf8E-KiLijePDRPBrLWb3bMdtjtqmye2R-zKJVfSaLSujx-topCyo5yKV97s_iIWOCv1VJas80EyhHNNMH14s7jnfiREchQOE1CzPF33RHQ_2cKr8YtYZiGKLuMJyHA' },
+              { title: 'Multimodal', sub: 'Đa phương thức', icon: 'hub', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBxm4irUix45vK4DJIPrKSqYojgIGORRFoeCezSZaBb2gEwSKAbvIHgnva7OsXjeDhGOog84keDTJhekibsm6A6CtG3Trkx33bPPVZZ6I0uav1kwHjgTQOi3zcSp1IhzmT2_1uzlOmfmdmuOf6cElk9lMbH0SFBPq6PB5djdlgNhhB987O4uSfQ-GgPIS3HRdRX64S52xSkN4ldePxE6HeYxsyPtQHKa0YRpQABaUxJP34KuvR1tybnimvhzmdQL0JWvphF9mhmh9I' }
+            ].map((mode, index) => (
+              <a key={index} href="#" className="group flex flex-col items-center bg-surface-container-lowest p-0 rounded-2xl hover:shadow-2xl transition-all border border-outline-variant/10 overflow-hidden">
+                <div className="w-full aspect-square relative overflow-hidden bg-slate-100">
+                  <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt={mode.title} src={mode.img}/>
+                  <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="material-symbols-outlined text-5xl text-white">{mode.icon}</span>
+                  </div>
+                </div>
+                <div className="py-6 px-4">
+                  <h4 className="font-bold text-lg text-[#0F3453]">{mode.title}</h4>
+                  <p className="text-xs text-on-surface-variant mt-2 uppercase tracking-widest">{mode.sub}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Supply Chain Diagram — Static (theory model) */}
+      <section className="py-24 bg-surface overflow-hidden relative">
+        <div className="max-w-screen-2xl mx-auto px-8">
+          <div className="text-center mb-20">
+            <h2 className="font-headline text-4xl font-bold text-[#0F3453] mb-4">Mô hình Chuỗi Cung ứng Toàn diện</h2>
+            <p className="text-on-surface-variant">Phân tích các giai đoạn then chốt từ điểm khởi nguồn đến người tiêu dùng cuối cùng.</p>
+          </div>
+          <div className="relative max-w-5xl mx-auto">
+            {/* Flow Path Line */}
+            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 hidden md:block -translate-y-1/2 -z-10"></div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+              {[
+                { step: '1', title: 'Procurement', desc: 'Quản trị mua hàng và tìm kiếm nguyên liệu đầu vào bền vững.' },
+                { step: '2', title: 'Sourcing', desc: 'Chiến lược lựa chọn nhà cung cấp và tối ưu hóa chi phí sản xuất.' },
+                { step: '3', title: 'Planning', desc: 'Lập kế hoạch nhu cầu và quản trị tồn kho dự phòng.' },
+                { step: '4', title: 'Manufacturing', desc: 'Quy trình sản xuất tinh gọn và kiểm soát chất lượng đầu ra.' }
+              ].map((item, index) => (
+                <div key={index} className="bg-surface-container-lowest p-6 rounded-xl border border-primary/10 shadow-sm text-center relative group">
+                  <div className="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold absolute -top-6 left-1/2 -translate-x-1/2 border-4 border-surface group-hover:scale-110 transition-transform">
+                    {item.step}
+                  </div>
+                  <h5 className="font-bold text-lg mt-6 mb-3">{item.title}</h5>
+                  <p className="text-sm text-on-surface-variant">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default LibraryHub;

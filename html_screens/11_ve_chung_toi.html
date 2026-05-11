@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Về Chúng Tôi | Logiverse - Editorial Cartographer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-container-high": "#dfe9fa",
+                      "primary-fixed": "#d0e4ff",
+                      "on-secondary-fixed-variant": "#5a4228",
+                      "on-primary-fixed": "#001d35",
+                      "tertiary": "#4d1500",
+                      "surface-container": "#e5eeff",
+                      "outline-variant": "#c3c7ce",
+                      "inverse-primary": "#aac9f0",
+                      "surface": "#f8f9ff",
+                      "tertiary-fixed": "#ffdbcf",
+                      "on-tertiary-fixed-variant": "#812900",
+                      "primary-container": "#1f4060",
+                      "on-secondary-fixed": "#2a1803",
+                      "on-background": "#121c28",
+                      "surface-container-highest": "#d9e3f4",
+                      "surface-bright": "#f8f9ff",
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#8dacd1",
+                      "secondary-fixed": "#ffdcbb",
+                      "background": "#f8f9ff",
+                      "surface-container-low": "#eef4ff",
+                      "on-tertiary-container": "#ff885b",
+                      "tertiary-container": "#722300",
+                      "primary-fixed-dim": "#aac9f0",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#d1dbec",
+                      "secondary": "#74593e",
+                      "inverse-surface": "#27313e",
+                      "on-surface": "#121c28",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#fdd9b6",
+                      "primary": "#022a49",
+                      "outline": "#73777e",
+                      "on-primary-fixed-variant": "#294969",
+                      "surface-variant": "#d9e3f4",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "surface-tint": "#426182",
+                      "secondary-fixed-dim": "#e3c09f",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#43474e",
+                      "tertiary-fixed-dim": "#ffb59b",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#380d00",
+                      "on-secondary-container": "#785e42"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Newsreader", "serif"],
+                      "body": ["Inter", "sans-serif"],
+                      "label": ["Inter", "sans-serif"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .topo-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 380c20-5 40-10 70-5s60 20 100 15 80-30 130-20 70 20 100 10v20H0v-20zm0-40c30-10 60 0 90 5s60 0 100-15 80-20 120-5 60 25 90 15v20c-30 10-60-5-90-15s-80-10-120 5-60 15-100 15-60-15-90-5v-20z' fill='%231f4060' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .newsreader { font-family: 'Newsreader', serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50">
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-screen-2xl mx-auto">
+<a class="font-serif italic font-bold text-2xl text-slate-900 dark:text-white" href="/">Logiverse</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-sans tracking-tight text-sm font-medium uppercase" href="#">Research</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-sans tracking-tight text-sm font-medium uppercase" href="#">Logistics</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-sans tracking-tight text-sm font-medium uppercase" href="#">Archives</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors font-sans tracking-tight text-sm font-medium uppercase" href="#">Mapping</a>
+<a class="text-slate-900 dark:text-white font-bold border-b-2 border-slate-900 dark:border-white pb-1 font-sans tracking-tight text-sm font-medium uppercase" href="#">About</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="bg-primary hover:bg-primary-container text-white px-6 py-2 rounded-md transition-all active:opacity-80 font-sans text-sm font-medium uppercase tracking-tight">Subscribe</button>
+<span class="material-symbols-outlined text-slate-900 dark:text-white cursor-pointer hover:bg-slate-100/50 p-1 rounded-md transition-all">menu</span>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative bg-primary overflow-hidden min-h-[716px] flex items-center">
+<div class="absolute inset-0 topo-bg opacity-30"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-90"></div>
+<div class="relative z-10 max-w-5xl mx-auto px-8 py-24 text-center md:text-left">
+<span class="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-[0.2em] rounded-sm mb-6">Editorial Archive</span>
+<h1 class="text-5xl md:text-7xl lg:text-8xl text-white font-headline leading-tight mb-8">Về Chúng Tôi</h1>
+<p class="text-xl md:text-2xl text-on-primary-container font-body max-w-2xl font-light leading-relaxed">
+                    Kiến tạo bản đồ tri thức Logistics toàn cầu, kết nối lý thuyết kinh điển với thực tiễn chuyển đổi số tại Việt Nam.
+                </p>
+</div>
+<div class="absolute bottom-0 right-0 w-1/3 h-full hidden lg:block opacity-20">
+<img alt="background texture" class="w-full h-full object-cover grayscale" data-alt="Abstract geometric patterns of interconnected nodes and lines representing a global supply chain network on a dark navy background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1dCXu_NCeqGyNztpNaVDxq5czfuxBIfxVtFA10q7Hc8Uigxw8JsRt2btUvIXw0gAKsSt39iliQ1sWhUxruyw0cEvtzM_LZogRuj-WHIpor-r6VNUDmVXAO9t1C8vJ90UVBkRmvghkD8jWSotGAxdZOaK-fJXHe8iqI0zDAwW9elyeqvbQK4ZOK3I_K1E0WulBimHz8FHfVyxH6QcY6jaFLUdZWMOR7vFzPucFev0P_jvWwQAzauohTZ4lbkzQQyoYZiwCfh6kBUM"/>
+</div>
+</section>
+<!-- Our Story/Mission Section -->
+<section class="py-24 px-8 bg-surface">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<div class="lg:col-span-5 sticky top-32">
+<h2 class="text-4xl md:text-5xl text-primary font-headline leading-tight">Sứ mệnh hệ thống hóa tri thức Logistics.</h2>
+<div class="mt-8 h-1 w-24 bg-primary"></div>
+<p class="mt-8 text-on-surface-variant font-body text-lg leading-relaxed italic">
+                        "Thông tin không phải là kiến thức. Kiến thức thực sự chỉ đến từ việc cấu trúc hóa dữ liệu thành một lộ trình có thể thực thi."
+                    </p>
+</div>
+<div class="lg:col-span-7 space-y-12 text-on-surface font-body text-lg leading-loose">
+<p>
+                        Logiverse ra đời từ một nhu cầu cấp thiết: Sự đứt gãy giữa các giáo trình Logistics kinh điển thế giới và thực trạng vận hành tại thị trường Việt Nam. Chúng tôi không chỉ dịch thuật; chúng tôi <strong>bản địa hóa tri thức</strong>.
+                    </p>
+<div class="p-8 bg-surface-container-low border-l-4 border-primary">
+<p class="font-medium text-primary mb-4">Mối liên kết Cengage</p>
+                        Chúng tôi tập trung vào việc hệ thống hóa và chuyển ngữ các học thuyết Logistics từ <strong>Cengage</strong>—nhà xuất bản giáo dục hàng đầu thế giới. Bằng cách kết hợp độ chính xác học thuật với ngôn ngữ thực tiễn của ngành, Logiverse giúp các chuyên gia Việt Nam tiếp cận những tinh hoa quản trị chuỗi cung ứng hiện đại nhất.
+                    </div>
+<p>
+                        Mỗi bài viết, mỗi bản đồ tư duy trên Logiverse đều được đội ngũ biên tập kiểm duyệt gắt gao theo tiêu chuẩn báo chí học thuật. Chúng tôi tin rằng, một ngành Logistics vững mạnh cần được xây dựng trên một nền tảng tri thức được quy hoạch bài bản như những hải đồ chi tiết nhất.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Core Values & Vision -->
+<section class="py-24 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<h2 class="text-4xl md:text-5xl text-primary font-headline">Giá Trị Cốt Lõi</h2>
+<p class="text-on-surface-variant font-label uppercase tracking-widest max-w-xs text-right">03 Trụ cột của sự chính xác</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-1">
+<!-- Value 1 -->
+<div class="bg-surface p-12 hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-primary mb-8" data-icon="account_tree">account_tree</span>
+<h3 class="text-2xl font-headline text-primary mb-6">Hệ Thống Hóa</h3>
+<p class="text-on-surface-variant font-body leading-relaxed">
+                            Chuyển đổi dữ liệu thô và các lý thuyết rời rạc thành các mô hình quản trị có cấu trúc, giúp doanh nghiệp dễ dàng áp dụng vào quy trình vận hành.
+                        </p>
+</div>
+<!-- Value 2 -->
+<div class="bg-surface p-12 hover:bg-surface-container transition-colors border-x border-outline-variant/20">
+<span class="material-symbols-outlined text-4xl text-primary mb-8" data-icon="translate">translate</span>
+<h3 class="text-2xl font-headline text-primary mb-6">Bản Địa Hóa</h3>
+<p class="text-on-surface-variant font-body leading-relaxed">
+                            Tinh chỉnh những tiêu chuẩn quốc tế để phù hợp với đặc thù pháp lý, hạ tầng và văn hóa kinh doanh tại Việt Nam.
+                        </p>
+</div>
+<!-- Value 3 -->
+<div class="bg-surface p-12 hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-4xl text-primary mb-8" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="text-2xl font-headline text-primary mb-6">Đổi Mới AI</h3>
+<p class="text-on-surface-variant font-body leading-relaxed">
+                            Tận dụng trí tuệ nhân tạo để phân tích xu hướng logistics, dự báo biến động thị trường và cá nhân hóa trải nghiệm học tập tri thức.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- The Team/Contributors -->
+<section class="py-24 px-8 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-5xl text-primary font-headline mb-4">Hội Đồng Biên Tập</h2>
+<p class="text-on-surface-variant font-body">Những người đứng sau các bản đồ tri thức của chúng tôi</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Member 1 -->
+<div class="group">
+<div class="aspect-[3/4] bg-surface-container-high mb-6 overflow-hidden">
+<img alt="Team Member" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional headshot of an Asian male editor in a tailored suit, studio lighting, neutral academic background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1o_N6_2ufY8D-7Rt6LIx5tIYT_ht1vONSt5byxPCBSS1zPLPUhAl71_7FcFUiLMaINCXUiyNr1pFMcxpHJ9NoM0Q2VZBfEv-Z4dA-U4ZWMhr2wtqjF-B7MRMSBLdRld9lqiWkpXiXBjUf4TjMO1CR9NBfE5l0d3Gwnfir3XDhf7Jb0mgXDjFebtQVneDceaEkU0OctpjMfzafVAcLLBpFDUTwx3QdTfP9ajV504VoAgbknHAIQE3_Gd72dcLzzqQ28ABo5u6hXKw"/>
+</div>
+<h4 class="text-xl font-headline text-primary">Dr. Minh Khôi</h4>
+<p class="text-sm font-label uppercase tracking-widest text-on-surface-variant mt-2">Chủ biên Logistics</p>
+</div>
+<!-- Member 2 -->
+<div class="group">
+<div class="aspect-[3/4] bg-surface-container-high mb-6 overflow-hidden">
+<img alt="Team Member" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional headshot of a female logistics consultant, modern office setting, bright natural light, professional attire." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr4T8RvVhupZTwOeCCoNfLI2A5WH0ItPwf9U77pPod0sYv3ZGQiElBTihA0MdlZvPMaWdmUkZ-30qJD2FL8b0vqbdFbiezrrotVanS4AvSz5wsGbVWSqJ_jcUVXnrI5f6YaumMMo-icjERwEYej5XvSadhCyPgy6Fb5S0o2mqrl-fZPXW0lkH1BX9-mVTi2XEHPzr245bcF6QUcavRdEeZOsEJ0WgI9VvmtY4F5CXMRxHNxCRGCcAkSk0xvhn5D0XhOuxX36KAuLs"/>
+</div>
+<h4 class="text-xl font-headline text-primary">Lê Mai Anh</h4>
+<p class="text-sm font-label uppercase tracking-widest text-on-surface-variant mt-2">Chuyên gia Chuỗi cung ứng</p>
+</div>
+<!-- Member 3 -->
+<div class="group">
+<div class="aspect-[3/4] bg-surface-container-high mb-6 overflow-hidden">
+<img alt="Team Member" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="Close-up portrait of an older distinguished gentleman with glasses, library background with blurred books, intellectual look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8LX04rrQxH8jiGl-rwanxRbxEO5PidM-S2Wu2QLZXjfi-cGtRHzP5HvlnTW3BtZ9SdO3buda42KcypjTJpMhE4HA54RhE27_j7Zd_f79unXg8R8WI6lG2fTZml1Bdl_s0VvEgwN35t_GqLTf82AACwgRQynqF8kfbTEqM7fF864G8HS2NwCJd82ZI02ADV8Bm4lhNJcGJwsbwgMtN8_85olPNdQ7hOa-gmNjzk15eAeJ0uNZNlAxIbcy9Q_2KMwuYI3CIA6F_Sd0"/>
+</div>
+<h4 class="text-xl font-headline text-primary">GS. Trần Hữu</h4>
+<p class="text-sm font-label uppercase tracking-widest text-on-surface-variant mt-2">Cố vấn Chiến lược</p>
+</div>
+<!-- Member 4 -->
+<div class="group">
+<div class="aspect-[3/4] bg-surface-container-high mb-6 overflow-hidden">
+<img alt="Team Member" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="Professional portrait of a tech-focused woman, minimalist aesthetic, sharp focus on facial expression, confidence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl9xda_jCeBpZFxZpp_QQ6DncdJCr3c1jkscvsc-G98tOmp_A4zOsjFASAPZur8pVWZPuSf7FILmNxy92iz46-2UgMj1yBpAm17hvgm8p1L6lWbAn03CWVw2xs8O4e4e_fliFpE6cb6EcOCcjGQRq1eR-qPab0Pl65OA3XAOQHVjGNezgZM02msRJgAZ8Ehg8eVOo-UjwxKuQbVFpmME6nSls3elP2KPPK6Ccu58hmvL6wRoY-pE4cQNqafOvmls0SG6KLiyueMVo"/>
+</div>
+<h4 class="text-xl font-headline text-primary">Phạm Thảo Vy</h4>
+<p class="text-sm font-label uppercase tracking-widest text-on-surface-variant mt-2">Giám đốc Công nghệ (AI)</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Stack & Partners -->
+<section class="py-24 px-8 bg-surface-container-low border-y border-outline-variant/10">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 opacity-80">
+<div class="font-headline text-2xl text-primary font-bold italic">Tech Stack</div>
+<div class="flex flex-wrap justify-center gap-12 items-center">
+<span class="font-body font-bold text-on-surface-variant text-xl">WordPress</span>
+<span class="font-body font-bold text-on-surface-variant text-xl tracking-tighter">Gemini AI</span>
+<span class="font-body font-bold text-on-surface-variant text-xl">n8n.io</span>
+<div class="h-8 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="school">school</span>
+<span class="font-body font-bold text-primary text-xl">FTU Partner</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto py-16 px-8 bg-[#eef4ff] dark:bg-slate-950 text-[#022a49] dark:text-slate-300">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto border-t border-slate-200/30 dark:border-slate-800/30 pt-12">
+<div class="col-span-1 md:col-span-1">
+<div class="font-serif text-xl font-bold text-slate-900 dark:text-white mb-6">Logiknowledge</div>
+<p class="font-sans Inter text-xs uppercase tracking-widest leading-loose">
+                    © 2024 Logiverse Editorial Collective. All rights reserved. Precise mapping of global knowledge.
+                </p>
+<div class="flex space-x-4 mt-8">
+<a class="text-slate-600 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+</a>
+<a class="text-slate-600 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</a>
+</div>
+</div>
+<div class="col-span-1">
+<h4 class="font-serif text-lg font-bold text-slate-900 dark:text-white mb-6">Editorial</h4>
+<ul class="space-y-4">
+<li><a class="font-sans Inter text-xs uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:translate-x-1 transition-transform duration-300 hover:text-slate-900 dark:hover:text-white block" href="#">Journal Ethics</a></li>
+<li><a class="font-sans Inter text-xs uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:translate-x-1 transition-transform duration-300 hover:text-slate-900 dark:hover:text-white block" href="#">Contact Research</a></li>
+<li><a class="font-sans Inter text-xs uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:translate-x-1 transition-transform duration-300 hover:text-slate-900 dark:hover:text-white block" href="#">Global Transit Maps</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-serif text-lg font-bold text-slate-900 dark:text-white mb-6">Contact</h4>
+<ul class="space-y-4 font-sans Inter text-xs uppercase tracking-widest text-slate-600">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="mail">mail</span>
+                        editorial@logiknowledge.com
+                    </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="call">call</span>
+                        +84 (0) 24 3825 3506
+                    </li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-serif text-lg font-bold text-slate-900 dark:text-white mb-6">Newsletter</h4>
+<form class="flex flex-col gap-4">
+<input class="bg-surface-container-lowest border-none px-4 py-3 text-xs font-sans tracking-widest outline-none focus:ring-1 focus:ring-primary" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-primary text-white py-3 text-xs font-sans font-bold uppercase tracking-[0.2em] hover:bg-primary-container transition-colors" type="submit">Join Archives</button>
+</form>
+</div>
+</div>
+</footer>
+</body></html>

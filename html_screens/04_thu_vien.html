@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thư viện Tri thức Logistics - Logiverse</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-dim": "#d1dbec",
+                      "tertiary-fixed-dim": "#ffb59b",
+                      "surface-container-highest": "#d9e3f4",
+                      "primary-fixed-dim": "#aac9f0",
+                      "surface": "#f8f9ff",
+                      "surface-container": "#e5eeff",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#e3c09f",
+                      "tertiary": "#4d1500",
+                      "on-error-container": "#93000a",
+                      "on-primary": "#ffffff",
+                      "surface-variant": "#d9e3f4",
+                      "on-secondary-fixed": "#2a1803",
+                      "on-secondary-container": "#785e42",
+                      "on-primary-container": "#8dacd1",
+                      "primary-fixed": "#d0e4ff",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#722300",
+                      "primary-container": "#1f4060",
+                      "on-primary-fixed": "#001d35",
+                      "background": "#f8f9ff",
+                      "surface-tint": "#426182",
+                      "on-secondary": "#ffffff",
+                      "outline": "#73777e",
+                      "outline-variant": "#c3c7ce",
+                      "on-tertiary-fixed": "#380d00",
+                      "on-background": "#121c28",
+                      "on-surface-variant": "#43474e",
+                      "on-primary-fixed-variant": "#294969",
+                      "surface-bright": "#f8f9ff",
+                      "secondary-container": "#fdd9b6",
+                      "secondary": "#74593e",
+                      "on-tertiary-container": "#ff885b",
+                      "inverse-surface": "#27313e",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-tertiary-fixed-variant": "#812900",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#ffdcbb",
+                      "error-container": "#ffdad6",
+                      "surface-container-low": "#eef4ff",
+                      "tertiary-fixed": "#ffdbcf",
+                      "inverse-primary": "#aac9f0",
+                      "primary": "#001e37",
+                      "error": "#ba1a1a",
+                      "on-secondary-fixed-variant": "#5a4228",
+                      "surface-container-high": "#dfe9fa",
+                      "on-surface": "#121c28"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {},
+              "fontFamily": {
+                      "headline": ["Newsreader"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-logistics-pattern {
+            background-image: radial-gradient(circle at 2px 2px, rgba(2, 42, 73, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .text-editorial-navy { color: #0F3453; }
+        .bg-editorial-navy { background-color: #0F3453; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-fixed">
+<!-- TopNavBar (Styled after SCREEN_17) -->
+<nav class="sticky top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-[#001e37]/10 shadow-sm">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<a class="font-['Newsreader'] text-2xl font-bold tracking-tighter text-[#001e37]" href="#">Logiknowledge</a>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 font-medium hover:text-[#001e37] transition-colors font-['Newsreader'] italic tracking-tight text-lg" href="#">Trang chủ</a>
+<a class="text-[#001e37] font-bold border-b-2 border-[#001e37] pb-1 font-['Newsreader'] italic tracking-tight text-lg" href="#">Thư viện</a>
+<a class="text-slate-600 font-medium hover:text-[#001e37] transition-colors font-['Newsreader'] italic tracking-tight text-lg" href="#">Tin tức</a>
+<a class="text-slate-600 font-medium hover:text-[#001e37] transition-colors font-['Newsreader'] italic tracking-tight text-lg" href="#">Case Study</a>
+<a class="text-slate-600 font-medium hover:text-[#001e37] transition-colors font-['Newsreader'] italic tracking-tight text-lg" href="#">Về chúng tôi</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-[#001e37] hover:opacity-80 transition-opacity">search</button>
+<button class="bg-[#001e37] text-white px-6 py-2 rounded-sm text-sm font-bold tracking-wide hover:opacity-90 transition-all active:scale-95">Đăng nhập</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative overflow-hidden bg-editorial-navy py-24 lg:py-32">
+<div class="absolute inset-0 opacity-10 bg-logistics-pattern"></div>
+<div class="absolute -right-24 -top-24 w-96 h-96 bg-primary-container rounded-full blur-3xl opacity-20"></div>
+<div class="max-w-screen-2xl mx-auto px-8 relative z-10">
+<div class="max-w-3xl">
+<h1 class="font-headline text-5xl md:text-7xl font-bold text-on-primary mb-6 leading-tight">
+                    Thư viện Tri thức <br/><span class="italic font-normal text-primary-fixed-dim">Logistics Toàn cầu</span>
+</h1>
+<p class="font-body text-lg text-surface-container-highest leading-relaxed mb-8 max-w-2xl">
+                    Cổng thông tin tổng hợp các học thuyết, quy chuẩn vận hành và kho tàng tư liệu chuyên ngành dành cho những nhà kiến tạo chuỗi cung ứng hiện đại. 
+                    Nghiên cứu chiều sâu về dòng chảy thương mại thế giới.
+                </p>
+<div class="flex flex-wrap gap-4">
+<span class="inline-flex items-center px-4 py-1 rounded-full bg-surface-container-low/10 border border-surface-container-low/20 text-surface-container-low text-xs uppercase tracking-widest font-semibold">
+                        Cập nhật 2024
+                    </span>
+<span class="inline-flex items-center px-4 py-1 rounded-full bg-surface-container-low/10 border border-surface-container-low/20 text-surface-container-low text-xs uppercase tracking-widest font-semibold">
+                        +5,000 Tài liệu
+                    </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Hợp đồng & Chứng từ -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-4 sticky top-32">
+<h2 class="font-headline text-4xl font-bold text-editorial-navy mb-6">Hợp đồng &amp; <br/>Chứng từ Pháp lý</h2>
+<p class="text-on-surface-variant mb-8 leading-relaxed">
+                        Cung cấp các biểu mẫu chuẩn hóa quốc tế theo Incoterms 2020 và các quy định pháp lý đường biển, đường hàng không hiện hành.
+                    </p>
+<div class="flex flex-col gap-3">
+<button class="flex items-center justify-between w-full p-4 bg-primary text-on-primary rounded-xl group transition-all">
+<span class="font-semibold">Mẫu Hợp đồng Ngoại thương</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="flex items-center justify-between w-full p-4 bg-surface-container-highest text-primary rounded-xl group transition-all border border-outline-variant/20">
+<span class="font-semibold">Bộ Chứng từ Xuất nhập khẩu</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest p-0 overflow-hidden rounded-xl border border-outline-variant/10 shadow-sm transition-hover hover:shadow-md">
+<img class="w-full h-48 object-cover object-top border-b border-outline-variant/10" data-alt="professional document mockup for bill of lading with clean typography and blue highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCScKgwJcXCNbicNPmTgJQcmsSIDFH6nSuxwRzSBLvxxCCFkIc-Pwc8l-SAb4TLjsil9jey6DuSy1y2II2E9218XBQCB4V1YHWUrOQd22qmrVSPg4s2MzieRFNI-X-XriF-D3vmBL5v5kCtxUXwr4UC9kJlYIEiUFUx64ZG9cDZ3wxzZAxWlzRFEb6d3yk3SPSqV70P0IfLdy3xKcPrWsdFxnZk33QLKEKoJbhV1ADJFfWuq69SzQpl3bFgg2QXp62rxv3-Gd-HR3E"/>
+<div class="p-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container">assignment</span>
+</div>
+<span class="font-bold text-lg text-editorial-navy">Checklist Kiểm tra B/L</span>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3 text-sm">
+<span class="material-symbols-outlined text-green-600 mt-0.5">check_circle</span>
+<span>Xác nhận thông tin Shipper &amp; Consignee khớp với L/C</span>
+</li>
+<li class="flex items-start gap-3 text-sm">
+<span class="material-symbols-outlined text-green-600 mt-0.5">check_circle</span>
+<span>Kiểm tra mô tả hàng hóa và mã HS Code</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-0 overflow-hidden rounded-xl border border-outline-variant/10 shadow-sm transition-hover hover:shadow-md">
+<img class="w-full h-48 object-cover object-top border-b border-outline-variant/10" data-alt="high quality mockup of a commercial invoice and packing list documents on a desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKVuchcaeztlYor-oy2p9uHa0xCzzkRpRQHdXytXYe-pdtolK79XJTHUsTAyYg96ouagYW0eA7COoPIkTLRePYAO9ryJsYgPp6IQyguMG2Rq3tZEFplKQ4RLdgjcSvjPPDFSAyMsQznMZdBsf9eFIqOaO3MC0ikPFQx-OUuSqc-Q6Ge1RBGqETzIHYKQiqRYNMgZuwiHWXHAE0m4HDaxadG6-TQRNH2bTAlofiRiaAiXCUx_nRuzLZ-MvTu4kMnCJJwDnqGK_ciBE"/>
+<div class="p-8">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed">description</span>
+</div>
+<span class="font-bold text-lg text-editorial-navy">Xem trước Packing List</span>
+</div>
+<div class="bg-surface-container-low rounded p-4 border-l-4 border-primary">
+<div class="h-2 w-3/4 bg-slate-300 rounded mb-2"></div>
+<div class="h-2 w-1/2 bg-slate-300 rounded mb-4"></div>
+<div class="grid grid-cols-3 gap-2">
+<div class="h-8 bg-slate-200 rounded"></div>
+<div class="h-8 bg-slate-200 rounded"></div>
+<div class="h-8 bg-slate-200 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sách Recommendation -->
+<section class="py-24 bg-surface">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h2 class="font-headline text-4xl font-bold text-editorial-navy mb-4">Thư viện Sách &amp; Ấn phẩm</h2>
+<p class="text-on-surface-variant max-w-xl">Tuyển tập những đầu sách kinh điển và nghiên cứu mới nhất về quản trị Logistics từ các giáo sư đầu ngành.</p>
+</div>
+<button class="hidden md:flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-1">
+                    Xem tất cả thư mục <span class="material-symbols-outlined">trending_flat</span>
+</button>
+</div>
+<div class="flex overflow-x-auto gap-8 pb-12 no-scrollbar">
+<div class="flex-none w-64 group">
+<div class="relative mb-6 overflow-hidden rounded-lg shadow-xl bg-white aspect-[3/4]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="detailed 3d book cover mockup for logistics management, professional white cover with green accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlwqZMKGVkysLmfKctkTA912gQMZiQWKy8-6EoXxC3EFR_WIaqW4MAmER7wQ3CWOv8m3_BsIib4OX-8v3pHDuRF7U6mWZrc0yagfZSQvcJ1Uzj_4zmXnBX7_5KsbQXjiXhjsdeftIEXYn7zDH1CwX0nZvP3OGE_ydvpqaNO5uBVjZAmrIapEMIuh8rjP1s8W6PErve2-Od3YpR04ep4-JIR5PQrdFI_dbAXFE49jzc56ccQuvNDXG4w3zjlL-L3Y-ovAfOUHtmn0U"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<button class="bg-white text-primary py-2 px-4 rounded text-sm font-bold w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">Đọc bản tóm tắt</button>
+</div>
+</div>
+<h3 class="font-headline text-xl font-bold text-editorial-navy">The Logistics Map</h3>
+<p class="text-sm text-on-surface-variant mt-1">Dr. Elena Sterling, 2023</p>
+</div>
+<div class="flex-none w-64 group">
+<div class="relative mb-6 overflow-hidden rounded-lg shadow-xl bg-white aspect-[3/4]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="hardcover book mockup for supply chain strategy, elegant dark blue cover with gold typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN42ttByPOLyekGjb4752IrfFCg-0G9JtN2KU9SAiVzhHd7iGMvR2G_COk0zfyDKJ47yoyOmCq_EIGZB_dBG11XTsbsHqcwqVzkaDDNj0PyqohW7giTDNoPrC9WYTgiB6b-mfxLy0nE0StCoRsO4G88b9F--mf-uYXQZcbcig7jo3MQa17wKGjA2uusJuwW19YU9oFJAPPx4yF-iiQZitkT5BEZN8z4_y6ovu0hairQdCfA8i6H5Bkk4OlsIO2Or5ByUbtpwWoRLs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<button class="bg-white text-primary py-2 px-4 rounded text-sm font-bold w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">Đọc bản tóm tắt</button>
+</div>
+</div>
+<h3 class="font-headline text-xl font-bold text-editorial-navy">Supply Chain Strategy</h3>
+<p class="text-sm text-on-surface-variant mt-1">Prof. Marcus Vane, 2022</p>
+</div>
+<div class="flex-none w-64 group">
+<div class="relative mb-6 overflow-hidden rounded-lg shadow-xl bg-white aspect-[3/4]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="modern 3d book cover for global trade, featuring a stylized world map on a professional blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAayO-bfIOFoWN9ncov3wrtU3LZriIwcyCrtDF7HuqbLLH35jxe57nDhN53uOkNiXAQK616EBn9HwPWEC0ySxEwJiOt0_pOsq1hEK4prABALYCzeYuMrz3Hrr4Al5KBla5fNHYeCjrNKno3Nzo1Yt1DpfFUjtIL8OWEmcIsSigMmTR-7hNwp_gWpga_yejOAM6oMtt0btGja603lJYVT5br2yK-yUdzBkpnqD8QZh19DZf5tsy1DtA6ubJj0Y9q6bLzAoCiwKlTXXs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<button class="bg-white text-primary py-2 px-4 rounded text-sm font-bold w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">Đọc bản tóm tắt</button>
+</div>
+</div>
+<h3 class="font-headline text-xl font-bold text-editorial-navy">Global Port Dynamics</h3>
+<p class="text-sm text-on-surface-variant mt-1">J. R. Montgomery, 2024</p>
+</div>
+<div class="flex-none w-64 group">
+<div class="relative mb-6 overflow-hidden rounded-lg shadow-xl bg-white aspect-[3/4]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="technical handbook mockup for digital logistics, minimalist gray and cyan cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnPNQ0BUfCQSMxDLxSu8o3yMOMSYWCLDrCOgk2NoSMUVWzXIvrzTRJ5X-tb80KJCDPn8NGDJ3Uyx7RqD63-iNgp2zSxygnaMOxTsksf4G-6aQPoPQ833OQzPbtmcXyE46iQ_chdRAkYJJRGE_KAWcz9ULtQ-ndDHDgtfSeSKth9MYisBxds82zry7Eof8jjXO7D9FQ5udhWRqrHmGnD827N-CsgsjY6bMkuw-MOaWs2EaVQ7wwdsYparNgO0e96zmvjXUDAg1o358"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<button class="bg-white text-primary py-2 px-4 rounded text-sm font-bold w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">Đọc bản tóm tắt</button>
+</div>
+</div>
+<h3 class="font-headline text-xl font-bold text-editorial-navy">Digital Flow Systems</h3>
+<p class="text-sm text-on-surface-variant mt-1">Sarah Chen, 2023</p>
+</div>
+<div class="flex-none w-64 group">
+<div class="relative mb-6 overflow-hidden rounded-lg shadow-xl bg-white aspect-[3/4]">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="academic textbook mockup for maritime analytics with ocean wave graphics" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtLBvmvLfGMsb4U141gr00ht0Mf8-bmqi9Z0DfNUqDpic0L-DFIMr4PzucBNVVQpeMFFjhx3dBXdQ615BtwchzczGv0Gy_46pkGaOH7TV6t2LdGJN-ulFUQiUire0GnZf6sstpkp3k-Sxl4vR5bjVDaXdkuS6dhQc7k1u8zApxbIaKm_m6PaxsMYknFBU10fWrtiCi3_iM-VWllbqJApzryJK7GtokmsI9sBJjkQUVQlLaTrGej1t9UwtvYmwr9JHqiY90D3EuXVI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<button class="bg-white text-primary py-2 px-4 rounded text-sm font-bold w-full transform translate-y-4 group-hover:translate-y-0 transition-transform">Đọc bản tóm tắt</button>
+</div>
+</div>
+<h3 class="font-headline text-xl font-bold text-editorial-navy">Ocean Freight Analytics</h3>
+<p class="text-sm text-on-surface-variant mt-1">Oliver Smith, 2024</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Logistics Transport Modes -->
+<section class="py-24 bg-surface-container overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/3 h-full opacity-5 pointer-events-none">
+<img class="w-full h-full object-contain object-right" data-alt="abstract illustration of a cargo ship at sea" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-ejDFNUUu4J3Exh1iJxgaGpACO_Q1D-yb-zVfwOcc_T0bvyPP8hgHcLPmk3TeRKu48O3TTi6ve55mpOal_eUz9KSFWRF8JoPi4Bd5P2_J73RAS1WiHgillqGcZMsepaAMONAE6lpvlsraAx_5SLaRHSNF97cLnseZNdBpw3U_plpfG-VSc3OWWeDgd30ZcEbwfDEdep_cIal6QABV6sIaIzDkUjDxXRPb9VOMUnCiPEBEwotXim4SdVo25zrg_eM-tbrUENq8MRc"/>
+</div>
+<div class="max-w-screen-2xl mx-auto px-8 relative z-10 text-center">
+<h2 class="font-headline text-4xl font-bold text-editorial-navy mb-16">Phương thức Vận tải Toàn cầu</h2>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
+<a class="group flex flex-col items-center bg-surface-container-lowest p-0 rounded-2xl hover:shadow-2xl transition-all border border-outline-variant/10 overflow-hidden" href="#">
+<div class="w-full aspect-square relative overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="modern container ship at a port illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtZJpMiQj-dZzk0pKXUJqPud0grGGzXia3abJOAdqtWpVK9ztXYseq8cRG8VI0cEarlO1_KxIKrqdsqMDwgJe2Vv-pimTUrl68uIKlVncLH47I4g3Zz1xAnJgI0f33mdAjOUDkgtMvr1qxN6CVPE8JS888HhGBPLZ8abi-SiRtZ-RYQ6pMgEEtx18X21BNCld1vaeaUTKgy9D89Olgy6nFitmUZ-sWeVD6cHCrK5ToHYRl__kU-7QOwI40zYu4hKdT5IjKuLVGExQ"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-white">directions_boat</span>
+</div>
+</div>
+<div class="py-6 px-4">
+<h4 class="font-bold text-lg text-editorial-navy">Sea Freight</h4>
+<p class="text-xs text-on-surface-variant mt-2 uppercase tracking-widest">Đường biển</p>
+</div>
+</a>
+<a class="group flex flex-col items-center bg-surface-container-lowest p-0 rounded-2xl hover:shadow-2xl transition-all border border-outline-variant/10 overflow-hidden" href="#">
+<div class="w-full aspect-square relative overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="cargo plane taking off illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOrRlRuXhjXcMlHn3khiJUaopr4dwAz4NEVDSnmJl0z7iDHwoft0XT_bGIx_5zOQW0pVMMWDINLN10N6TeovO9LGbEWBgqesZWqh56EnhfwLEAbmfybNdej_QBPb7ruNOExQPSNLiF6py8gZcfnVqdAPHQspT8iHrraZdkXYkbUXxlfxy43jvBq451Qf8GaMrU8u3EG1P0RYTcx0llBykvEtDiui44Fs8e3LTJ_Z_jVc0zsrkOcvkTO0qukjSmXrbuK20gAldd8Xk"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-white">flight_takeoff</span>
+</div>
+</div>
+<div class="py-6 px-4">
+<h4 class="font-bold text-lg text-editorial-navy">Air Freight</h4>
+<p class="text-xs text-on-surface-variant mt-2 uppercase tracking-widest">Hàng không</p>
+</div>
+</a>
+<a class="group flex flex-col items-center bg-surface-container-lowest p-0 rounded-2xl hover:shadow-2xl transition-all border border-outline-variant/10 overflow-hidden" href="#">
+<div class="w-full aspect-square relative overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="modern delivery truck on highway illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzu3H9lxQ9KVs1JRZvEdzLegjBrZfJ_pr9ikem5W6xXYj5QI6TGnR02kfTRfkemXvHYW1v1mWIWaeN2MCSJlQ57fJCEv8FKFE2mTWHX991RMEwRw0L9DTh9qbREMMryHU_VkqMNzDChWcUK5rt0xOC9I4jhyac1DPO1Bv04NrUOblps5JI33nQPMmdNa_2sc0NFRqkSAR1FB1kmhlmCh43J3EOLRbor5rjqRZjF-pujDdm0oXcVNfSFdXc7zsXl9lligEh6O5Tal4"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-white">local_shipping</span>
+</div>
+</div>
+<div class="py-6 px-4">
+<h4 class="font-bold text-lg text-editorial-navy">Road Transport</h4>
+<p class="text-xs text-on-surface-variant mt-2 uppercase tracking-widest">Đường bộ</p>
+</div>
+</a>
+<a class="group flex flex-col items-center bg-surface-container-lowest p-0 rounded-2xl hover:shadow-2xl transition-all border border-outline-variant/10 overflow-hidden" href="#">
+<div class="w-full aspect-square relative overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="freight train in industrial setting illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNLZJHv1ZNLFByIDFvaukn9Hr9_pH0DXuXALZXijBWC31uBBWroNt6lD0HLuMVzMkcSa_RKKWaU20l0IfEkJm4INmrB46pkD47FKkf4Y20SEhxfaO2YkW7MM4uvd9ueRMNnpTjnzbGFcSOmf8E-KiLijePDRPBrLWb3bMdtjtqmye2R-zKJVfSaLSujx-topCyo5yKV97s_iIWOCv1VJas80EyhHNNMH14s7jnfiREchQOE1CzPF33RHQ_2cKr8YtYZiGKLuMJyHA"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-white">train</span>
+</div>
+</div>
+<div class="py-6 px-4">
+<h4 class="font-bold text-lg text-editorial-navy">Rail Freight</h4>
+<p class="text-xs text-on-surface-variant mt-2 uppercase tracking-widest">Đường sắt</p>
+</div>
+</a>
+<a class="group flex flex-col items-center bg-surface-container-lowest p-0 rounded-2xl hover:shadow-2xl transition-all border border-outline-variant/10 overflow-hidden" href="#">
+<div class="w-full aspect-square relative overflow-hidden bg-slate-100">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="multimodal logistics hub illustration with ships and trucks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxm4irUix45vK4DJIPrKSqYojgIGORRFoeCezSZaBb2gEwSKAbvIHgnva7OsXjeDhGOog84keDTJhekibsm6A6CtG3Trkx33bPPVZZ6I0uav1kwHjgTQOi3zcSp1IhzmT2_1uzlOmfmdmuOf6cElk9lMbH0SFBPq6PB5djdlgNhhB987O4uSfQ-GgPIS3HRdRX64S52xSkN4ldePxE6HeYxsyPtQHKa0YRpQABaUxJP34KuvR1tybnimvhzmdQL0JWvphF9mhmh9I"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-5xl text-white">hub</span>
+</div>
+</div>
+<div class="py-6 px-4">
+<h4 class="font-bold text-lg text-editorial-navy">Multimodal</h4>
+<p class="text-xs text-on-surface-variant mt-2 uppercase tracking-widest">Đa phương thức</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Supply Chain Diagram -->
+<section class="py-24 bg-surface overflow-hidden relative">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="text-center mb-20">
+<h2 class="font-headline text-4xl font-bold text-editorial-navy mb-4">Mô hình Chuỗi Cung ứng Toàn diện</h2>
+<p class="text-on-surface-variant">Phân tích các giai đoạn then chốt từ điểm khởi nguồn đến người tiêu dùng cuối cùng.</p>
+</div>
+<div class="relative max-w-5xl mx-auto">
+<!-- Flow Path Line -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 hidden md:block -translate-y-1/2 -z-10"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-primary/10 shadow-sm text-center relative group">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold absolute -top-6 left-1/2 -translate-x-1/2 border-4 border-surface group-hover:scale-110 transition-transform">1</div>
+<h5 class="font-bold text-lg mt-6 mb-3">Procurement</h5>
+<p class="text-sm text-on-surface-variant">Quản trị mua hàng và tìm kiếm nguyên liệu đầu vào bền vững.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-primary/10 shadow-sm text-center relative group">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold absolute -top-6 left-1/2 -translate-x-1/2 border-4 border-surface group-hover:scale-110 transition-transform">2</div>
+<h5 class="font-bold text-lg mt-6 mb-3">Sourcing</h5>
+<p class="text-sm text-on-surface-variant">Chiến lược lựa chọn nhà cung cấp và tối ưu hóa chi phí sản xuất.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-primary/10 shadow-sm text-center relative group">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold absolute -top-6 left-1/2 -translate-x-1/2 border-4 border-surface group-hover:scale-110 transition-transform">3</div>
+<h5 class="font-bold text-lg mt-6 mb-3">Planning</h5>
+<p class="text-sm text-on-surface-variant">Lập kế hoạch nhu cầu và quản trị tồn kho dự phòng.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-primary/10 shadow-sm text-center relative group">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold absolute -top-6 left-1/2 -translate-x-1/2 border-4 border-surface group-hover:scale-110 transition-transform">4</div>
+<h5 class="font-bold text-lg mt-6 mb-3">Manufacturing</h5>
+<p class="text-sm text-on-surface-variant">Quy trình sản xuất tinh gọn và kiểm soát chất lượng đầu ra.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Styled after SCREEN_17) -->
+<footer class="bg-[#0F3453] text-white w-full pt-20 pb-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 max-w-7xl mx-auto font-['Inter'] text-sm leading-relaxed">
+<div class="col-span-1 md:col-span-1">
+<span class="font-['Newsreader'] text-3xl font-bold text-white mb-4 block">Logiknowledge</span>
+<p class="text-slate-300 mb-8 italic">The Curated Ledger for Global Logistics Professionals.</p>
+<div class="flex space-x-4">
+<a class="material-symbols-outlined text-white hover:text-secondary-fixed transition-colors" href="#">public</a>
+<a class="material-symbols-outlined text-white hover:text-secondary-fixed transition-colors" href="#">share</a>
+<a class="material-symbols-outlined text-white hover:text-secondary-fixed transition-colors" href="#">alternate_email</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase tracking-widest text-xs mb-6">Liên hệ</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-300 hover:text-white transition-colors hover:translate-x-1 inline-block transition-transform duration-300" href="#">Email: contact@logiverse.com</a></li>
+<li><a class="text-slate-300 hover:text-white transition-colors hover:translate-x-1 inline-block transition-transform duration-300" href="#">Phone: +84 123 456 789</a></li>
+<li><a class="text-slate-300 hover:text-white transition-colors hover:translate-x-1 inline-block transition-transform duration-300" href="#">Đăng ký nhận bản tin</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase tracking-widest text-xs mb-6">Mạng xã hội</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-300 hover:text-white transition-colors hover:translate-x-1 inline-block transition-transform duration-300" href="#">YouTube Channel</a></li>
+<li><a class="text-slate-300 hover:text-white transition-colors hover:translate-x-1 inline-block transition-transform duration-300" href="#">WordPress Hub</a></li>
+<li><a class="text-slate-300 hover:text-white transition-colors hover:translate-x-1 inline-block transition-transform duration-300" href="#">LinkedIn Profile</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-white uppercase tracking-widest text-xs mb-6">Pháp lý</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-300 hover:text-white transition-colors hover:translate-x-1 inline-block transition-transform duration-300" href="#">Điều khoản sử dụng</a></li>
+<li><a class="text-slate-300 hover:text-white transition-colors hover:translate-x-1 inline-block transition-transform duration-300" href="#">Chính sách bảo mật</a></li>
+<li><a class="text-slate-300 hover:text-white transition-colors hover:translate-x-1 inline-block transition-transform duration-300" href="#">Bản quyền nội dung</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-20 border-t border-white/10 pt-10 text-center">
+<p class="text-slate-400 text-xs tracking-widest uppercase">© 2024 Logiverse. The Curated Ledger. Academic Quality Insights.</p>
+</div>
+</footer>
+</body></html>
