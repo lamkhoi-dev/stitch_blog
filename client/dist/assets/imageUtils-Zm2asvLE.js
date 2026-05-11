@@ -1,0 +1,1 @@
+var e=e=>e?e.startsWith(`http`)?e:`https://logiverse-api.onrender.com${e.startsWith(`/`)?``:`/`}${e}`:`/placeholder.jpg`;export{e as t};
