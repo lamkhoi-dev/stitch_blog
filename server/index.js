@@ -31,7 +31,9 @@ app.use(cors({
     const allowed = [
       /^http:\/\/localhost:\d+$/,
       /^https?:\/\/(www\.)?logiknowledge\.com$/,
+      /^https:\/\/.*\.onrender\.com$/,
     ];
+    // Allow requests with no origin (mobile apps, curl, server-to-server)
     if (!origin || allowed.some(pattern => pattern.test(origin))) {
       callback(null, true);
     } else {
