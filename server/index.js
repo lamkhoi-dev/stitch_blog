@@ -2,15 +2,23 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
 
 dotenv.config();
+
+// Log startup for debugging
+console.log('[STARTUP] Node.js version:', process.version);
+console.log('[STARTUP] NODE_ENV:', process.env.NODE_ENV);
+console.log('[STARTUP] MONGO_URI exists:', !!process.env.MONGO_URI);
+
+const connectDB = require('./config/db');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB
-connectDB();
+connectDB().catch(err => {
+  console.error('[FATAL] MongoDB connection failed:', err.message);
+});
 
 // Middleware
 app.use(cors({
@@ -53,7 +61,8 @@ app.get('/api/health', (req, res) => {
 if (process.env.NODE_ENV === 'production') {
   const clientDist = path.join(__dirname, '../client/dist');
   app.use(express.static(clientDist));
-  app.get('*', (req, res) => {
+  // Express 5 uses {*path} instead of * for catch-all
+  app.get('/{*path}', (req, res) => {
     res.sendFile(path.join(clientDist, 'index.html'));
   });
 }
@@ -66,4 +75,12 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`🚀 Logiverse API server running on port ${PORT}`);
+});
+
+// Catch unhandled errors
+process.on('uncaughtException', (err) => {
+  console.error('[FATAL] Uncaught Exception:', err);
+});
+process.on('unhandledRejection', (err) => {
+  console.error('[FATAL] Unhandled Rejection:', err);
 });
