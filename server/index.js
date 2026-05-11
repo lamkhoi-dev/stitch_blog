@@ -60,14 +60,35 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString(),
     nodeVersion: process.version,
     mongoState: mongoose.connection.readyState,
-    // 0=disconnected, 1=connected, 2=connecting, 3=disconnecting
     mongoStateLabel: ['disconnected','connected','connecting','disconnecting'][mongoose.connection.readyState],
     envCheck: {
       MONGO_URI: !!process.env.MONGO_URI,
+      MONGO_URI_preview: process.env.MONGO_URI ? process.env.MONGO_URI.substring(0, 40) + '...' : 'MISSING',
       JWT_SECRET: !!process.env.JWT_SECRET,
       NODE_ENV: process.env.NODE_ENV,
     }
   });
+});
+
+// Debug DB connection - REMOVE after debugging
+app.get('/api/debug-db', async (req, res) => {
+  const mongoose = require('mongoose');
+  try {
+    if (mongoose.connection.readyState === 1) {
+      return res.json({ status: 'already connected' });
+    }
+    await mongoose.connect(process.env.MONGO_URI, {
+      serverSelectionTimeoutMS: 5000,
+    });
+    res.json({ status: 'connected successfully', host: mongoose.connection.host });
+  } catch (err) {
+    res.json({
+      status: 'connection failed',
+      error: err.message,
+      code: err.code,
+      name: err.name,
+    });
+  }
 });
 
 // Serve frontend in production
