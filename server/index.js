@@ -3,6 +3,11 @@ const cors = require('cors');
 const path = require('path');
 const dotenv = require('dotenv');
 
+// Polyfill globalThis.crypto for environments that lack it (e.g. cPanel Passenger)
+if (!globalThis.crypto) {
+  globalThis.crypto = require('crypto');
+}
+
 dotenv.config();
 
 // Log startup for debugging
@@ -98,8 +103,8 @@ app.get('/api/health', async (req, res) => {
 if (process.env.NODE_ENV === 'production') {
   const clientDist = path.join(__dirname, '../client/dist');
   app.use(express.static(clientDist));
-  // Express 5 uses {*path} instead of * for catch-all
-  app.get('/{*path}', (req, res) => {
+  // Catch-all: serve React app for client-side routing
+  app.get('*', (req, res) => {
     res.sendFile(path.join(clientDist, 'index.html'));
   });
 }
