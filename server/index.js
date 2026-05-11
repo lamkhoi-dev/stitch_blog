@@ -54,7 +54,20 @@ app.use('/api/stats', require('./routes/stats'));
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  const mongoose = require('mongoose');
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    nodeVersion: process.version,
+    mongoState: mongoose.connection.readyState,
+    // 0=disconnected, 1=connected, 2=connecting, 3=disconnecting
+    mongoStateLabel: ['disconnected','connected','connecting','disconnecting'][mongoose.connection.readyState],
+    envCheck: {
+      MONGO_URI: !!process.env.MONGO_URI,
+      JWT_SECRET: !!process.env.JWT_SECRET,
+      NODE_ENV: process.env.NODE_ENV,
+    }
+  });
 });
 
 // Serve frontend in production
