@@ -17,6 +17,7 @@ app.use(cors({
   origin: function (origin, callback) {
     const allowed = [
       /^http:\/\/localhost:\d+$/,
+      /^https?:\/\/(www\.)?logiknowledge\.com$/,
     ];
     if (!origin || allowed.some(pattern => pattern.test(origin))) {
       callback(null, true);
@@ -47,6 +48,15 @@ app.use('/api/stats', require('./routes/stats'));
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
+
+// Serve frontend in production
+if (process.env.NODE_ENV === 'production') {
+  const clientDist = path.join(__dirname, '../client/dist');
+  app.use(express.static(clientDist));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(clientDist, 'index.html'));
+  });
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {
