@@ -52,10 +52,10 @@ app.use('/api/upload', require('./routes/upload'));
 app.use('/api/search', require('./routes/search'));
 app.use('/api/stats', require('./routes/stats'));
 
-// Health check
-app.get('/api/health', (req, res) => {
+// Health check + DB debug (combined)
+app.get('/api/health', async (req, res) => {
   const mongoose = require('mongoose');
-  res.json({
+  const result = {
     status: 'ok',
     timestamp: new Date().toISOString(),
     nodeVersion: process.version,
@@ -66,29 +66,32 @@ app.get('/api/health', (req, res) => {
       MONGO_URI_preview: process.env.MONGO_URI ? process.env.MONGO_URI.substring(0, 40) + '...' : 'MISSING',
       JWT_SECRET: !!process.env.JWT_SECRET,
       NODE_ENV: process.env.NODE_ENV,
-    }
-  });
-});
+    },
+    dbDebug: null,
+  };
 
-// Debug DB connection - REMOVE after debugging
-app.get('/api/debug-db', async (req, res) => {
-  const mongoose = require('mongoose');
-  try {
-    if (mongoose.connection.readyState === 1) {
-      return res.json({ status: 'already connected' });
+  // Auto-attempt reconnect if disconnected
+  if (mongoose.connection.readyState !== 1) {
+    try {
+      await mongoose.connect(process.env.MONGO_URI, {
+        serverSelectionTimeoutMS: 5000,
+      });
+      result.dbDebug = { status: 'reconnected', host: mongoose.connection.host };
+      result.mongoState = 1;
+      result.mongoStateLabel = 'connected';
+    } catch (err) {
+      result.dbDebug = {
+        status: 'connection_failed',
+        error: err.message,
+        code: err.code,
+        name: err.name,
+      };
     }
-    await mongoose.connect(process.env.MONGO_URI, {
-      serverSelectionTimeoutMS: 5000,
-    });
-    res.json({ status: 'connected successfully', host: mongoose.connection.host });
-  } catch (err) {
-    res.json({
-      status: 'connection failed',
-      error: err.message,
-      code: err.code,
-      name: err.name,
-    });
+  } else {
+    result.dbDebug = { status: 'already_connected', host: mongoose.connection.host };
   }
+
+  res.json(result);
 });
 
 // Serve frontend in production
