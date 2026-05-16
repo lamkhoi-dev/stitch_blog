@@ -43,6 +43,7 @@ const BookManager = lazy(() => import('./pages/admin/BookManager'));
 const BookEditor = lazy(() => import('./pages/admin/BookEditor'));
 const DocumentManager = lazy(() => import('./pages/admin/DocumentManager'));
 const DocumentEditor = lazy(() => import('./pages/admin/DocumentEditor'));
+const SubscriberManager = lazy(() => import('./pages/admin/SubscriberManager'));
 
 const router = createBrowserRouter([
   {
@@ -89,6 +90,7 @@ const router = createBrowserRouter([
           { path: '/admin/documents', element: withSuspense(DocumentManager) },
           { path: '/admin/documents/new', element: withSuspense(DocumentEditor) },
           { path: '/admin/documents/:id/edit', element: withSuspense(DocumentEditor) },
+          { path: '/admin/subscribers', element: withSuspense(SubscriberManager) },
         ],
       },
     ],

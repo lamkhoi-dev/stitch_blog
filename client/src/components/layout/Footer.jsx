@@ -1,4 +1,54 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import apiClient from '../../services/apiClient';
+
+function NewsletterForm() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error | duplicate
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setStatus('loading');
+    try {
+      const res = await apiClient.post('/subscribers', { email, source: 'footer' });
+      setStatus('success');
+      setMessage(res.data.message);
+      setEmail('');
+    } catch (err) {
+      const msg = err.response?.data?.message || 'Đã có lỗi xảy ra, vui lòng thử lại.';
+      setStatus(err.response?.status === 409 ? 'duplicate' : 'error');
+      setMessage(msg);
+    }
+  };
+
+  return (
+    <form className="flex flex-col sm:flex-row gap-3" onSubmit={handleSubmit}>
+      <input
+        className="bg-primary/30 border border-on-primary-container/20 text-white placeholder:text-on-primary-container/60 rounded-md px-6 py-3 focus:ring-1 focus:ring-primary-fixed outline-none min-w-[300px] transition-all duration-300"
+        placeholder="Địa chỉ email của bạn"
+        type="email"
+        value={email}
+        onChange={(e) => { setEmail(e.target.value); setStatus('idle'); }}
+        disabled={status === 'loading' || status === 'success'}
+        required
+      />
+      <button
+        className="bg-primary-fixed text-primary px-8 py-3 rounded-md font-medium uppercase text-[11px] tracking-wider hover:bg-white transition-colors duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+        type="submit"
+        disabled={status === 'loading' || status === 'success'}
+      >
+        {status === 'loading' ? '...' : status === 'success' ? '✓ Đã đăng ký' : 'Đăng ký'}
+      </button>
+      {message && (
+        <p className={`text-xs mt-2 sm:mt-0 self-center ${status === 'success' ? 'text-emerald-300' : 'text-red-300'}`}>
+          {message}
+        </p>
+      )}
+    </form>
+  );
+}
 
 export default function Footer() {
   return (
@@ -12,20 +62,8 @@ export default function Footer() {
               Cập nhật những phân tích chuyên sâu về địa chính trị và logistics toàn cầu trực tiếp vào hộp thư của bạn.
             </p>
           </div>
-          <div className="w-full md:w-auto">
-            <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
-              <input
-                className="bg-primary/30 border border-on-primary-container/20 text-white placeholder:text-on-primary-container/60 rounded-md px-6 py-3 focus:ring-1 focus:ring-primary-fixed outline-none min-w-[300px] transition-all duration-300"
-                placeholder="Địa chỉ email của bạn"
-                type="email"
-              />
-              <button
-                className="bg-primary-fixed text-primary px-8 py-3 rounded-md font-medium uppercase text-[11px] tracking-wider hover:bg-white transition-colors duration-300"
-                type="submit"
-              >
-                Đăng ký
-              </button>
-            </form>
+          <div className="w-full md:w-auto flex flex-col items-start gap-2">
+            <NewsletterForm />
           </div>
         </div>
       </section>

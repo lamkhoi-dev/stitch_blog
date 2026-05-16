@@ -23,6 +23,7 @@ export default function AdminLayout() {
     { to: '/admin/topics', icon: 'category', label: 'Quản lý Chủ đề' },
     { to: '/admin/books', icon: 'menu_book', label: 'Quản lý Sách' },
     { to: '/admin/documents', icon: 'description', label: 'Quản lý Tài liệu' },
+    { to: '/admin/subscribers', icon: 'mark_email_read', label: 'Bản tin / Subscribers' },
   ];
 
   return (

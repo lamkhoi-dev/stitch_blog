@@ -58,6 +58,7 @@ app.use('/api/admin', require('./routes/admin'));
 app.use('/api/upload', require('./routes/upload'));
 app.use('/api/search', require('./routes/search'));
 app.use('/api/stats', require('./routes/stats'));
+app.use('/api/subscribers', require('./routes/subscribers'));
 
 // Health check + DB debug (combined)
 app.get('/api/health', async (req, res) => {
