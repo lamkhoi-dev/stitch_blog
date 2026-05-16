@@ -1,45 +1,39 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import articleService from '../../services/articleService';
 
-const intelligenceCards = [
+const SUPPLY_CHAIN_TOPICS = [
   {
-    id: 1,
-    slug: 'bien-dong-gia-cuoc-bien-q3-2024',
-    title: 'Biến động Giá cước Biển Q3/2024: Phân tích Tuyến Á-Âu & Xuyên Thái Bình Dương',
-    date: '15 Tháng 10, 2024',
-    tag: 'Freight Intelligence',
-    icon: 'sailing',
-    description: 'Đánh giá tác động của căng thẳng Biển Đỏ và tình trạng tắc nghẽn tại các cảng trung chuyển lớn lên chỉ số SCFI và WCI trong quý 3.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDubL3D_TLsWXIX90XyraP38aLXLj5DTHINv68HuFt1mCkhqrted0ZzFG3BwBceaI0okWTUMtdQnZb8vcsiBEad5V-XfXt3_z0V2__iGSIkJlQqjWS32_bV9_WsSBr8fVV2m6EixqHE5cGb_qIaxbxaBKuBuSXd24_AWokzgQd7LOEBdUhNAEd5LW9LndlDIH8S3kW2SDE71lbWLuqHs2D_seOrx06xCAbncu9C_zqlg9eCE6Kqk8MnC510xIsygvzCGI0bHGP6lCc',
+    slug: 'sourcing',
+    name: 'Sourcing',
+    nameVi: 'Tìm nguồn hàng',
+    icon: 'search_insights',
+    description: 'Chiến lược tìm kiếm và đánh giá nhà cung cấp toàn cầu, quản lý rủi ro trong procurement.',
+    color: 'from-sky-900/80 to-sky-700/60',
   },
   {
-    id: 2,
-    slug: 'xanh-hoa-chuoi-cung-ung-asean',
-    title: 'Xanh hóa Chuỗi cung ứng ASEAN: Lộ trình và Thách thức Thực thi ESG',
-    date: '08 Tháng 10, 2024',
-    tag: 'ESG & Sustainability',
-    icon: 'eco',
-    description: 'Phân tích các bộ tiêu chuẩn ESG mới từ EU và tác động trực tiếp đến chiến lược mua hàng và sản xuất của doanh nghiệp Việt Nam.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuARIBNcEYw8IMASUZlI53NHrCycmSUaOF-YIHre0eb6d8t7JEWO1rzJSRy8ssXb-sxcafWhY_csqTb8-Ma5WSVdETVeyvgQ5x14brl1CJp9v32FWo2pueExCoADbNvR9Cy2JF2di9DFbkjvlZaMAD89D0XV4s11updOkwUxAO2nPvd3NhXXedghRh-TJo4p-bLMEl6W-YAE5-rhGjfucDoz0bUBacovqQ_5Ta-Q7YW6orSSrakP3mi76surqu8SQQykSbpUdshGpAc',
+    slug: 'procurement',
+    name: 'Procurement',
+    nameVi: 'Mua hàng & Đàm phán',
+    icon: 'handshake',
+    description: 'Quy trình đàm phán hợp đồng, quản lý chi phí và tối ưu hóa danh mục mua sắm.',
+    color: 'from-emerald-900/80 to-emerald-700/60',
   },
   {
-    id: 3,
-    slug: 'ung-dung-ai-du-bao-nhu-cau',
-    title: 'Ứng dụng AI trong Dự báo Nhu cầu: Từ Mô hình đến Triển khai Thực tế',
-    date: '01 Tháng 10, 2024',
-    tag: 'Digital Transformation',
-    icon: 'smart_toy',
-    description: 'Case study về việc ứng dụng mô hình Machine Learning để dự báo nhu cầu tồn kho và tối ưu hóa đặt hàng tự động trong ngành FMCG.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDZsBiPODvQ4P2IZWlksRSHBw6fezlYuSdijgC1-4-qW8eP7VJiefDHWYVJsV_6B5_T6EDRskF_RyKqn21gMAsZgwtT6quc02reSxWwCBJQ5gMgz_QsHtx2bSydAggFehzlsp3VRVSfNTrPasY9fKjaKj7owydk41I-s_jtwNYrDbhpKXjjDvJp57in-B5XaT1OdE3Cp435-IR_9ay3OSGBs61TNjnlsIZpSU59Gk__4l09QOoZeae4QAGUd0dlh2EReC8gLjbvxRM',
+    slug: 'planning',
+    name: 'Planning',
+    nameVi: 'Hoạch định Chuỗi cung ứng',
+    icon: 'calendar_view_month',
+    description: 'S&OP, dự báo nhu cầu, lập kế hoạch sản xuất và tối ưu tồn kho theo thời gian thực.',
+    color: 'from-amber-900/80 to-amber-700/60',
   },
   {
-    id: 4,
-    slug: 'chuoi-cung-ung-ban-dan-2024',
-    title: 'Chuỗi cung ứng Bán dẫn: Bản đồ Phụ thuộc Toàn cầu và Cơ hội cho Việt Nam',
-    date: '20 Tháng 09, 2024',
-    tag: 'Strategic Analysis',
-    icon: 'memory',
-    description: 'Giải mã mạng lưới sản xuất chip toàn cầu và phân tích vị thế chiến lược của Việt Nam trong cuộc đua thu hút đầu tư bán dẫn.',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBMYgKOq_Jo6ynQuzeZ8_ze5IYmcAI4pNN7rr5BTwIhuaJlM5joZ7Rx5dJYkSTVTgjInUzsFu_heWt73mAGQU4h2J5OfbKY7rc_HvrXn5Swt-Gy48v9YnqUuZBHTiKTkbAY4HgzNBRWYNXqrWBT36uFAq92T1nkCCDyix5A6hN79xKYGIusUyitUhAuIm64lw1KkzSGnlpGXA-3jrFry8oRCNWYUoF9o0metZDmOvUU0qqPB0kCZI2FAjSHzu_QTf8ukDDGrYSNbUY',
+    slug: 'manufacturing',
+    name: 'Manufacturing',
+    nameVi: 'Sản xuất & Vận hành',
+    icon: 'precision_manufacturing',
+    description: 'Lean, Six Sigma, Industry 4.0 và các mô hình tối ưu quy trình sản xuất hiện đại.',
+    color: 'from-rose-900/80 to-rose-700/60',
   },
 ];
 
@@ -50,6 +44,14 @@ const kpiMetrics = [
 ];
 
 export default function SupplyChainListing() {
+  const [recentArticles, setRecentArticles] = useState([]);
+
+  useEffect(() => {
+    articleService.getArticles({ parentCategory: 'chuoi-cung-ung', limit: 3 })
+      .then((data) => setRecentArticles(data.articles || []))
+      .catch(() => {});
+  }, []);
+
   return (
     <div>
       {/* Hero Section */}
@@ -84,66 +86,89 @@ export default function SupplyChainListing() {
         </div>
       </section>
 
-      {/* Intelligence Cards */}
+      {/* Topic Navigation — Replaces broken hardcoded cards */}
       <section className="px-8 py-24 bg-surface-container-low">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-            <div>
-              <h2 className="font-headline text-4xl font-bold text-primary mb-3">Báo cáo Mới nhất</h2>
-              <p className="text-on-surface-variant text-sm">Phân tích chuyên sâu từ đội ngũ biên tập của Logiverse</p>
-            </div>
-            <div className="flex gap-3">
-              <button className="px-4 py-2 bg-primary text-white text-xs font-bold uppercase tracking-widest rounded-sm">Tất cả</button>
-              <button className="px-4 py-2 bg-surface text-on-surface-variant text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-surface-container transition-colors">Freight</button>
-              <button className="px-4 py-2 bg-surface text-on-surface-variant text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-surface-container transition-colors">ESG</button>
-              <button className="px-4 py-2 bg-surface text-on-surface-variant text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-surface-container transition-colors">Digital</button>
-            </div>
+          <div className="mb-16">
+            <h2 className="font-headline text-4xl font-bold text-primary mb-3">Khám phá theo Chủ đề</h2>
+            <p className="text-on-surface-variant text-sm">Chọn lĩnh vực bạn muốn nghiên cứu chuyên sâu</p>
           </div>
 
-          <div className="space-y-8">
-            {intelligenceCards.map((card) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {SUPPLY_CHAIN_TOPICS.map((topic) => (
               <Link
-                key={card.id}
-                to={`/chuoi-cung-ung/${card.slug}`}
-                className="group grid grid-cols-1 lg:grid-cols-12 gap-0 bg-surface-container-lowest rounded-md border border-outline-variant/10 overflow-hidden hover:shadow-lg transition-shadow duration-500"
+                key={topic.slug}
+                to={`/thu-vien/chuoi-cung-ung/${topic.slug}`}
+                className="group relative overflow-hidden rounded-xl border border-outline-variant/15 bg-surface-container-lowest hover:shadow-xl transition-all duration-500 p-8 flex flex-col justify-between min-h-[200px]"
               >
-                <div className="lg:col-span-4 h-64 lg:h-auto overflow-hidden">
-                  <img
-                    className="w-full h-full object-cover grayscale-[50%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                    src={card.image}
-                    alt={card.title}
-                  />
-                </div>
-                <div className="lg:col-span-8 p-10 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-4 mb-4">
-                      <span className="material-symbols-outlined text-primary text-lg">{card.icon}</span>
-                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">{card.tag}</span>
-                      <span className="text-[10px] text-outline">•</span>
-                      <span className="text-[10px] text-outline">{card.date}</span>
-                    </div>
-                    <h3 className="font-headline text-2xl font-bold text-primary group-hover:text-primary-container transition-colors mb-4 leading-snug">{card.title}</h3>
-                    <p className="text-on-surface-variant line-clamp-2 leading-relaxed">{card.description}</p>
-                  </div>
-                  <div className="flex items-center mt-6 pt-4 border-t border-outline-variant/10">
-                    <span className="text-primary font-bold text-xs uppercase tracking-widest group-hover:translate-x-2 transition-transform flex items-center gap-2">
-                      Đọc phân tích <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="material-symbols-outlined text-3xl text-primary"
+                      style={{ fontVariationSettings: "'FILL' 1" }}
+                    >
+                      {topic.icon}
                     </span>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-outline">{topic.name}</p>
+                      <h3 className="font-headline text-2xl font-bold text-primary group-hover:text-primary-container transition-colors">
+                        {topic.nameVi}
+                      </h3>
+                    </div>
                   </div>
+                  <span className="material-symbols-outlined text-outline group-hover:text-primary group-hover:translate-x-1 transition-all duration-300">
+                    arrow_forward
+                  </span>
+                </div>
+                <p className="text-on-surface-variant text-sm leading-relaxed">{topic.description}</p>
+                <div className="mt-6 pt-4 border-t border-outline-variant/10">
+                  <span className="text-xs font-bold text-primary uppercase tracking-widest">
+                    Xem tất cả tài liệu →
+                  </span>
                 </div>
               </Link>
             ))}
           </div>
-
-          {/* Load More */}
-          <div className="mt-20 flex justify-center">
-            <button className="group flex items-center gap-4 bg-surface px-10 py-5 rounded-full border border-outline-variant/20 hover:bg-surface-container transition-all shadow-sm">
-              <span className="text-primary font-bold tracking-widest text-xs uppercase">Khám phá thêm</span>
-              <span className="material-symbols-outlined group-hover:translate-y-1 transition-transform">expand_more</span>
-            </button>
-          </div>
         </div>
       </section>
+
+      {/* Recent Articles from API */}
+      {recentArticles.length > 0 && (
+        <section className="px-8 py-20 bg-surface">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="font-headline text-3xl font-bold text-primary mb-12">Bài viết mới nhất</h2>
+            <div className="space-y-6">
+              {recentArticles.map((article) => (
+                <Link
+                  key={article._id}
+                  to={`/thu-vien/chuoi-cung-ung/${article.topic}/${article.slug}`}
+                  className="group flex gap-6 bg-surface-container-lowest rounded-lg border border-outline-variant/15 hover:border-primary/20 overflow-hidden transition-all duration-300 hover:shadow-sm"
+                >
+                  {article.coverImage && (
+                    <div className="w-48 h-36 shrink-0 overflow-hidden">
+                      <img
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        src={article.coverImage}
+                        alt={article.title}
+                        onError={(e) => { e.target.style.display = 'none'; }}
+                      />
+                    </div>
+                  )}
+                  <div className="flex-1 p-5 flex flex-col justify-center">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">
+                      {article.topic?.toUpperCase() || 'SUPPLY CHAIN'}
+                    </span>
+                    <h3 className="font-headline text-xl font-bold text-on-surface group-hover:text-primary transition-colors mb-2">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm text-on-surface-variant line-clamp-2">{article.excerpt}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

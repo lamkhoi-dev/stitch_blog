@@ -6,7 +6,6 @@ import Pagination from '../../components/Pagination';
 const CaseStudyListing = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get('page')) || 1;
-  const currentTag = searchParams.get('tag') || '';
   const currentSearch = searchParams.get('search') || '';
 
   const [searchInput, setSearchInput] = useState(currentSearch);
@@ -29,19 +28,14 @@ const CaseStudyListing = () => {
     }
   };
 
-  const handleTagClick = (tag) => {
-    updateParams({ tag: tag === 'all' ? '' : tag, page: 1 });
-  };
 
   const { articles: caseStudies, totalPages, isLoading, error } = useArticles({ 
     category: 'case-study', 
     limit: 12,
     page: currentPage,
-    tag: currentTag,
     search: currentSearch
   });
 
-  const filterTags = ['FMCG', 'Retail & E-commerce', 'Manufacturing', 'Pharmaceuticals', 'Energy & Oil'];
 
   return (
     <main className="pt-20 pb-24 px-8 max-w-7xl mx-auto">
@@ -56,41 +50,19 @@ const CaseStudyListing = () => {
         </p>
       </section>
 
-      {/* Search & Filters */}
-      <section className="mb-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
-        <div className="md:col-span-4 group">
-          <label className="font-label text-xs uppercase text-outline mb-2 block">Tìm kiếm tài liệu</label>
-          <div className="relative flex items-center">
-            <span className="material-symbols-outlined absolute left-4 text-outline">search</span>
-            <input 
-              className="w-full pl-12 pr-4 py-4 bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 transition-all text-sm font-medium placeholder:text-outline/60" 
-              placeholder="Nhập từ khóa hoặc mã dự án..." 
-              type="text" 
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              onKeyDown={handleSearchSubmit}
-            />
-          </div>
-        </div>
-        <div className="md:col-span-8 overflow-x-auto pb-2">
-          <label className="font-label text-xs uppercase text-outline mb-4 block">Lọc theo ngành hàng</label>
-          <div className="flex gap-3">
-            <button 
-              onClick={() => handleTagClick('all')}
-              className={`px-5 py-2 text-xs font-semibold rounded-sm whitespace-nowrap transition-colors ${!currentTag ? 'bg-primary text-surface-bright' : 'bg-surface-container-high text-primary hover:bg-surface-container-highest'}`}
-            >
-              Tất cả bài viết
-            </button>
-            {filterTags.map(tag => (
-              <button 
-                key={tag} 
-                onClick={() => handleTagClick(tag)}
-                className={`px-5 py-2 text-xs font-semibold rounded-sm whitespace-nowrap transition-colors ${currentTag === tag ? 'bg-primary text-surface-bright' : 'bg-surface-container-high text-primary hover:bg-surface-container-highest'}`}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
+      {/* Search */}
+      <section className="mb-20 max-w-xl">
+        <label className="font-label text-xs uppercase text-outline mb-2 block">Tìm kiếm tài liệu</label>
+        <div className="relative flex items-center">
+          <span className="material-symbols-outlined absolute left-4 text-outline">search</span>
+          <input
+            className="w-full pl-12 pr-4 py-4 bg-surface-container-low border-b border-outline-variant focus:border-primary focus:ring-0 transition-all text-sm font-medium placeholder:text-outline/60"
+            placeholder="Nhập từ khóa hoặc mã dự án..."
+            type="text"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            onKeyDown={handleSearchSubmit}
+          />
         </div>
       </section>
 

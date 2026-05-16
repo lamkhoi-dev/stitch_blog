@@ -1,5 +1,5 @@
 import { useParams, useLocation, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useArticles } from '../../hooks/useArticles';
 import articleService from '../../services/articleService';
 
@@ -34,7 +34,7 @@ function ArticleImage({ src, alt, className }) {
 }
 
 /* ─── PATTERN A: Logistics Sidebar + List ─── */
-function PatternA({ topicSlug, currentTopic, siblingTopics, articles, isLoading, basePath }) {
+function PatternA({ topicSlug, currentTopic, siblingTopics, articles, isLoading, basePath, searchQuery, setSearchQuery, onSearch }) {
   return (
     <div className="flex min-h-[calc(100vh-80px)]">
       {/* Left Sidebar */}
@@ -64,11 +64,7 @@ function PatternA({ topicSlug, currentTopic, siblingTopics, articles, isLoading,
             </Link>
           ))}
         </nav>
-        <div className="pt-8">
-          <button className="w-full py-3 bg-primary text-on-primary rounded font-medium text-sm hover:opacity-90 transition-opacity">
-            Download Reports
-          </button>
-        </div>
+
       </aside>
 
       {/* Main */}
@@ -90,13 +86,19 @@ function PatternA({ topicSlug, currentTopic, siblingTopics, articles, isLoading,
             <p className="text-on-surface-variant leading-relaxed mb-6 max-w-2xl">{currentTopic.description}</p>
           )}
           {/* Search */}
-          <div className="relative max-w-xl">
-            <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
-            <input
-              className="w-full pl-12 pr-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-lg focus:border-primary/50 outline-none text-sm transition-all"
-              placeholder="Tìm kiếm tài liệu, quy trình, pháp lý..."
-              type="text"
-            />
+          <div className="relative max-w-xl flex gap-2">
+            <div className="relative flex-1">
+              <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+              <input
+                className="w-full pl-12 pr-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-lg focus:border-primary/50 outline-none text-sm transition-all"
+                placeholder="Tìm kiếm tài liệu, quy trình, pháp lý..."
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && onSearch()}
+              />
+            </div>
+            <button onClick={onSearch} className="px-4 py-3 bg-primary text-on-primary rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">Tìm</button>
           </div>
         </header>
 
@@ -169,7 +171,7 @@ function PatternA({ topicSlug, currentTopic, siblingTopics, articles, isLoading,
 }
 
 /* ─── PATTERN B: Supply Chain Full-width Landscape List (Procurement, Planning) ─── */
-function PatternB({ topicSlug, currentTopic, articles, isLoading, basePath }) {
+function PatternB({ topicSlug, currentTopic, articles, isLoading, basePath, searchQuery, setSearchQuery, onSearch }) {
   const categoryLabel = 'Supply Chain Intelligence';
 
   return (
@@ -212,6 +214,9 @@ function PatternB({ topicSlug, currentTopic, articles, isLoading, basePath }) {
               className="w-full pl-12 pr-4 py-4 bg-surface-container-low border border-outline-variant/20 rounded-lg focus:ring-1 focus:ring-primary/50 outline-none text-on-surface-variant transition-all"
               placeholder={`Tìm kiếm tài liệu ${currentTopic?.name || ''}...`}
               type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && onSearch()}
             />
           </div>
         </div>
@@ -294,7 +299,7 @@ function PatternB({ topicSlug, currentTopic, articles, isLoading, basePath }) {
 }
 
 /* ─── PATTERN C: Supply Chain Bento Grid (Sourcing, Manufacturing) ─── */
-function PatternC({ topicSlug, currentTopic, articles, isLoading, basePath }) {
+function PatternC({ topicSlug, currentTopic, articles, isLoading, basePath, searchQuery, setSearchQuery, onSearch }) {
   const hotTags = currentTopic?.hotTags || articles.flatMap(a => a.tags || []).slice(0, 4);
   const [featured, ...rest] = articles;
 
@@ -332,9 +337,12 @@ function PatternC({ topicSlug, currentTopic, articles, isLoading, basePath }) {
                   className="w-full bg-transparent border-none focus:ring-0 py-4 px-3 text-on-surface placeholder:text-outline-variant outline-none"
                   placeholder={`Tìm kiếm nghiên cứu về ${currentTopic?.name || topicSlug}...`}
                   type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && onSearch()}
                 />
               </div>
-              <button className="bg-primary text-on-primary px-8 py-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 hover:opacity-90">
+              <button onClick={onSearch} className="bg-primary text-on-primary px-8 py-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 hover:opacity-90">
                 <span>Tra cứu</span>
                 <span className="material-symbols-outlined text-sm">bolt</span>
               </button>
@@ -488,12 +496,17 @@ export default function TopicPage() {
   const [currentTopic, setCurrentTopic] = useState(null);
   const [siblingTopics, setSiblingTopics] = useState([]);
   const [topicLoading, setTopicLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeSearch, setActiveSearch] = useState('');
+
+  const onSearch = useCallback(() => setActiveSearch(searchQuery), [searchQuery]);
 
   const { articles, isLoading, error } = useArticles({
     category: 'topic-post',
     topic: topicSlug,
     parentCategory,
     limit: 20,
+    ...(activeSearch ? { search: activeSearch } : {}),
   });
 
   useEffect(() => {
@@ -535,7 +548,8 @@ export default function TopicPage() {
     );
   }
 
-  const sharedProps = { topicSlug, currentTopic, articles, isLoading, basePath };
+  const searchProps = { searchQuery, setSearchQuery, onSearch };
+  const sharedProps = { topicSlug, currentTopic, articles, isLoading, basePath, ...searchProps };
 
   if (parentCategory === 'logistics') {
     return <PatternA {...sharedProps} siblingTopics={siblingTopics} />;
@@ -546,6 +560,6 @@ export default function TopicPage() {
   if (PATTERN_C_TOPICS.includes(topicSlug)) {
     return <PatternC {...sharedProps} />;
   }
-  // Default fallback for any new supply chain topic
+  // Default fallback
   return <PatternB {...sharedProps} />;
 }

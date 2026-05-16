@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useBooks } from '../../hooks/useBooks';
 
 export default function BookListing() {
-  const { books, isLoading, error } = useBooks({ limit: 12 });
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeSearch, setActiveSearch] = useState('');
+  const { books, isLoading, error } = useBooks({ limit: 12, search: activeSearch });
 
   return (
     <div className="max-w-screen-2xl mx-auto">
@@ -18,7 +21,7 @@ export default function BookListing() {
             </p>
           </div>
 
-          {/* Search & Filter */}
+          {/* Search */}
           <div className="flex flex-col md:flex-row gap-4 mb-16 items-end">
             <div className="flex-1">
               <label className="text-[10px] uppercase tracking-widest font-bold text-outline mb-2 block">Tìm kiếm trong danh mục Sách</label>
@@ -27,19 +30,19 @@ export default function BookListing() {
                   className="w-full bg-surface-container-lowest border border-outline-variant/30 px-12 py-4 rounded-lg focus:ring-1 focus:ring-primary focus:border-primary outline-none text-on-surface transition-all"
                   placeholder="Tên sách, tác giả hoặc ISBN..."
                   type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => { if (e.key === 'Enter') setActiveSearch(searchQuery); }}
                 />
                 <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">menu_book</span>
               </div>
             </div>
-            <div className="flex gap-2">
-              <button className="px-6 py-4 bg-surface-container text-primary font-medium rounded-lg flex items-center gap-2 hover:bg-surface-container-high transition-colors">
-                <span className="material-symbols-outlined text-sm">tune</span>
-                Bộ lọc
-              </button>
-              <button className="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-white font-medium rounded-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary/10">
-                Tìm kiếm
-              </button>
-            </div>
+            <button
+              onClick={() => setActiveSearch(searchQuery)}
+              className="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-white font-medium rounded-lg hover:opacity-90 transition-opacity shadow-lg shadow-primary/10"
+            >
+              Tìm kiếm
+            </button>
           </div>
 
           {/* Loading & Error */}
@@ -88,15 +91,7 @@ export default function BookListing() {
                 </Link>
               ))}
 
-              {/* CTA Card */}
-              <div className="flex flex-col items-center justify-center p-8 bg-surface-container-low rounded-lg border-2 border-dashed border-outline-variant/30 text-center">
-                <span className="material-symbols-outlined text-4xl text-primary mb-4">auto_stories</span>
-                <h4 className="font-headline text-xl font-bold mb-2">Đóng góp tài liệu</h4>
-                <p className="text-sm text-on-surface-variant mb-6">Bạn có những tựa sách hay về Logistics muốn chia sẻ?</p>
-                <button className="bg-surface-container-highest text-primary px-6 py-2 rounded font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
-                  Gửi bản thảo
-                </button>
-              </div>
+
             </div>
           )}
         </div>

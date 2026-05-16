@@ -1,25 +1,9 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useArticles } from '../../hooks/useArticles';
-import NewsFlash from '../../components/widgets/NewsFlash';
-import MostRead from '../../components/widgets/MostRead';
-import NewsletterSidebar from '../../components/widgets/NewsletterSidebar';
 import SearchBar from '../../components/ui/SearchBar';
-import FilterBar from '../../components/ui/FilterBar';
 import ArticleCard from '../../components/cards/ArticleCard';
 import Pagination from '../../components/Pagination';
-
-const newsFlashData = [
-  { time: '09:15 AM', title: 'Giá cước container đường biển từ Hải Phòng đi Mỹ giảm nhẹ 2% tuần này.' },
-  { time: 'Hôm qua', title: 'Nghẽn cảng tại Singapore tiếp tục gây chậm trễ cho các tuyến nội Á.' },
-  { time: 'Hôm qua', title: 'Việt Nam phê chuẩn kế hoạch nâng cấp hạ tầng đường sắt kết nối biên giới.' },
-];
-
-const mostReadData = [
-  { title: 'Chiến lược đa dạng hóa chuỗi cung ứng: Bài học từ khủng hoảng năng lượng', meta: '12,402 LƯỢT ĐỌC' },
-  { title: 'Tương lai của Drone trong giao hàng chặng cuối tại đô thị thông minh', meta: '9,850 LƯỢT ĐỌC' },
-  { title: 'Bản đồ hạ tầng logistics Đông Nam Á tầm nhìn 2030', meta: '7,215 LƯỢT ĐỌC' },
-];
 
 const mapArticleToCard = (article) => ({
   tag: article.tags?.[0]?.toUpperCase() || article.category?.toUpperCase(),
@@ -34,7 +18,6 @@ const mapArticleToCard = (article) => ({
 const NewsListing = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = parseInt(searchParams.get('page')) || 1;
-  const currentTag = searchParams.get('tag') || 'Tất cả';
   const currentSearch = searchParams.get('search') || '';
 
   const [searchInput, setSearchInput] = useState(currentSearch);
@@ -42,7 +25,7 @@ const NewsListing = () => {
   const updateParams = (updates) => {
     const newParams = new URLSearchParams(searchParams);
     Object.entries(updates).forEach(([key, value]) => {
-      if (value && value !== 'Tất cả') {
+      if (value) {
         newParams.set(key, value);
       } else {
         newParams.delete(key);
@@ -58,15 +41,14 @@ const NewsListing = () => {
     }
   };
 
-  const { articles, totalPages, isLoading, error } = useArticles({ 
-    category: 'tin-tuc', 
-    limit: 10, 
+  const { articles, totalPages, isLoading, error } = useArticles({
+    category: 'tin-tuc',
+    limit: 10,
     page: currentPage,
-    tag: currentTag === 'Tất cả' ? '' : currentTag,
-    search: currentSearch
+    search: currentSearch,
   });
 
-  const featured = currentPage === 1 && !currentSearch && currentTag === 'Tất cả' ? articles[0] : null;
+  const featured = currentPage === 1 && !currentSearch ? articles[0] : null;
   const mainArticles = featured ? articles.slice(1) : articles;
 
   return (
@@ -78,27 +60,26 @@ const NewsListing = () => {
           <p className="font-body text-white/80 max-w-2xl mb-12 text-lg leading-relaxed">
             Phân tích đa chiều và dữ liệu thực chứng về dòng chảy logistics toàn cầu. Chúng tôi lập bản đồ các xu hướng ảnh hưởng đến chuỗi cung ứng của bạn.
           </p>
-          <SearchBar 
-            value={searchInput} 
-            onSearch={setSearchInput} 
-            onKeyDown={handleSearchSubmit} 
+          <SearchBar
+            value={searchInput}
+            onSearch={setSearchInput}
+            onKeyDown={handleSearchSubmit}
           />
         </div>
       </section>
 
-      {/* Category Tags */}
-      <FilterBar 
-        activeCategory={currentTag} 
-        onSelect={(tag) => updateParams({ tag, page: 1 })} 
-      />
-
       {/* Featured News */}
       {featured && (
         <section className="py-20 px-8 bg-surface">
-          <div className="max-w-screen-2xl mx-auto">
+          <div className="max-w-screen-xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
               <div className="lg:col-span-7 rounded-2xl overflow-hidden shadow-2xl group">
-                <img alt={featured.title} className="w-full aspect-[16/10] object-cover transition-transform duration-1000 group-hover:scale-105" src={featured.coverImage} onError={(e) => { if (e.target.src !== 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=700&fit=crop') e.target.src = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=700&fit=crop'; }} />
+                <img
+                  alt={featured.title}
+                  className="w-full aspect-[16/10] object-cover transition-transform duration-1000 group-hover:scale-105"
+                  src={featured.coverImage}
+                  onError={(e) => { if (e.target.src !== 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=700&fit=crop') e.target.src = 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&h=700&fit=crop'; }}
+                />
               </div>
               <div className="lg:col-span-5 flex flex-col justify-center">
                 <div className="flex items-center gap-4 mb-8">
@@ -118,57 +99,52 @@ const NewsListing = () => {
         </section>
       )}
 
-      {/* Main Content Grid */}
+      {/* Main Content — Full Width */}
       <section className="py-24 px-8 bg-surface-container-low/30">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
-            <div className="lg:col-span-8 space-y-20">
-              <div className="flex items-center justify-between border-b border-outline-variant/30 pb-6 mb-12">
-                <h3 className="font-headline text-3xl font-bold text-primary">Bài báo chuyên sâu</h3>
-              </div>
-
-              {isLoading && (
-                <div className="flex justify-center py-20">
-                  <span className="material-symbols-outlined text-4xl text-primary animate-spin">progress_activity</span>
-                </div>
-              )}
-
-              {error && (
-                <div className="text-center py-20">
-                  <p className="text-on-surface-variant">Không thể tải bài viết. Vui lòng thử lại sau.</p>
-                </div>
-              )}
-
-              {!isLoading && !error && (
-                <>
-                  {mainArticles.length === 0 ? (
-                    <div className="text-center py-20">
-                      <p className="text-on-surface-variant text-lg">Không tìm thấy bài báo nào phù hợp với bộ lọc hiện tại.</p>
-                    </div>
-                  ) : (
-                    mainArticles.map((article, index) => (
-                      <ArticleCard key={article._id || index} article={mapArticleToCard(article)} variant="horizontal" />
-                    ))
-                  )}
-                  {totalPages > 1 && (
-                    <Pagination 
-                      currentPage={currentPage} 
-                      totalPages={totalPages} 
-                      onPageChange={(page) => updateParams({ page })} 
-                    />
-                  )}
-                </>
-              )}
-            </div>
-
-            <div className="lg:col-span-4">
-              <div className="sticky top-28 space-y-12">
-                <NewsFlash items={newsFlashData} showViewAll={true} />
-                <MostRead items={mostReadData} />
-                <NewsletterSidebar />
-              </div>
-            </div>
+        <div className="max-w-screen-xl mx-auto">
+          <div className="flex items-center justify-between border-b border-outline-variant/30 pb-6 mb-12">
+            <h3 className="font-headline text-3xl font-bold text-primary">Bài báo chuyên sâu</h3>
+            {currentSearch && (
+              <span className="text-sm text-on-surface-variant italic">
+                Kết quả tìm kiếm: "<strong>{currentSearch}</strong>"
+              </span>
+            )}
           </div>
+
+          {isLoading && (
+            <div className="flex justify-center py-20">
+              <span className="material-symbols-outlined text-4xl text-primary animate-spin">progress_activity</span>
+            </div>
+          )}
+
+          {error && (
+            <div className="text-center py-20">
+              <p className="text-on-surface-variant">Không thể tải bài viết. Vui lòng thử lại sau.</p>
+            </div>
+          )}
+
+          {!isLoading && !error && (
+            <>
+              {mainArticles.length === 0 ? (
+                <div className="text-center py-20">
+                  <p className="text-on-surface-variant text-lg">Không tìm thấy bài báo nào phù hợp.</p>
+                </div>
+              ) : (
+                <div className="space-y-20">
+                  {mainArticles.map((article, index) => (
+                    <ArticleCard key={article._id || index} article={mapArticleToCard(article)} variant="horizontal" />
+                  ))}
+                </div>
+              )}
+              {totalPages > 1 && (
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={(page) => updateParams({ page })}
+                />
+              )}
+            </>
+          )}
         </div>
       </section>
     </main>
