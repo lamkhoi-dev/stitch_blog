@@ -40,25 +40,28 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#001e37] via-[#001e37]/80 to-transparent z-1"></div>
         <div className="absolute inset-0 pattern-overlay opacity-20 z-2"></div>
         <div className="max-w-7xl mx-auto px-8 py-24 relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-8">
-            <span className="inline-block px-4 py-1 mb-6 text-xs font-bold tracking-widest uppercase bg-secondary-container text-on-secondary-container rounded-sm shadow-sm">
-              The Curated Ledger
-            </span>
-            <h1 className="text-5xl md:text-7xl serif font-extrabold text-white leading-[1.1] mb-8 italic">
-              Kiến tạo tri thức chuỗi cung ứng toàn cầu.
-            </h1>
-            <p className="text-xl md:text-2xl text-on-primary-container font-light leading-relaxed max-w-2xl mb-12">
-              Logiverse là nền tảng hàn lâm chuyên sâu, cung cấp cái nhìn đa chiều về dòng chảy logistics thế giới thông qua dữ liệu và phân tích sắc bén.
-            </p>
-            <div className="flex flex-wrap gap-6">
-              <Link to="/thu-vien" className="px-8 py-4 bg-white text-primary font-bold rounded-sm text-lg hover:bg-surface-container-low transition-all shadow-xl active:scale-95 inline-block">
-                Khám phá ngay
-              </Link>
-              <button className="px-8 py-4 border border-white/30 text-white font-bold rounded-sm text-lg hover:bg-white/10 transition-all">
-                Tài liệu nghiên cứu
-              </button>
+            <div className="md:col-span-8">
+              <h1 className="text-5xl md:text-7xl serif font-extrabold text-white leading-[1.1] mb-8 italic">
+                Kiến thức Logistics và Supply Chain
+              </h1>
+              <p className="text-xl md:text-2xl text-on-primary-container font-light leading-relaxed max-w-2xl mb-12">
+                Logiknowledge là nền tảng hàn lâm chuyên sâu, cung cấp cái nhìn đa chiều về dòng chảy logistics thế giới thông qua dữ liệu và phân tích sắc bén.
+              </p>
+              <div className="flex flex-wrap gap-6">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('mission-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-8 py-4 bg-white text-primary font-bold rounded-sm text-lg hover:bg-surface-container-low transition-all shadow-xl active:scale-95 inline-block"
+                >
+                  Khám phá ngay
+                </button>
+                <Link to="/thu-vien" className="px-8 py-4 border border-white/30 text-white font-bold rounded-sm text-lg hover:bg-white/10 transition-all">
+                  Tài liệu nghiên cứu
+                </Link>
+              </div>
             </div>
-          </div>
           <div className="md:col-span-4 hidden md:block">
             <div className="relative aspect-[3/4] rounded-sm overflow-hidden border border-white/10 shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
               <img
@@ -73,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats & About Section with subtle background image */}
-      <section className="relative py-32 overflow-hidden bg-surface">
+      <section id="mission-section" className="relative py-32 overflow-hidden bg-surface">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
           <img alt="background pattern" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA40-sL1oVvQrxTyXSYr2vD5XAb-tOMDOXUw3a-9aMLQL0lMcNMUwiMPiEsmx-oO_bFLrLOjv9An-11tzbxG8VZ50akShsNqVQkrxKXqg8rbQOf5YN1k0TsUjIXnFZl4W2MK9uqlwlbV6XGLy0HwZMaJjucxmmkio2x3Z8ZUDSAMzwgWkScXaR87kGgqiueaXMYqmfnVstI-FEYMYOZZ10-6uXipi8Or0jA7VZwDO8HNJupViqkn2atjzL4SBz_u7CzHz_i2giJHzs"/>
         </div>
@@ -136,7 +139,7 @@ export default function HomePage() {
               )}
             </div>
             {/* Right Column: List of News */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
+            <div className="lg:col-span-5 flex flex-col justify-between">
               {isLoading ? (
                 Array.from({ length: 4 }).map((_, i) => (
                   <div key={i} className="w-full h-32 bg-gray-200 animate-pulse rounded-sm"></div>

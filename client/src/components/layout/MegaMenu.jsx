@@ -32,7 +32,9 @@ export default function MegaMenu({ isOpen, onClose }) {
           {/* Col 1: Hợp đồng & Chứng từ */}
           <div className="space-y-6">
             <h3 className="font-headline text-xl font-bold text-primary tracking-tight border-b border-surface-container pb-3">
-              Hợp đồng & Chứng từ
+              <Link to="/thu-vien/hop-dong-chung-tu" onClick={onClose} className="hover:underline underline-offset-4">
+                Hợp đồng & Chứng từ
+              </Link>
             </h3>
             <ul className="space-y-4">
               <li>
@@ -96,7 +98,9 @@ export default function MegaMenu({ isOpen, onClose }) {
           {/* Col 3: Logistics */}
           <div className="space-y-6">
             <h3 className="font-headline text-xl font-bold text-primary tracking-tight border-b border-surface-container pb-3">
-              Logistics
+              <Link to="/thu-vien/logistics" onClick={onClose} className="hover:underline underline-offset-4">
+                Logistics
+              </Link>
             </h3>
             <ul className="space-y-4">
               {logisticsItems.map((item) => (
@@ -119,7 +123,9 @@ export default function MegaMenu({ isOpen, onClose }) {
           {/* Col 4: Chuỗi cung ứng */}
           <div className="space-y-6">
             <h3 className="font-headline text-xl font-bold text-primary tracking-tight border-b border-surface-container pb-3">
-              Chuỗi cung ứng
+              <Link to="/thu-vien/chuoi-cung-ung" onClick={onClose} className="hover:underline underline-offset-4">
+                Chuỗi cung ứng
+              </Link>
             </h3>
             <div className="grid grid-cols-1 gap-2">
               {supplyChainItems.map((item) => (
@@ -146,26 +152,13 @@ export default function MegaMenu({ isOpen, onClose }) {
 
         {/* Bottom Footer */}
         <div className="bg-surface-container-low px-12 py-6 border-t border-outline-variant/10">
-          <div className="max-w-7xl mx-auto flex justify-between items-center">
-            <div className="flex items-center gap-6">
-              <span className="text-xs font-bold text-on-surface-variant tracking-widest uppercase">
-                Trực quan hóa dữ liệu:
-              </span>
-              <div className="flex gap-4">
-                <span className="px-2 py-1 bg-surface-container-highest text-[10px] rounded border border-outline-variant/20">
-                  Real-time Map
-                </span>
-                <span className="px-2 py-1 bg-surface-container-highest text-[10px] rounded border border-outline-variant/20">
-                  Metric Dashboard
-                </span>
-              </div>
-            </div>
+          <div className="max-w-7xl mx-auto flex justify-end items-center">
             <Link
               to="/thu-vien"
               onClick={onClose}
               className="text-sm font-semibold text-primary flex items-center gap-2 hover:translate-x-1 transition-transform"
             >
-              Explore Full Library
+              Thư viện
               <span className="material-symbols-outlined text-sm">arrow_right_alt</span>
             </Link>
           </div>

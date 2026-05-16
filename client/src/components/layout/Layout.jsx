@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { AuthProvider } from '../../contexts/AuthContext';
 import Header from './Header';
 import Footer from './Footer';
+import ScrollToTop from './ScrollToTop';
 
 export default function Layout() {
   const location = useLocation();
@@ -10,6 +11,7 @@ export default function Layout() {
 
   return (
     <AuthProvider>
+      <ScrollToTop />
       <Toaster position="top-right" toastOptions={{ duration: 3000, style: { fontSize: '14px' } }} />
       {isAdminRoute ? (
         <Outlet />

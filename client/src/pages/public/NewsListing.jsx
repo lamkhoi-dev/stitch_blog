@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useArticles } from '../../hooks/useArticles';
 import NewsFlash from '../../components/widgets/NewsFlash';
 import MostRead from '../../components/widgets/MostRead';
@@ -6,6 +7,7 @@ import NewsletterSidebar from '../../components/widgets/NewsletterSidebar';
 import SearchBar from '../../components/ui/SearchBar';
 import FilterBar from '../../components/ui/FilterBar';
 import ArticleCard from '../../components/cards/ArticleCard';
+import Pagination from '../../components/Pagination';
 
 const newsFlashData = [
   { time: '09:15 AM', title: 'Giá cước container đường biển từ Hải Phòng đi Mỹ giảm nhẹ 2% tuần này.' },
@@ -30,10 +32,42 @@ const mapArticleToCard = (article) => ({
 });
 
 const NewsListing = () => {
-  const { articles, isLoading, error } = useArticles({ category: 'tin-tuc', limit: 10 });
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = parseInt(searchParams.get('page')) || 1;
+  const currentTag = searchParams.get('tag') || 'Tất cả';
+  const currentSearch = searchParams.get('search') || '';
 
-  const featured = articles[0];
-  const mainArticles = articles.slice(1);
+  const [searchInput, setSearchInput] = useState(currentSearch);
+
+  const updateParams = (updates) => {
+    const newParams = new URLSearchParams(searchParams);
+    Object.entries(updates).forEach(([key, value]) => {
+      if (value && value !== 'Tất cả') {
+        newParams.set(key, value);
+      } else {
+        newParams.delete(key);
+      }
+    });
+    setSearchParams(newParams);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSearchSubmit = (e) => {
+    if (e.key === 'Enter') {
+      updateParams({ search: searchInput, page: 1 });
+    }
+  };
+
+  const { articles, totalPages, isLoading, error } = useArticles({ 
+    category: 'tin-tuc', 
+    limit: 10, 
+    page: currentPage,
+    tag: currentTag === 'Tất cả' ? '' : currentTag,
+    search: currentSearch
+  });
+
+  const featured = currentPage === 1 && !currentSearch && currentTag === 'Tất cả' ? articles[0] : null;
+  const mainArticles = featured ? articles.slice(1) : articles;
 
   return (
     <main>
@@ -44,12 +78,19 @@ const NewsListing = () => {
           <p className="font-body text-white/80 max-w-2xl mb-12 text-lg leading-relaxed">
             Phân tích đa chiều và dữ liệu thực chứng về dòng chảy logistics toàn cầu. Chúng tôi lập bản đồ các xu hướng ảnh hưởng đến chuỗi cung ứng của bạn.
           </p>
-          <SearchBar />
+          <SearchBar 
+            value={searchInput} 
+            onSearch={setSearchInput} 
+            onKeyDown={handleSearchSubmit} 
+          />
         </div>
       </section>
 
       {/* Category Tags */}
-      <FilterBar />
+      <FilterBar 
+        activeCategory={currentTag} 
+        onSelect={(tag) => updateParams({ tag, page: 1 })} 
+      />
 
       {/* Featured News */}
       {featured && (
@@ -98,9 +139,26 @@ const NewsListing = () => {
                 </div>
               )}
 
-              {!isLoading && !error && mainArticles.map((article, index) => (
-                <ArticleCard key={article._id || index} article={mapArticleToCard(article)} variant="horizontal" />
-              ))}
+              {!isLoading && !error && (
+                <>
+                  {mainArticles.length === 0 ? (
+                    <div className="text-center py-20">
+                      <p className="text-on-surface-variant text-lg">Không tìm thấy bài báo nào phù hợp với bộ lọc hiện tại.</p>
+                    </div>
+                  ) : (
+                    mainArticles.map((article, index) => (
+                      <ArticleCard key={article._id || index} article={mapArticleToCard(article)} variant="horizontal" />
+                    ))
+                  )}
+                  {totalPages > 1 && (
+                    <Pagination 
+                      currentPage={currentPage} 
+                      totalPages={totalPages} 
+                      onPageChange={(page) => updateParams({ page })} 
+                    />
+                  )}
+                </>
+              )}
             </div>
 
             <div className="lg:col-span-4">

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import MegaMenu from './MegaMenu';
 import SearchModal from '../SearchModal';
 
@@ -13,10 +13,13 @@ const navItems = [
 
 export default function Header() {
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const megaMenuRef = useRef(null);
+  const libraryBtnRef = useRef(null);
+  const closeTimerRef = useRef(null);
 
   // Cmd+K / Ctrl+K shortcut
   useEffect(() => {
@@ -30,9 +33,9 @@ export default function Header() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Close mega menu on route change
   useEffect(() => {
     setIsMegaMenuOpen(false);
-    setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -40,6 +43,20 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const openMegaMenu = () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    setIsMegaMenuOpen(true);
+  };
+
+  const scheduledClose = () => {
+    closeTimerRef.current = setTimeout(() => setIsMegaMenuOpen(false), 150);
+  };
+
+  const handleLibraryClick = () => {
+    setIsMegaMenuOpen(false);
+    navigate('/thu-vien');
+  };
 
   return (
     <>
@@ -51,11 +68,17 @@ export default function Header() {
         } border-b border-[#001e37]/10`}
       >
         <div className="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
-          {/* Brand */}
+          {/* Brand with Logo */}
           <Link
             to="/"
-            className="font-headline text-2xl font-bold tracking-tighter text-primary"
+            className="flex items-center gap-2 font-headline text-2xl font-bold tracking-tighter text-primary"
           >
+            <img
+              src="/Logo.png"
+              alt="Logiknowledge Logo"
+              className="h-8 w-auto object-contain"
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
             Logiknowledge
           </Link>
 
@@ -63,24 +86,31 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) =>
               item.hasMegaMenu ? (
-                <button
+                <div
                   key={item.path}
-                  onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
-                  className={`font-headline italic tracking-tight text-lg transition-colors flex items-center gap-1 ${
-                    location.pathname.startsWith('/thu-vien')
-                      ? 'text-primary font-bold border-b-2 border-primary pb-1'
-                      : 'text-slate-600 font-medium hover:text-primary'
-                  }`}
+                  ref={libraryBtnRef}
+                  className="relative"
+                  onMouseEnter={openMegaMenu}
+                  onMouseLeave={scheduledClose}
                 >
-                  {item.label}
-                  <span
-                    className={`material-symbols-outlined text-sm transition-transform duration-200 ${
-                      isMegaMenuOpen ? 'rotate-180' : ''
+                  <button
+                    onClick={handleLibraryClick}
+                    className={`font-headline italic tracking-tight text-lg transition-colors flex items-center gap-1 ${
+                      location.pathname.startsWith('/thu-vien')
+                        ? 'text-primary font-bold border-b-2 border-primary pb-1'
+                        : 'text-slate-600 font-medium hover:text-primary'
                     }`}
                   >
-                    keyboard_arrow_down
-                  </span>
-                </button>
+                    {item.label}
+                    <span
+                      className={`material-symbols-outlined text-sm transition-transform duration-200 ${
+                        isMegaMenuOpen ? 'rotate-180' : ''
+                      }`}
+                    >
+                      keyboard_arrow_down
+                    </span>
+                  </button>
+                </div>
               ) : (
                 <NavLink
                   key={item.path}
@@ -99,62 +129,26 @@ export default function Header() {
             )}
           </div>
 
-          {/* Right actions */}
+          {/* Right: Search only */}
           <div className="flex items-center space-x-4">
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity hidden md:block"
+              className="flex items-center gap-2 text-primary hover:opacity-80 transition-opacity"
               title="Tìm kiếm (⌘K)"
             >
               <span className="material-symbols-outlined">search</span>
             </button>
-            <Link
-              to="/admin"
-              className="bg-primary text-white px-6 py-2 rounded-sm text-sm font-bold tracking-wide hover:opacity-90 transition-all active:scale-95 hidden md:block"
-            >
-              Đăng nhập
-            </Link>
-
-            {/* Mobile hamburger */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden material-symbols-outlined text-primary"
-            >
-              {isMobileMenuOpen ? 'close' : 'menu'}
-            </button>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-primary/5 animate-slide-down">
-            <div className="px-8 py-6 space-y-4">
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `block font-headline italic text-lg py-2 transition-colors ${
-                      isActive ? 'text-primary font-bold' : 'text-slate-600'
-                    }`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-              <Link
-                to="/admin"
-                className="block bg-primary text-white px-6 py-3 rounded-sm text-sm font-bold tracking-wide text-center mt-4"
-              >
-                Đăng nhập
-              </Link>
-            </div>
-          </div>
-        )}
       </nav>
 
-      {/* MegaMenu overlay */}
-      <MegaMenu isOpen={isMegaMenuOpen} onClose={() => setIsMegaMenuOpen(false)} />
+      {/* MegaMenu overlay — hover-aware */}
+      <div
+        onMouseEnter={openMegaMenu}
+        onMouseLeave={scheduledClose}
+      >
+        <MegaMenu isOpen={isMegaMenuOpen} onClose={() => setIsMegaMenuOpen(false)} />
+      </div>
 
       {/* Search Modal */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />

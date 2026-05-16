@@ -230,13 +230,13 @@ const LibraryHub = () => {
           <h2 className="font-headline text-4xl font-bold text-[#0F3453] mb-16">Phương thức Vận tải Toàn cầu</h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
             {[
-              { title: 'Sea Freight', sub: 'Đường biển', icon: 'directions_boat', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtZJpMiQj-dZzk0pKXUJqPud0grGGzXia3abJOAdqtWpVK9ztXYseq8cRG8VI0cEarlO1_KxIKrqdsqMDwgJe2Vv-pimTUrl68uIKlVncLH47I4g3Zz1xAnJgI0f33mdAjOUDkgtMvr1qxN6CVPE8JS888HhGBPLZ8abi-SiRtZ-RYQ6pMgEEtx18X21BNCld1vaeaUTKgy9D89Olgy6nFitmUZ-sWeVD6cHCrK5ToHYRl__kU-7QOwI40zYu4hKdT5IjKuLVGExQ' },
-              { title: 'Air Freight', sub: 'Hàng không', icon: 'flight_takeoff', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBOrRlRuXhjXcMlHn3khiJUaopr4dwAz4NEVDSnmJl0z7iDHwoft0XT_bGIx_5zOQW0pVMMWDINLN10N6TeovO9LGbEWBgqesZWqh56EnhfwLEAbmfybNdej_QBPb7ruNOExQPSNLiF6py8gZcfnVqdAPHQspT8iHrraZdkXYkbUXxlfxy43jvBq451Qf8GaMrU8u3EG1P0RYTcx0llBykvEtDiui44Fs8e3LTJ_Z_jVc0zsrkOcvkTO0qukjSmXrbuK20gAldd8Xk' },
-              { title: 'Road Transport', sub: 'Đường bộ', icon: 'local_shipping', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzu3H9lxQ9KVs1JRZvEdzLegjBrZfJ_pr9ikem5W6xXYj5QI6TGnR02kfTRfkemXvHYW1v1mWIWaeN2MCSJlQ57fJCEv8FKFE2mTWHX991RMEwRw0L9DTh9qbREMMryHU_VkqMNzDChWcUK5rt0xOC9I4jhyac1DPO1Bv04NrUOblps5JI33nQPMmdNa_2sc0NFRqkSAR1FB1kmhlmCh43J3EOLRbor5rjqRZjF-pujDdm0oXcVNfSFdXc7zsXl9lligEh6O5Tal4' },
-              { title: 'Rail Freight', sub: 'Đường sắt', icon: 'train', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBNLZJHv1ZNLFByIDFvaukn9Hr9_pH0DXuXALZXijBWC31uBBWroNt6lD0HLuMVzMkcSa_RKKWaU20l0IfEkJm4INmrB46pkD47FKkf4Y20SEhxfaO2YkW7MM4uvd9ueRMNnpTjnzbGFcSOmf8E-KiLijePDRPBrLWb3bMdtjtqmye2R-zKJVfSaLSujx-topCyo5yKV97s_iIWOCv1VJas80EyhHNNMH14s7jnfiREchQOE1CzPF33RHQ_2cKr8YtYZiGKLuMJyHA' },
-              { title: 'Multimodal', sub: 'Đa phương thức', icon: 'hub', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBxm4irUix45vK4DJIPrKSqYojgIGORRFoeCezSZaBb2gEwSKAbvIHgnva7OsXjeDhGOog84keDTJhekibsm6A6CtG3Trkx33bPPVZZ6I0uav1kwHjgTQOi3zcSp1IhzmT2_1uzlOmfmdmuOf6cElk9lMbH0SFBPq6PB5djdlgNhhB987O4uSfQ-GgPIS3HRdRX64S52xSkN4ldePxE6HeYxsyPtQHKa0YRpQABaUxJP34KuvR1tybnimvhzmdQL0JWvphF9mhmh9I' }
+              { title: 'Sea Freight', sub: 'Đường biển', slug: 'duong-bien', icon: 'directions_boat', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCtZJpMiQj-dZzk0pKXUJqPud0grGGzXia3abJOAdqtWpVK9ztXYseq8cRG8VI0cEarlO1_KxIKrqdsqMDwgJe2Vv-pimTUrl68uIKlVncLH47I4g3Zz1xAnJgI0f33mdAjOUDkgtMvr1qxN6CVPE8JS888HhGBPLZ8abi-SiRtZ-RYQ6pMgEEtx18X21BNCld1vaeaUTKgy9D89Olgy6nFitmUZ-sWeVD6cHCrK5ToHYRl__kU-7QOwI40zYu4hKdT5IjKuLVGExQ' },
+              { title: 'Air Freight', sub: 'Hàng không', slug: 'hang-khong', icon: 'flight_takeoff', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBOrRlRuXhjXcMlHn3khiJUaopr4dwAz4NEVDSnmJl0z7iDHwoft0XT_bGIx_5zOQW0pVMMWDINLN10N6TeovO9LGbEWBgqesZWqh56EnhfwLEAbmfybNdej_QBPb7ruNOExQPSNLiF6py8gZcfnVqdAPHQspT8iHrraZdkXYkbUXxlfxy43jvBq451Qf8GaMrU8u3EG1P0RYTcx0llBykvEtDiui44Fs8e3LTJ_Z_jVc0zsrkOcvkTO0qukjSmXrbuK20gAldd8Xk' },
+              { title: 'Road Transport', sub: 'Đường bộ', slug: 'duong-bo', icon: 'local_shipping', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAzu3H9lxQ9KVs1JRZvEdzLegjBrZfJ_pr9ikem5W6xXYj5QI6TGnR02kfTRfkemXvHYW1v1mWIWaeN2MCSJlQ57fJCEv8FKFE2mTWHX991RMEwRw0L9DTh9qbREMMryHU_VkqMNzDChWcUK5rt0xOC9I4jhyac1DPO1Bv04NrUOblps5JI33nQPMmdNa_2sc0NFRqkSAR1FB1kmhlmCh43J3EOLRbor5rjqRZjF-pujDdm0oXcVNfSFdXc7zsXl9lligEh6O5Tal4' },
+              { title: 'Rail Freight', sub: 'Đường sắt', slug: 'duong-sat', icon: 'train', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBNLZJHv1ZNLFByIDFvaukn9Hr9_pH0DXuXALZXijBWC31uBBWroNt6lD0HLuMVzMkcSa_RKKWaU20l0IfEkJm4INmrB46pkD47FKkf4Y20SEhxfaO2YkW7MM4uvd9ueRMNnpTjnzbGFcSOmf8E-KiLijePDRPBrLWb3bMdtjtqmye2R-zKJVfSaLSujx-topCyo5yKV97s_iIWOCv1VJas80EyhHNNMH14s7jnfiREchQOE1CzPF33RHQ_2cKr8YtYZiGKLuMJyHA' },
+              { title: 'Multimodal', sub: 'Đa phương thức', slug: 'da-phuong-thuc', icon: 'hub', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBxm4irUix45vK4DJIPrKSqYojgIGORRFoeCezSZaBb2gEwSKAbvIHgnva7OsXjeDhGOog84keDTJhekibsm6A6CtG3Trkx33bPPVZZ6I0uav1kwHjgTQOi3zcSp1IhzmT2_1uzlOmfmdmuOf6cElk9lMbH0SFBPq6PB5djdlgNhhB987O4uSfQ-GgPIS3HRdRX64S52xSkN4ldePxE6HeYxsyPtQHKa0YRpQABaUxJP34KuvR1tybnimvhzmdQL0JWvphF9mhmh9I' }
             ].map((mode, index) => (
-              <a key={index} href="#" className="group flex flex-col items-center bg-surface-container-lowest p-0 rounded-2xl hover:shadow-2xl transition-all border border-outline-variant/10 overflow-hidden">
+              <Link key={index} to={`/thu-vien/logistics/${mode.slug}`} className="group flex flex-col items-center bg-surface-container-lowest p-0 rounded-2xl hover:shadow-2xl transition-all border border-outline-variant/10 overflow-hidden">
                 <div className="w-full aspect-square relative overflow-hidden bg-slate-100">
                   <img className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt={mode.title} src={mode.img}/>
                   <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -247,7 +247,7 @@ const LibraryHub = () => {
                   <h4 className="font-bold text-lg text-[#0F3453]">{mode.title}</h4>
                   <p className="text-xs text-on-surface-variant mt-2 uppercase tracking-widest">{mode.sub}</p>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -265,18 +265,18 @@ const LibraryHub = () => {
             <div className="absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 hidden md:block -translate-y-1/2 -z-10"></div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
               {[
-                { step: '1', title: 'Procurement', desc: 'Quản trị mua hàng và tìm kiếm nguyên liệu đầu vào bền vững.' },
-                { step: '2', title: 'Sourcing', desc: 'Chiến lược lựa chọn nhà cung cấp và tối ưu hóa chi phí sản xuất.' },
-                { step: '3', title: 'Planning', desc: 'Lập kế hoạch nhu cầu và quản trị tồn kho dự phòng.' },
-                { step: '4', title: 'Manufacturing', desc: 'Quy trình sản xuất tinh gọn và kiểm soát chất lượng đầu ra.' }
+                { step: '1', title: 'Procurement', slug: 'procurement', desc: 'Quản trị mua hàng và tìm kiếm nguyên liệu đầu vào bền vững.' },
+                { step: '2', title: 'Sourcing', slug: 'sourcing', desc: 'Chiến lược lựa chọn nhà cung cấp và tối ưu hóa chi phí sản xuất.' },
+                { step: '3', title: 'Planning', slug: 'planning', desc: 'Lập kế hoạch nhu cầu và quản trị tồn kho dự phòng.' },
+                { step: '4', title: 'Manufacturing', slug: 'manufacturing', desc: 'Quy trình sản xuất tinh gọn và kiểm soát chất lượng đầu ra.' }
               ].map((item, index) => (
-                <div key={index} className="bg-surface-container-lowest p-6 rounded-xl border border-primary/10 shadow-sm text-center relative group">
+                <Link to={`/thu-vien/chuoi-cung-ung/${item.slug}`} key={index} className="block bg-surface-container-lowest p-6 rounded-xl border border-primary/10 shadow-sm text-center relative group hover:shadow-md transition-shadow">
                   <div className="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold absolute -top-6 left-1/2 -translate-x-1/2 border-4 border-surface group-hover:scale-110 transition-transform">
                     {item.step}
                   </div>
                   <h5 className="font-bold text-lg mt-6 mb-3">{item.title}</h5>
                   <p className="text-sm text-on-surface-variant">{item.desc}</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
