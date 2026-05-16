@@ -1,0 +1,1 @@
+import{n as e}from"./index-Bpyj8k0U.js";var t={getArticles:async(t={})=>(await e.get(`/articles`,{params:t})).data,getArticleBySlug:async t=>(await e.get(`/articles/slug/${t}`)).data,getTopics:async t=>{let n=t?{parentCategory:t}:{};return(await e.get(`/topics`,{params:n})).data},getTopicBySlug:async t=>(await e.get(`/topics/${t}`)).data};export{t};
