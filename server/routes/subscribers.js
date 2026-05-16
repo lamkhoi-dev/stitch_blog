@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Subscriber = require('../models/Subscriber');
-const { protect } = require('../middleware/auth');
+const auth = require('../middleware/auth');
 
 // POST /api/subscribers — public, user submits email
 router.post('/', async (req, res) => {
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
 });
 
 // GET /api/subscribers — admin only, list all subscribers
-router.get('/', protect, async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
     const { status, page = 1, limit = 50 } = req.query;
     const filter = status ? { status } : {};
@@ -45,7 +45,7 @@ router.get('/', protect, async (req, res) => {
 });
 
 // DELETE /api/subscribers/:id — admin only
-router.delete('/:id', protect, async (req, res) => {
+router.delete('/:id', auth, async (req, res) => {
   try {
     await Subscriber.findByIdAndDelete(req.params.id);
     res.json({ message: 'Đã xóa subscriber.' });
